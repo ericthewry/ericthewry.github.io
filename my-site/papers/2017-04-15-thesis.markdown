@@ -1,0 +1,7 @@
+---
+title: Infiniteness and Linear Temporal Logic
+authors: Eric Campbell
+venue: Pomona College
+month: May 2017
+note: Undergraduate Thesis
+---

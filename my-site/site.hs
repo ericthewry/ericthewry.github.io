@@ -21,20 +21,20 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
-    match "posts/*" $ do
+    match "papers/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/paper.html"    paperCtx
+            >>= loadAndApplyTemplate "templates/default.html" paperCtx
             >>= relativizeUrls
 
     create ["archive.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            papers <- recentFirst =<< loadAll "papers/*"
             let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
+                    listField "papers" paperCtx (return papers) `mappend`
+                    constField "title" "Archives"               `mappend`
                     defaultContext
 
             makeItem ""
@@ -46,10 +46,10 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            papers <- recentFirst =<< loadAll "papers/*"
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
+                    listField "papers" paperCtx (return papers) `mappend`
+                    constField "title" "Archives"               `mappend`
                     defaultContext
 
             getResourceBody
@@ -61,7 +61,7 @@ main = hakyll $ do
 
 
 --------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx =
+paperCtx :: Context String
+paperCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext

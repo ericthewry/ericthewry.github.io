@@ -1,0 +1,10 @@
+<ul>
+    $for(papers)$
+        <li>
+          <b>$title$</b>. $authors$. <i>$venue$</i>. $month$.
+	  $if(note)$
+	  [$note$]
+	  $endif$
+        </li>
+    $endfor$
+</ul>
