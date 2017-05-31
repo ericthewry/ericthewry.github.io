@@ -2,5 +2,4 @@
 title: Contact
 ---
 
-I live in a small hut in the mountains of Kumano Kodō on Kii Hantō and would not
-like to be contacted.
+Email me at eric.hayden.campbell@gmail.com or ehc86@cornell.edu.  You can also call or text me at 909-343-9392.
