@@ -1,0 +1,7 @@
+---
+title: Kleene Algebra Modulo Theories
+authors: Ryan Beckett, Eric Campbell, and Michael Greenberg
+venue: POPL
+month: January 2018
+note: IN SUBMISSION
+---

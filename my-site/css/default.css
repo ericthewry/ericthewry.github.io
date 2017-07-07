@@ -50,8 +50,53 @@ h2 {
     font-size: 20px;
 }
 
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+
 div.info {
     color: #555;
     font-size: 14px;
     font-style: italic;
+}
+
+#profile{
+    padding: 0px 0px 20px 0px;
+}
+
+#info {
+    float: right;
+    margin: auto;
+    width: 55%;
+    padding: 10px 15px 10px 10px;
+}
+
+.sc {
+    font-variant: small-caps;
+    font-size: 110%;
+}
+
+
+#blurb {
+    margin-top: 10px;
+    clear: left;
+    border-top: 2px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: gainsboro;
 }

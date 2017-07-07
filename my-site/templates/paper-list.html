@@ -1,10 +1,10 @@
-<ul>
+<table>
     $for(papers)$
-        <li>
+        <tr><td>
           <b>$title$</b>. $authors$. <i>$venue$</i>. $month$.
 	  $if(note)$
 	  [$note$]
 	  $endif$
-        </li>
+        </td></tr>
     $endfor$
-</ul>
+</table>
