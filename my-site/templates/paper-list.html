@@ -1,10 +1,22 @@
 <table>
     $for(papers)$
-        <tr><td>
-          <b>$title$</b>. $authors$. <i>$venue$</i>. $month$.
-	  $if(note)$
-	  [$note$]
-	  $endif$
-        </td></tr>
+    <tr>
+      <td>
+        <b>$title$</b>. $authors$. <i>$venue$</i>. $month$.
+	$if(note)$
+	[$note$]
+	$endif$
+      </td>
+      <td>
+	$if(pdf)$
+	<a href=$pdf$> PDF </a>
+	$endif$
+      </td>
+      <td>
+	$if(slides)$
+	<a href=$slides$> slides</a>
+	$endif$
+	</td>
+    </tr>
     $endfor$
 </table>

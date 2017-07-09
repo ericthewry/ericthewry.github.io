@@ -2,5 +2,7 @@
 title: Constructing Integer Matrices with Integer Eigenvalues
 authors: Christopher Towse and Eric Campbell
 venue: The Mathematical Scientist, UK
-month: June 2016 
+month: June 2016
+pdf: "/pdfs/imies.pdf"
+slides: "/pdfs/imies_prez.pdf"
 ---
