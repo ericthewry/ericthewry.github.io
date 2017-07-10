@@ -4,3 +4,6 @@ _site/
 *~
 .DS_Store
 *stack.yaml
+*.aux
+*.log
+*.out

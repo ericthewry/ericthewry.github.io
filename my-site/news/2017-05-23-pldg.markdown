@@ -1,0 +1,3 @@
+---
+descr: Cornell <a href="http://www.cs.cornell.edu/courses/cs7190/2017sp/">PLDG</a> talk (<a href="/pdfs/pldg_may_2017.pdf">slides</a>) about LTL<sub>f</sub> and Temporal Net<span class="sc">kat</span></td>
+---

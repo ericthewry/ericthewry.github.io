@@ -22,26 +22,56 @@ main = hakyll $ do
     match "papers/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/paper.html"    paperCtx
+            >>= loadAndApplyTemplate "templates/paper.html" paperCtx
             >>= loadAndApplyTemplate "templates/default.html" paperCtx
             >>= relativizeUrls
 
+    match "teaching/*" $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/teaching.html" defaultContext
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
+
+    match "news/*" $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/news-item.html" paperCtx
+        >>= loadAndApplyTemplate "templates/default.html" paperCtx
+        >>= relativizeUrls
+
+    create ["news.html"] $ do
+      route idRoute
+      compile $ do
+        news <- reverse <$> (chronological =<< loadAll "news/*")
+        let newsCtx =
+              listField "news" paperCtx (return news) `mappend`
+              defaultContext
+        getResourceBody
+          >>= applyAsTemplate newsCtx
+          >>= loadAndApplyTemplate "templates/default.html" newsCtx
+          >>= relativizeUrls
+        
+
+    match "templates/*" $ compile templateBodyCompiler
 
     match "index.html" $ do
         route idRoute
         compile $ do
             papers <- recentFirst =<< loadAll "papers/*"
+            teaching <- reverse <$> (chronological =<< loadAll "teaching/*")
+            news <- (take 7). reverse <$> (chronological =<< loadAll "news/*")
             let indexCtx =
-                    listField "papers" paperCtx (return papers) `mappend`
-                    constField "title" "Archives"               `mappend`
+                    listField "papers" paperCtx (return papers)           `mappend`
+                    listField "teaching" defaultContext (return teaching) `mappend`
+                    listField "news" paperCtx (return news)               `mappend`
+                    constField "title" "Home"                             `mappend`
                     defaultContext
-
+                    
             getResourceBody
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
-
-    match "templates/*" $ compile templateBodyCompiler
 
 
 --------------------------------------------------------------------------------

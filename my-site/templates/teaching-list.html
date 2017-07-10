@@ -1,0 +1,19 @@
+<table>
+    $for(teaching)$
+    <tr>
+      <td>
+        $semester$
+      </td>
+      <td>
+	$position$
+      </td>
+      <td>
+	$if(link)$
+	<a href=$link$>$course$</a>
+	$else$
+	$course$
+	$endif$	at $school$
+      </td>
+    </tr>
+    $endfor$
+</table>

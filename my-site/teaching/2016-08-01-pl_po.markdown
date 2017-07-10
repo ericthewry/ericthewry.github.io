@@ -1,0 +1,8 @@
+---
+semester: Fall 2016
+position: TA
+course: Programming Languages
+school: Pomona College
+link: http://www.cs.pomona.edu/~michael/courses/csci131f16/
+supervisor: http://www.cs.pomona.edu/~michael/courses/csci131f16/
+---

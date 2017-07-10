@@ -1,0 +1,8 @@
+---
+semester: Spring 2017
+position: TA
+course: Database Systems
+school: Pomona College
+link: http://www.cs.pomona.edu/classes/cs133/
+supervisor: http://www.cs.pomona.edu/~mwu/files/bio.htm
+---
