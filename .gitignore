@@ -7,3 +7,5 @@ _site/
 *.aux
 *.log
 *.out
+*.fdb_latexmk
+*.fls
