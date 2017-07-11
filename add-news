@@ -1,0 +1,15 @@
+#! /usr/bin/bash
+# First argument is event name
+# Second argument is the event description
+
+DATE="$(date +%Y-%m-%d)"
+out="my-site/news/$DATE-$1.markdown"
+descr="$2"
+
+
+echo   "Added event $1 to $out"
+printf "\tDescription: $descr\n"
+
+echo "---" > "$out"
+echo "descr: $descr" >> "$out"
+echo "---" >> "$out"
