@@ -9,3 +9,4 @@ _site/
 *.out
 *.fdb_latexmk
 *.fls
+my-site/resume.pdf
