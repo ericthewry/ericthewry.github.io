@@ -10,3 +10,4 @@ _site/
 *.fdb_latexmk
 *.fls
 my-site/resume.pdf
+my-site/cv.pdf
