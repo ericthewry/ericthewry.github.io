@@ -1,0 +1,202 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Eric}{Campbell}{ \urlstyle{same}\url{https://ericthewry.github.io} \\
+\href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} | 909.343.9392
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{Cornell University}
+\descript{PhD in Computer Science}
+\location{Expected May 2022 | Ithaca, NY}
+Conc. in Programming Languages \\
+Department of Computer Science
+\sectionsep
+
+\subsection{Pomona College}
+\descript{BS in Computer Science, BS in Mathematics}
+\location{Grad. May 2017 | Claremont, CA}
+Conc. in Programming Languages \\
+Department of Computer Science \\
+\sectionsep
+
+\subsection{International School}
+\subsection{of Amsterdam}
+\location{Grad. May 2013 | Amsterdam, The Netherlands}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+Github:// \href{https://github.com/ericthewry}{\custombold{ericthewry}} \\
+LinkedIn://  \href{https://www.linkedin.com/in/eric-campbell-ba339490/}{\custombold{ericcampbell}} \\
+StackOverflow:// \href{https://stackoverflow.com/users/8202530/ericthewry}{\custombold{ericthewry}}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+%% \subsection{Graduate}
+%% Advanced Machine Learning \\
+%% Open Source Software Engineering \\
+%% Advanced Interactive Graphics \\
+%% Compilers + Practicum \\
+%% Cloud Computing \\
+%% \sectionsep
+
+\subsection{Undergraduate}
+Software Foundations (Coq) \\
+Programming Languages \\
+Senior Seminar (Security, Programming Languages, \& Ethics) \\
+Computability \& Logic \\
+Computational Statistics \\
+Number Theory \& Cryptography
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\location{Over 5000 lines:}
+Haskell \textbullet{} Coq \textbullet{} Java-/CoffeeScript   \\
+Python \textbullet{} Ruby on Rails \textbullet{} \LaTeX \textbullet{} bash \\ 
+\location{Over 1000 lines:}
+OCaml \textbullet{} R \textbullet{} MySQL \textbullet{} C++ \textbullet{} Java \\
+\location{Familiar:}
+Elm \textbullet{} C  \textbullet{} HTML/CSS  \textbullet{} iOS
+\sectionsep
+
+\subsection{Foreign Language}
+Professional French \textbullet{} Survival Dutch
+\sectionsep
+
+\subsection{Other}
+Guitar \textbullet{} Voice \textbullet{} Espresso \\
+Ballroom Dance \textbullet{} Linguistics
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Industry Experience}
+
+\runsubsection{Originate}
+\descript{| Software Engineering Intern }
+\location{May 2015 – Aug 2015 | San Francisco, CA}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+  \item Developed Massive multi-user Ruby on Rails \& Coffeescript applications.
+  \item Won Nation-wide intern hackathon.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Gladly,Inc}
+\descript{| Software Engineering Intern }
+\location{May 2014 – Aug 2014 | Palo Alto, CA}
+\begin{tightemize}
+\item Worked on the Tab for a Cause team in JQuery and Python to redesign the front-end implementation of the website.
+\item Improved new-user downloads by 30\%.
+\item Developed front-end widgets for the browser extension.\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     RESEARCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Research}
+\runsubsection{Programming Languages @ Pomona College}
+\descript{| Research Assistant}
+\location{August 2016 – Present | Claremont, CA}
+Worked with \textbf{\href{http://www.cs.pomona.edu/~michael/}{Professor Michael Greenberg}} to prove Soundness and Completeness for Finite-Trace Linear Temporal Logic (LTL

@@ -1,0 +1,19 @@
+$for(papers)$
+\runsubsection{$title$}
+\descript{$authors$}
+$if(location)$
+  $if(note)$
+    \location{$venue$ | $location$ | $month$ [$note$]}
+  $else$
+    \location{$venue$ | $location$ | $month$}
+  $endif$
+$else$
+  $if(note)$
+    \location{$venue$ | $month$ [$note$]}
+  $else$
+    \location{$venue$ | $month$}
+  $endif$
+$endif$
+$descr$    
+\sectionsep
+$endfor$
