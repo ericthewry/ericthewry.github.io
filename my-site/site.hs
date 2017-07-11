@@ -40,18 +40,34 @@ main = hakyll $ do
         >>= loadAndApplyTemplate "templates/default.html" paperCtx
         >>= relativizeUrls
 
+   
     create ["news.html"] $ do
       route idRoute
       compile $ do
         news <- reverse <$> (chronological =<< loadAll "news/*")
         let newsCtx =
               listField "news" paperCtx (return news) `mappend`
+              constField "title" "News"               `mappend`
               defaultContext
         getResourceBody
           >>= applyAsTemplate newsCtx
           >>= loadAndApplyTemplate "templates/default.html" newsCtx
           >>= relativizeUrls
-        
+
+    create ["resume.tex"] $ do
+      route idRoute
+      compile $ do
+        papers <- recentFirst =<< loadAll "papers/*"
+        teaching <- reverse <$> (chronological =<< loadAll "teaching/*")
+        let resumeCtx =
+              listField "papers" paperCtx (return papers)           `mappend`
+              listField "teaching" defaultContext (return teaching) `mappend`
+              defaultContext
+
+        getResourceBody
+          >>= applyAsTemplate resumeCtx
+          >>= loadAndApplyTemplate "templates/resume.tex" resumeCtx
+          >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 

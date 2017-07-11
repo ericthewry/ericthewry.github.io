@@ -5,4 +5,5 @@ venue: POPL
 month: January 2018
 note: IN SUBMISSION
 pdf: "/pdfs/kmt.pdf"
+descr: Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.
 ---

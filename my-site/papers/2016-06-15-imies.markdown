@@ -5,4 +5,5 @@ venue: The Mathematical Scientist, UK
 month: June 2016
 pdf: "/pdfs/imies.pdf"
 slides: "/pdfs/imies_prez.pdf"
+descr: "Developed a construction algorithm for Integer Matrices with Integer Eigenvalues (IMIEs). Created a web app to create an IMIE from an arbitrary input matrix."
 ---
