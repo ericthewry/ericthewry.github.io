@@ -194,26 +194,7 @@ Ballroom Dance \textbullet{} Linguistics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Selected Publications}
-
-\runsubsection{Kleene Algebra Modulo Theories}
-\descript{Ryan Beckett, Eric Campbell, and Michael Greenberg}
-\location{POPL | January 2018}
-Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.
-\sectionsep
-
-\runsubsection{Infiniteness and Linear Temporal Logic}
-\descript{Eric Campbell, advised by Michael Greenberg}
-\location{Pomona College | May 2017}
-Proved Soundness, Completeness and Decidability for Finite-Trace Linear Temporal Logic. Developed a decision procedure for the logic. Proved the axiomatization equivalent to the temporal axioms in Temporal NetKAT, making a completeness proof possible for TNK.
-\sectionsep
-
-\runsubsection{Constructing Integer Matrices with Integer Eigenvalues}
-\descript{Christopher Towse and Eric Campbell}
-\location{The Mathematical Scientist, UK | June 2016}
-Developed a construction algorithm for Integer Matrices with Integer Eigenvalues (IMIEs). Created a web app to create an IMIE from an arbitrary input matrix.
-\sectionsep
-
-
+$partial("templates/paper-list.tex")$
 %% \runsubsection{Kleene Algebra Modulo Theories [IN SUBMISSION]}\\
 %% \descript{Ryan Beckett, Eric Campbell, Michael Greenberg}
 %% \location{POPL 2018 | Los Angeles, CA | January 2018 }
@@ -260,21 +241,9 @@ Worked with \textbf{\href{http://www.cs.pomona.edu/~mwu/files/bio.htm}{Professor
 
 \section{Teaching} 
 
-\begin{tabular}{llll}
-  
-    Spring 2017 & TA & Database Systems & Pomona College \\
-  
-    Fall 2016 & TA & Programming Languages & Pomona College \\
-  
-    Spring 2016 & Head TA & Intro to CS & Pomona College \\
-  
-    Fall 2015 & TA & Intro to CS & Pomona College \\
-  
-\end{tabular}
-
+$partial("templates/teaching-list.tex")$
 
 \sectionsep
 
 \end{minipage} 
 \end{document}
-
