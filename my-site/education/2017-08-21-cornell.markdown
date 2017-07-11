@@ -1,0 +1,11 @@
+---
+school: Cornell University
+degree: Ph.D. in Computer Science
+status: Expected
+expectedMonth: May 2022
+location: Ithaca, NY
+sndDegree: M.Sc. in Computer Science
+sndStatus: Expected
+sndExpectedMonth: May 2019
+concentration: Programming Languages
+---

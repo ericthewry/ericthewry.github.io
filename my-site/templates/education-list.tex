@@ -1,0 +1,21 @@
+$for(education)$
+\subsection{$school$}
+$if(schoolLine)$
+\subsection{$schoolLine$}
+$endif$
+\descript{$degree$}
+$if(sndDegree)$
+  $if(sndStatus)$
+    \location{$status$ $expectedMonth$ | $location$}
+    \descript{$sndDegree$}
+    \location{$sndStatus$ $sndExpectedMonth$ | $location$}
+  $else$
+    \descript{$sndDegree$}
+    \location{$status$ $expectedMonth$ | $location$}
+  $endif$
+$else$
+  \location{$status$ $expectedMonth$ | $location$}
+$endif$
+  Conc. in $concentration$
+  \sectionsep
+$endfor$

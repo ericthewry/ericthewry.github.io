@@ -1,0 +1,9 @@
+$for(papers)$
+    & \textit{$title$} \\
+    & $authors$ \\
+    & \textit{$venue$}, $month$
+$if(note)$
+    \hfill [$note$]
+$endif$ \\
+    & \\
+$endfor$

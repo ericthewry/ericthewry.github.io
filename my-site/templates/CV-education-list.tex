@@ -1,0 +1,17 @@
+$for(education)$
+$if(schoolLine)$
+    & \textbf{$school$ $schoolLine$} \\
+$else$
+    & \textbf{$school$} \\
+$endif$
+    & $degree$, $status$ $expectedMonth$ \\
+$if(sndDegree)$
+  $if(sndStatus)$
+    & $sndDegree$, $sndStatus$ $sndExpectedMonth$ \\
+  $else$
+    & $sndDegree$, $status$ $expectedMonth$ \\
+  $endif$
+$endif$
+    & Concentration in $concentration$ \\
+    & \\
+$endfor$
