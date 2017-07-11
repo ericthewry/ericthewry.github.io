@@ -10,8 +10,8 @@ stack exec site clean
 stack exec site build
 xelatex ./_site/resume.tex
 latexmk -pdf ./_site/cv.tex
-mv ./resume.pdf ./_site/pdfs/
-mv ./cv.tex ./_site/pdfs/
+cp ./resume.pdf ./_site/pdfs/
+cp ./cv.pdf ./_site/pdfs/
 cd -
 
 # Get previous files
