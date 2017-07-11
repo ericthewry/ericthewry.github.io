@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Change the font size of your document - 10pt, 12.1pt, etc.
+\documentclass[letterpaper,11pt,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\graphicspath{ {images/}} %upload your signature to this file
+%Change the margins to fit your CV/resume content
+\usepackage[left=1in, right=1in, bottom=1.25in, top=1.25in]{geometry}
+
+%Skype information - include your Skype name for a link to add you on Skype
+\newcommand*{\Skype}{\href{skype:e.h.campbell?add}{e.h.campbell}} 
+\newcommand{\Absender}[1][\normalsize]{\Skype} 
+
+%Changes the page numbers - {arabic}=arabic numerals, {gobble}=no page numbers, {roman}=Roman numerals
+\pagenumbering{gobble}
+
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%% NAME OF APPLICANT %%%%%%%%%%%%%%%%%%%
+
+\noindent  \LARGE{\textbf{Eric Campbell}}  \\
+\vspace{-2ex}
+\hrule
+\normalsize
+
+%%%%%%%%%%%%%%%%% CONTACT INFORMATION %%%%%%%%%%%%%%%%%
+% Your email address, website, and Skype name are links to send email, open your website and add you on Skype. 
+
+\begin{center}
+\begin{tabular}{l l}
+ Cornell University    & \hspace{1in} \href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} \\
+ PhD Student, Department of Computer Science    & \hspace{1in}  \href{www.ericthewry.github.io}{www.ericthewry.github.io}   \\
+ Gates Hall            & \hspace{1in} Skype: \Absender  \\
+ Ithaca, NY\hspace{.75em}14853, U.S.A. & \hspace{1in} Phone: +1 (909) 343-9392 \\
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+
+%%%%%%%%%%%%%%%%% MAIN BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The main body is contained in a tabular environment. To move sections onto the next page, simply end the tabular environment and begin a new tabular environment.
+
+\noindent \begin{tabular}{@{} l l}
+  \Large{Education} $partial("templates/CV-education-list.tex")$
+  
+  \Large{Publications} $partial("templates/CV-paper-list.tex")$
+ 
+  \Large{Research}    & \textbf{Databases Group, Pomona College} \\ 
+     & Research Assistant \\
+     & Project: Fast Subgraph Isomorphism in Temporal Networks  \\
+     & \\
+  \Large{Industry} & \textbf{Originate, Inc} \\
+     & Software Engineering Intern \\
+     & \textit{San Francisco, CA}. May 2015 - Aug 2015 \\
+     & \\
+     & \textbf{Gladly, Inc} \\
+     & Software Engineering Intern \\
+     & \textit{Palo Alto, CA}. May 2014 - Aug 2014 \\
+\end{tabular}
+
+\begin{tabular}{@{} l l}
+  \Large{Teaching} $partial("templates/CV-teaching-list.tex")$
+\end{tabular}
+\end{document}
