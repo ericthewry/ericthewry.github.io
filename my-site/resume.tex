@@ -17,32 +17,6 @@
 % operating system or comment the line out to use the default font.
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[]{deedy-resume-openfont}
 
@@ -63,7 +37,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\namesection{Eric}{Campbell}{ \urlstyle{same}\url{https://ericthewry.github.io} \\
+\namesection{EricHayden}{Campbell}{ \urlstyle{same}\url{https://ericthewry.github.io} \\
 \href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} | 909.343.9392
 }
 
@@ -83,25 +57,6 @@
 
 $partial("templates/education-list.tex")$
 
-%% \subsection{Cornell University}
-%% \descript{Ph.D. in Computer Science}
-%% \location{Expected May 2022 | Ithaca, NY}
-%% Conc. in Programming Languages
-%% \descript{M.Sc. in Computer Science}
-%% \location{Expected May 2019 | Ithaca, NY}
-%% \sectionsep
-
-%% \subsection{Pomona College}
-%% \descript{BS in Computer Science, BS in Mathematics}
-%% \location{May 2017 | Claremont, CA}
-%% Conc. in Programming Languages
-%% \sectionsep
-
-%% \subsection{International School}
-%% \subsection{of Amsterdam}
-%% \location{May 2013 | Amsterdam, The Netherlands}
-%% Conc. in Mathematics
-%% \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     LINKS
@@ -119,11 +74,6 @@ StackOverflow:// \href{https://stackoverflow.com/users/8202530/ericthewry}{\cust
 
 \section{Coursework}
 %% \subsection{Graduate}
-%% Advanced Machine Learning \\
-%% Open Source Software Engineering \\
-%% Advanced Interactive Graphics \\
-%% Compilers + Practicum \\
-%% Cloud Computing \\
 %% \sectionsep
 
 \subsection{Undergraduate}
