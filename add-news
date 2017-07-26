@@ -36,7 +36,8 @@ read -e respBuild
 if [ "$respBuild" = "y" ] || [ "$respBuild" = "Y" ] || [ "$respBuild" = "yes" ]; then
     echo "Okay, building..."
     sleep 3
-    stack clean && stack build && stack exec site rebuild
+    cd my-site && stack clean && stack build && stack exec site rebuild
+    cd ..
 fi   
 
 echo "Would you like to Commit Your changes?[y/N]"
