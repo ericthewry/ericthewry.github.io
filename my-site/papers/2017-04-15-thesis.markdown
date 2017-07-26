@@ -8,3 +8,15 @@ pdf: "/pdfs/thesis.pdf"
 slides: "/pdfs/math_thesis_prez.pdf"
 descr: "Proved Soundness, Completeness and Decidability for Finite-Trace Linear Temporal Logic. Developed a decision procedure for the logic. Proved the axiomatization equivalent to the temporal axioms in Temporal NetKAT, making a completeness proof possible for TNK."
 ---
+
+We present sound and complete axiomatic framework for Linear Temporal
+Logic over finite traces (LTLf ), as well as a decision procedure.
+Our work is founded completeness proofs for LTL [Kroger and
+Merz. 2008], Past-time framings, [Lichtenstein et al. 1985], and
+anchored frameworks [Manna and Pnueli. 1988]. Further we rely on the
+an extant axiomatization of LTLf [Becket et al. 2016] and an extant
+semantics [DeGiacomo and Vardi. 2013,2015,2016]. Our approach follows
+the least fixpoint method for LTL completeness and decidability given
+in [Kroger and Merz 2016], using insights about finitude
+presented. Finally, the completeness of LTLf extends the partial
+completeness proof for Temporal Netkat to a full completeness result.

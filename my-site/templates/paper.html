@@ -2,11 +2,15 @@
   <h2> $title$ </h2>
   <h3> $authors$ </h3>
 
-  <p>$descr$</p>
+  <!-- <p>$descr$</p> -->
   
-  <p> We submitted the <a href=$pdf$>manuscript</a> to $venue$ in $month$. 
+  <p> We submitted the <a href=$pdf$>manuscript</a> to $venue$ for $month$. 
   $if(slides)$
   Presentation slides can be found <a href=$slides$> here</a>.
   $endif$
   </p>
+
+  <h4> Abstract </h4>
+
+  $body$
 </div>

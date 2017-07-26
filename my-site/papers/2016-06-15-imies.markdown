@@ -7,3 +7,4 @@ pdf: "/pdfs/imies.pdf"
 slides: "/pdfs/imies_prez.pdf"
 descr: "Developed a construction algorithm for Integer Matrices with Integer Eigenvalues (IMIEs). Created a web app to create an IMIE from an arbitrary input matrix."
 ---
+In spite of the provable rarity of integer matrices with integer eigenvalues, they are commonly used as examples in introductory courses. We present a quick method for constructing such matrices starting with a given set of eigenvectors. The main feature of the method is an added level of flexibility in the choice of allowable eigenvalues. The method is also applicable to nondiagonalizable matrices, when given a basis of generalized eigenvectors. We have produced an online web tool that implements these constructions.
