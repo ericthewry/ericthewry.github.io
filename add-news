@@ -1,15 +1,55 @@
 #! /usr/bin/bash
-# First argument is event name
-# Second argument is the event description
+# First argument is the date in YYYY-MM-DD Format
+# Second argument is event name
+# Third argument is the event description
 
-DATE="$(date +%Y-%m-%d)"
-out="my-site/news/$DATE-$1.markdown"
-descr="$2"
+
+# DATE="$(date +%Y-%m-%d)"
+# out="my-site/news/$DATE-$1.markdown"
+# descr="$2"
+
+
+echo "Please specify the date in YYYY-MM-DD format"
+read -e DATE
+
+echo "Please specify a one-word event identifier"
+read -e IDENT
+
+out="my-site/news/$DATE-$IDENT.markdown"
+
+
+echo "Please describe the event"
+read -e DESCR
 
 
 echo   "Added event $1 to $out"
-printf "\tDescription: $descr\n"
+printf "\tDescription: $DESCR\n"
 
 echo "---" > "$out"
 echo "descr: $descr" >> "$out"
 echo "---" >> "$out"
+
+
+echo "Would you like to Commit Your changes?[y/N]"
+read -e respCommit
+if [ "$respCommit" = "y" ] || [ "$respCommit" = "Y" ] || [ "$respCommit" = "yes" ]; then
+    echo "OK, committing $out"
+    
+    git add "$out"
+    git commit -m "Added $IDENT news-item"
+
+    echo "Would you like do Deploy your changes?[y/N]"
+    read -e respDeploy
+
+    if [ "$respDeploy" = "y" ] || [ "$respDeploy" = "Y" ] || [ "$respDeploy" = "yes" ]; then
+	echo "Deploying..."
+	./deployCommand
+    else
+	echo "Cancelling deployment.."
+    fi
+
+else
+    echo "Failed to commit changes"
+fi
+
+echo "done"
