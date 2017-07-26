@@ -26,9 +26,18 @@ echo   "Added event $1 to $out"
 printf "\tDescription: $DESCR\n"
 
 echo "---" > "$out"
-echo "descr: $descr" >> "$out"
+echo "descr: $DESCR" >> "$out"
 echo "---" >> "$out"
 
+
+echo "Would you like to build?[y/N]"
+read -e respBuild
+
+if [ "$respBuild" = "y" ] || [ "$respBuild" = "Y" ] || [ "$respBuild" = "yes" ]; then
+    echo "Okay, building..."
+    sleep 3
+    stack clean && stack build && stack exec site rebuild
+fi   
 
 echo "Would you like to Commit Your changes?[y/N]"
 read -e respCommit
@@ -37,6 +46,18 @@ if [ "$respCommit" = "y" ] || [ "$respCommit" = "Y" ] || [ "$respCommit" = "yes"
     
     git add "$out"
     git commit -m "Added $IDENT news-item"
+
+    echo "Would you like to push as well?[y/N]"
+    read -e respPush
+    if [ "$respCommit" = "y" ] || [ "$respCommit" = "Y" ] || [ "$respCommit" = "yes" ]; then
+	echo "OK, Pushing"
+	git push
+	sleep 3
+    else
+	echo "OK, not pushing"
+	git status
+	sleep 3
+    fi
 
     echo "Would you like do Deploy your changes?[y/N]"
     read -e respDeploy
