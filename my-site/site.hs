@@ -10,7 +10,7 @@ main = hakyll $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
-
+        
     match "pdfs/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -47,6 +47,12 @@ main = hakyll $ do
         >>= loadAndApplyTemplate "templates/default.html" paperCtx
         >>= relativizeUrls
 
+    create ["whywry.md"] $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+          >>= applyAsTemplate defaultContext
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+          >>= relativizeUrls
    
     create ["news.html"] $ do
       route idRoute
