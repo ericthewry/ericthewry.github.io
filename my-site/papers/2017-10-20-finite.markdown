@@ -1,0 +1,23 @@
+---
+title: Completeness for Logics on Finite Traces
+authors: Eric Campbell, Michael Greenberg
+venue: FoSSaCS
+month: October 2017
+note: [IN SUBMISSION]
+pdf: "/pdfs/finite.pdf"
+descr: "Present Sound and Complete axioms for Finite-Trace Linear Temporal Logic (LTLf) and Linear Dynamic Logic (LDLf)"
+---
+
+Temporal logics over finite traces are not the same as temporal logics over
+potentially infinite traces. We propose that existing methods for proving
+deductive completeness for infinite-trace logics are effective on their finite
+counterparts. To adapt proofs for infinite-trace logics, we “inject” finiteness:
+that is, we alter the proof structure to ensure that models are finite. As
+evidence for this claim, we offer deduc- tive completeness results for two
+finite temporal logics: linear temporal logic over finite traces (LTLf) and
+linear dynamic logic over finite traces (LDLf). Both proofs of completeness
+follow a conventional, graph based, least fixed point structure. Roşu first
+proved completeness for (LTLf) with a novel coinductive axiom; our proof uses
+fewer and more conventional axioms (2016). The proof for LDLf is novel; it
+largely follows our LTLf proof, using Brzozowski derivatives to define a
+transition function.
