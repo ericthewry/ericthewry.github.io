@@ -3,7 +3,7 @@ title: Completeness for Logics on Finite Traces
 authors: Eric Campbell, Michael Greenberg
 venue: FoSSaCS
 month: October 2017
-note: [IN SUBMISSION]
+note: IN REVIEW
 pdf: "/pdfs/finite.pdf"
 descr: "Present Sound and Complete axioms for Finite-Trace Linear Temporal Logic (LTLf) and Linear Dynamic Logic (LDLf)"
 ---
