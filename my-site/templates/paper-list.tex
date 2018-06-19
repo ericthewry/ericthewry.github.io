@@ -1,7 +1,13 @@
 $for(papers)$
 \runsubsection{$title$}
 \descript{$authors$}
-\location{$venue$ | $month$}
+\location{
+$if(venue)$
+$venue$
+$endif$|
+$if(month)$
+$month$
+$endif$}
 $descr$
 \sectionsep
 $endfor$

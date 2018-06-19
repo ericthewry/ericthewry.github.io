@@ -3,11 +3,16 @@
   <h3> $authors$ </h3>
 
   <!-- <p>$descr$</p> -->
-  
-  <p> We submitted the <a href=$pdf$>manuscript</a> to $venue$ for $month$. 
-  $if(slides)$
-  Presentation slides can be found <a href=$slides$> here</a>.
-  $endif$
+  <p>
+    $if(pdf)$
+    We submitted the <a href=$pdf$>manuscript</a> to $venue$ for $month$.
+    $endif$
+    $if(draft)$
+    You can read our current draft <a href=$draft$>here</a>.
+    $endif$    
+    $if(slides)$
+    Presentation slides can be found <a href=$slides$> here</a>.
+    $endif$
   </p>
 
   <h4> Abstract </h4>
