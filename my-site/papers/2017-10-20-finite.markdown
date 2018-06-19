@@ -1,10 +1,8 @@
 ---
 title: Injecting Finiteness to Prove Finite Linear Temporal Logic Complete
 authors: Eric Campbell, Michael Greenberg
-venue: BSL
-month: June 2018
-note: IN SUBMISSION
-pdf: "/pdfs/finite.pdf"
+month: In Progress
+draft: "/pdfs/finite.pdf"
 descr: "Present Sound and Complete axioms for Finite-Trace Linear Temporal Logic (LTLf)"
 ---
 

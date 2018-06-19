@@ -2,14 +2,23 @@
     $for(papers)$
     <tr>
       <td>
-        <b>$title$</b>. $authors$. <i>$venue$</i>. $month$.
+        <b>$title$</b>. $authors$.
+	$if(venue)$
+	<i>$venue$</i>.
+	$endif$
+	$if(month)$
+	$month$.
+	$endif$
 	$if(note)$
 	[$note$]
 	$endif$
       </td>
       <td>
 	$if(pdf)$
-	<a href=$pdf$> PDF </a>
+	<a href=$pdf$> pdf </a>
+	$endif$
+	$if(draft)$
+	<a href=$draft$> draft </a>
 	$endif$
       </td>
       <td>

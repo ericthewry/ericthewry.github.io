@@ -1,0 +1,3 @@
+---
+descr: I am excited to announce that I will be spending the summer at Fujitsu Laboratories of America!
+---
