@@ -1,5 +1,5 @@
 ---
-semester: Spring 2017
+semester: Spring 2018
 position: TA
 course: OOP and Data Structures
 school: Cornell University

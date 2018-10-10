@@ -4,6 +4,7 @@ authors: Eric Campbell, advised by Michael Greenberg
 venue: Pomona College
 month: May 2017
 note: Undergraduate Thesis
+withold: True
 pdf: "/pdfs/thesis.pdf"
 slides: "/pdfs/math_thesis_prez.pdf"
 descr: "Proved Soundness, Completeness and Decidability for Finite-Trace Linear Temporal Logic. Developed a decision procedure for the logic. Proved the axiomatization equivalent to the temporal axioms in Temporal NetKAT, making a completeness proof possible for TNK."
