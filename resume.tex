@@ -1,0 +1,304 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Eric}{Hayden Campbell}{ \urlstyle{same}\url{https://ericthewry.github.io} \\
+\href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} | 909.343.9392
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+
+\subsection{Cornell University}
+
+\descript{Ph.D. in Computer Science}
+
+  
+    \location{Expected May 2022 | Ithaca, NY}
+    \descript{M.Sc. in Computer Science}
+    \location{Expected May 2019 | Ithaca, NY}
+  
+
+  Conc. in Programming Languages
+  \sectionsep
+
+\subsection{Pomona College}
+
+\descript{B.A. in Computer Science}
+
+  
+    \descript{B.A. in Mathematics}
+    \location{Graduated May 2017 | Claremont, CA}
+  
+
+  Conc. in Programming Languages
+  \sectionsep
+
+\subsection{International School}
+
+\subsection{of Amsterdam}
+
+\descript{International Baccalaureate}
+
+  \location{Graduated May 2013 | Amsterdam, The Netherlands}
+
+  Conc. in Mathematics
+  \sectionsep
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+Github:// \href{https://github.com/ericthewry}{\custombold{ericthewry}} \\
+LinkedIn://  \href{https://www.linkedin.com/in/eric-campbell-ba339490/}{\custombold{ericcampbell}} \\
+StackOverflow:// \href{https://stackoverflow.com/users/8202530/ericthewry}{\custombold{ericthewry}}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+\subsection{Graduate}
+Kleene Algebra \textbullet{}
+Category Theory \textbullet{}
+Advanced Programming Languages \textbullet{}
+Network Programming Languages \textbullet{}
+Advanced Systems
+\sectionsep
+
+\subsection{Undergraduate}
+Software Foundations (Coq) \textbullet{}
+Programming Languages \textbullet{}
+Senior Seminar (Security, Programmig Languages, \& Ethics) \textbullet{}
+Computability \& Logic %% \\
+%% Computational Statistics \\     
+%% Number Theory \& Cryptography
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\location{Over 5000 lines:}
+Haskell  \textbullet{} C++ \textbullet{} Coq \textbullet{} Java \textbullet{} Python \textbullet{} Ruby on Rails \textbullet{} \LaTeX \\ 
+\location{Over 1000 lines:}
+OCaml \textbullet{} R \textbullet{} SQL \textbullet{} Java \textbullet{} bash \\
+\location{Familiar:}
+Elm \textbullet{} C  \textbullet{} HTML/CSS \textbullet{} OCaml
+\sectionsep
+
+\subsection{Foreign Language}
+Professional French \textbullet{} Survival Dutch
+\sectionsep
+
+%% \subsection{Other}
+%% Guitar \textbullet{} Voice \textbullet{} Espresso \\
+%% Ballroom Dance \textbullet{} Linguistics
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Industry Experience}
+
+\runsubsection{Fujitsu Laboratories of America}
+\descript{| Research Intern}
+\location{May 2018 - Aug 2018 | Sunnyvale, CA}
+\vspace{\topsep}
+\begin{tightemize}
+\item Developed time-based procedure for detecting anomalies in networks.
+\item Analyzed synthetic topologies running GoBGP configurations.
+\item Detected a bug in GoBGP
+\end{tightemize}
+ \sectionsep
+\runsubsection{Originate}
+\descript{| Software Engineering Intern }
+\location{May 2015 – Aug 2015 | San Francisco, CA}
+%\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+  \item Developed Massive multi-user Ruby on Rails \& Coffeescript applications.
+  \item Won Nation-wide intern hackathon.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Gladly,Inc}
+\descript{| Software Engineering Intern }
+\location{May 2014 – Aug 2014 | Palo Alto, CA}
+\begin{tightemize}
+\item Worked on the Tab for a Cause team in JQuery and Python to redesign the front-end implementation of the website. Improved user downloads by 40\%.
+\item Developed front-end widgets for the browser extension.\end{tightemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PUBLICATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Selected Publications}
+
+
+\runsubsection{How to Avoid Making a Billion-Dollar Mistake: Type-Safe Data Plane Programming with SafeP4}
+\descript{Matthias Eicholtz, Eric Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini}
+
+
+\location{ECOOP|July 2019}
+
+
+Develop a Type System for P4 that prohibits references to invalid headers. Surveys open source programs to identify real-world bugs that our type system prevents
+\sectionsep
+
+
+
+\runsubsection{Injecting Finiteness to Prove Finite Linear Temporal Logic Complete}
+\descript{Eric Campbell, Michael Greenberg}
+
+
+\location{In Progress}
+
+
+Present Sound and Complete axioms for Finite-Trace Linear Temporal Logic (LTLf)
+\sectionsep
+
+
+
+\runsubsection{Kleene Algebra Modulo Theories}
+\descript{Ryan Beckett, Eric Campbell, and Michael Greenberg}
+
+
+\location{In Progress}
+
+
+Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.
+\sectionsep
+
+
+
+
+
+
+\runsubsection{Constructing Integer Matrices with Integer Eigenvalues}
+\descript{Christopher Towse and Eric Campbell}
+
+
+\location{The Mathematical Scientist, UK|June 2016}
+
+
+Developed a construction algorithm for Integer Matrices with Integer Eigenvalues (IMIEs). Created a web app to create an IMIE from an arbitrary input matrix.
+\sectionsep
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PROJECTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projects}
+
+\runsubsection{Databases @ Pomona College}
+\descript{| Research Assistant}
+\location{Jan 2016 – Aug 2016| Claremont, CA}
+Worked with \textbf{\href{http://www.cs.pomona.edu/~mwu/files/bio.htm}{Professor Melanie Wu}} on the development of \textbf{QuickTSI}, a fast query system for finding (partial) subgraph isomorphisms on temporal graphs.
+\sectionsep
+
+%% \runsubsection{\href{http://mathswipe.com}{MathSwipe}}
+%% \descript{| Technical Lead}
+%% \location{Led a distributed team to build CoffeeScript puzzle game. Chose technologies, delegated tasks, and contributed majority of code.}
+%% \sectionsep
+
+%% \runsubsection{RoomDraw}
+%% \descript{| Technical Lead}
+%% \location{Ruby on Rails \& PostgreSQL application to automate the Pomona College room-draw process. Algorithmically assigns rooms based on preferences.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Teaching
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Teaching} 
+
+\begin{tabular}{llll}
+  
+    Spring 2018 & TA & OOP and Data Structures & Cornell University \\
+  
+    Fall 2017 & TA & OOP and Data Structures & Cornell University \\
+  
+    Spring 2017 & TA & Database Systems & Pomona College \\
+  
+    Fall 2016 & TA & Programming Languages & Pomona College \\
+  
+    Spring 2016 & Head TA & Intro to CS & Pomona College \\
+  
+    Fall 2015 & TA & Intro to CS & Pomona College \\
+  
+\end{tabular}
+
+
+\sectionsep
+
+\end{minipage} 
+\end{document}
+
