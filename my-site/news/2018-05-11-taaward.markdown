@@ -1,0 +1,3 @@
+---
+descr: Received Grad Student TA Award for OOP & Data Structures [Nominated by <a href="https://www.cs.cornell.edu/gries/">David Gries</a>]
+---
