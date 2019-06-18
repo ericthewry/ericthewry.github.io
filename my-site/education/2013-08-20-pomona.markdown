@@ -1,0 +1,9 @@
+---
+school: Pomona College
+degree: B.A. in Computer Science
+sndDegree: B.A. in Mathematics
+status: Graduated
+expectedMonth: May 2017
+location: Claremont, CA
+concentration: Programming Languages
+---

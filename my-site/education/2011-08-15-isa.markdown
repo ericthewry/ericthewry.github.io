@@ -1,0 +1,9 @@
+---
+school: International School
+schoolLine: of Amsterdam
+degree: International Baccalaureate
+status: Graduated
+expectedMonth: May 2013
+location: Amsterdam, The Netherlands
+concentration: Mathematics
+---
