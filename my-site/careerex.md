@@ -19,17 +19,10 @@ the starter code.
 Please open Firefox.  Chrome will not work. Visit this page:
 [ericthewry.github.io/careerex.html](ericthewry.github.io/careerex.html). Click
 [here](https://drive.google.com/file/d/16-D4WL9LUFjBQdMg0lXoo1QbIujYQ6jG/view?usp=sharing)
-to download both the starter code and the lab. Press as many download
+to download both the _Processing_ tool and the lab. Press as many download
 buttons as you need to start the download. Once the download has
 completed, right click on the downloaded file and click "Extract All."
 When the dialog appears, click on "Browse" and select the Desktop.
-
-To download the _Processing_ tool, click
-[here](http://download.processing.org/processing-3.5.3-windows64.zip). Once
-the download has completed, right click on the downloaded file and
-click “Extract All.” When the resulting progress bar finishes, open
-_Processing_. From the _Processing_ tool, open the `Lab_2.pde` file
-that resides inside the directory called `Main`.
 
 Select the `Lab_2` tab before moving on.
 
