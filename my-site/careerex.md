@@ -1,8 +1,9 @@
 # Career Explorations
 ## Programming Lab 2
 
+> _This document can be found at ericthewry.github.io/careerex.html_
 
-Aaaaaand we’re back!
+Aaaaaand we’re back! 
 
 Today your task is to explore more of the experimental side of
 computer science. We’ll be investigating different ways to cause
@@ -13,17 +14,19 @@ routers to fail.
 To kick things off, you will need to install _Processing_ and download
 the starter code.
 
-Please open Firefox or IE. Chrome will not work. Click
-[here](/pdfs/Main.zip) to download both the starter code. Once the
-download has completed, right click on the downloaded file and click
-"Extract All." When the dialog appears, click on "Browse" and select
-the Desktop.
+Please open Firefox.  Chrome will not work. Visit this page:
+[ericthewry.github.io/careerex.html](ericthewry.github.io/careerex.html). Click
+[here](https://drive.google.com/file/d/16-D4WL9LUFjBQdMg0lXoo1QbIujYQ6jG/view?usp=sharing)
+to download both the starter code and the lab. Press as many download
+buttons as you need to start the download. Once the download has
+completed, right click on the downloaded file and click "Extract All."
+When the dialog appears, click on "Browse" and select the Desktop.
 
 To download the _Processing_ tool, click
 [here](http://download.processing.org/processing-3.5.3-windows64.zip). Once
 the download has completed, right click on the downloaded file and
 click “Extract All.” When the resulting progress bar finishes, open
-_Processing_. From the Processing window, open the `Lab_2.pde` file
+_Processing_. From the _Processing_ tool, open the `Lab_2.pde` file
 that resides inside the directory called `Main`.
 
 Select the `Lab_2` tab before moving on.
@@ -43,9 +46,13 @@ at the router it will go to the back of the queue to be processed.
 
 > _Exercise 1a._ Send some packets around the network to get a sense for how queues work.
 
-Routers can also fail! In our simulation, this is indicated by a router turning yellow. Failed Routers cannot process additional packets -- it’s like someone turned them off.
+Routers can also fail! In our simulation, this is indicated by a
+router turning yellow. Failed Routers cannot process additional
+packets -- it’s like someone turned them off.
 
-So when do Routers fail? When their queues fill up, and a new packet arrives to the Router. If there is no space in the queue, the router will fail.
+So when do Routers fail? When their queues fill up, and a new packet
+arrives to the Router. If there is no space in the queue, the router
+will fail.
 
 > _Exercise 1b._ Cause any router to fail by filling up its queue.
 
@@ -55,7 +62,9 @@ So when do Routers fail? When their queues fill up, and a new packet arrives to 
 
 > _Exercise 1e._ Bring down ONLY Router 3 without sending a packet directly to it
 
-Once you’ve completed the exercises above, spend a few minutes to try the following exercise. If you can’t figure it out, feel free to move on to Task 2.
+Once you’ve completed the exercises above, spend a few minutes to try
+the following exercise. If you can’t figure it out, feel free to move
+on to Task 2.
 
 > _Exercise 1f._ (extra credit) Bring down ONLY Router 3 without sending a packet directly to it while making sure that Router 1 can still send packets to Router 0. Call over an instructor and have a discussion about why this is hard!
 
