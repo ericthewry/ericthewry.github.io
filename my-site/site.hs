@@ -53,6 +53,13 @@ main = hakyll $ do
           >>= applyAsTemplate defaultContext
           >>= loadAndApplyTemplate "templates/default.html" defaultContext
           >>= relativizeUrls
+
+    create ["careerex.md"] $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+        >>= applyAsTemplate defaultContext
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
    
     create ["news.html"] $ do
       route idRoute
