@@ -9,7 +9,9 @@ Today your task is to explore more of the experimental side of
 computer science. We’ll be investigating different ways to cause
 routers to fail.
 
-### Task 0: Download and Install
+### Task 0: Login, Download and Install
+
+Your username is CIT-ph318. Your password is Password1. (Sorry Meryl!)
 
 To kick things off, you will need to install _Processing_ and download
 the starter code.
