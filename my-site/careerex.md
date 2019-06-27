@@ -18,7 +18,7 @@ the starter code.
 
 Please open Firefox.  Chrome will not work. Visit this page:
 [ericthewry.github.io/careerex.html](ericthewry.github.io/careerex.html). Click
-[here](https://drive.google.com/file/d/1QIw_B6BU1zUarc5avRfUvn72qM5J0tky/view?usp=sharing)
+[here](https://drive.google.com/file/d/1PqCkpgFG7JBEAvMdK0Ak4iCzwITRpwtu/view?usp=sharing)
 to download both the _Processing_ and the lab code. Press as many
 download buttons as you need to start the download. Once the download
 has completed, right click on the downloaded file and click "Extract
@@ -33,58 +33,57 @@ Select the `Lab_2` tab before moving on.
 
 > _You will not write any code to complete this task._
 
-> _If you get stuck for more than 5 minutes on any Exercise in this task, ask a neighbor or an instructor for help!_
+> _If you get stuck for more than 5 minutes on any Exercise in this task,
+> discuss with a neighbor or an instructor for help!_
 
 > _If you completed this task yesterday, feel free to skip it!_
 
 Once you’ve gotten _Processing_ up and running. Start the program by
 pressing the play button in the upper left corner of the window.  You
 should immediately notice some similarities and differences from
-yesterday.  Routers are indicated by a gray icon. Each has a vertical
+yesterday.  `Routers` are indicated by a gray icon. Each has a vertical
 grey box to the side -- its queue. The queue is the “lunch line” of 
-packets waiting to be processed. At each step, each router will
+packets waiting to be processed. At each step, each `Router` will
 process one packet from the front of its queue.  When a packet arrives
-at the router it will go to the back of the queue to be processed.
+at the `Router` it will go to the back of the queue to be processed.
 
 > _Exercise 1a._ Send some packets around the network to get a sense for how queues work.
 
-Routers can also fail! In our simulation, this is indicated by a
-router turning yellow. Failed Routers cannot process additional
+`Routers` can also fail! In our simulation, this is indicated by a
+`Router` turning yellow. Failed `Routers` cannot process additional
 packets -- it’s like someone turned them off.
 
-So when do Routers fail? When their queues fill up, and a new packet
-arrives to the Router. If there is no space in the queue, the router
-will fail.
+So when do `Routers` fail? When their queues are full and the `Router` receives a
+new packet, they have no place to put it and they will fail.
 
-> _Exercise 1b._ Cause any router to fail by filling up its queue.
+> _Exercise 1b._ Cause any `Router` to fail by filling up its queue.
 
-> _Exercise 1c._ Cause Router 3 to fail
+> _Exercise 1c._ Cause `Router` 3 to fail
 
-> _Exercise 1d._ Cause Router 3 to fail without sending a packet directly to it
+> _Exercise 1d._ Cause `Router` 3 to fail without sending a packet directly to it
 
-> _Exercise 1e._ Bring down ONLY Router 3 without sending a packet directly to it
+> _Exercise 1e._ Bring down ONLY `Router` 3 without sending a packet directly to it
 
 Once you’ve completed the exercises above, spend a few minutes to try
 the following exercise. If you can’t figure it out, feel free to move
 on to Task 2.
 
-> _Exercise 1f._ (extra credit) Bring down ONLY Router 3 without sending a packet directly to it while making sure that Router 1 can still send packets to Router 0. Call over an instructor and have a discussion about why this is hard!
+> _Exercise 1f._ (extra credit) Bring down ONLY `Router` 3 without sending a packet directly to it while making sure that `Router` 1 can still send packets to `Router` 0. Call over an instructor and have a discussion about why this is hard!
 
 ### Task 2: Denial of Service
 
 In this task you will program an `EvilRouter` that will target a single
-router in the network and make it fail by sending too many packets for
+`Router` in the network and make it fail by sending too many packets for
 it to handle. This is called a denial of service attack or DoS attack
 for short.
 
 In the simulation pane, you can turn a normal `Router` into an
-`EvilRouter` by double clicking it.. To target another `Router`, click
-first on the `EvilRouter` and then the `Router` you wish to attack.
+`EvilRouter` by double clicking it. To target another `Router`, click
+first on the `EvilRouter` and then the `Router` that you wish to attack.
 
-The `EvilRouter` contains five commands that you can interface
-with. For now, you will only define the `EvilDoEveryStep` command, which
-is executed by `EvilRouters` whenever the simulation moves forward a
-single step.
+The `EvilRouter` has five commands that you can change. For now, you will only
+define the `EvilDoEveryStep` command, which is executed by `EvilRouters`
+whenever the simulation moves forward a single step.
 
 ```
    void evilDoEveryStep(Router target) {
@@ -96,24 +95,25 @@ The `target` is the `Router` that the current `EvilRouter` should attack.
 
 > _Exercise 2a._ Write code between the curly braces of the
 > `EvilDoEveryStep` command to tell an `EvilRouter` how to attack a
-> `Router`.
+> `Router`. Then run the program, create an `EvilRouter`, select a `target`
+> and make sure that the `target` fails.
 
-> _Hint._ `Router`s process one `Packet` per step from the queue. How many
+> _Hint._ `Routers` process one `Packet` per step from the queue. How many
 > should arrive per step for the queue to eventually fill up? 
 
 Once you’ve completed _Exercise 2a_, you have a chance to do some real
-Computer Science. Try and think about other ways to design a
+Computer Science. Try to think about other ways to design a
 solution. How many packets should you send at each step? 5? 10? 100?
-Can you think of other ways to bring down a router? What might be the
+Can you think of other ways to bring down a `Router`? What might be the
 advantages of one approach over another?
 
 
 ### Task 3: Defend Against a DoS Attack
 
-Now, Switch to your `Lab_3` file. Your task is to defend against the
+Now, switch to your `Lab_3` tab. Your task is to defend against the
 attack that you just created!  You will write a function called
 `blockSender` that determines when to block (via, say, a firewall)
-packets from a router called `sender`. If the function returns `true`,
+packets from a `Router` called `sender`. If the function returns `true`,
 then all packets from `sender` will be blocked. If the function
 returns `false` then packets from `sender` will continue to be
 accepted. The current definition of `blockSender` is the following:
@@ -124,54 +124,54 @@ boolean blockSender(Router sender) {
 }
 ```
 
-This definition will never block packets (If you are not sure why, ask
-a neighbor or call over an instructor for help).
+This definition will never block packets (If you are not sure why, discuss with neighbor or call over an instructor for help).
 
 > _Exercise 3a. Fill in the BlockSender method so that your DoS Attacks from Task 2 are ineffective_
 
 You will find the following methods useful in crafting your solution:
 
 ```
-int portionOfQueueFrom(Router sender)
+float portionOfQueueFrom(Router sender)
 ```
 
-Writing the code `portionOfQueueFrom(sender)` will return an decimal
-number describing the portion of the routers queue that is filled by
-`sender`. For example, if 6 packets in router 5's queue come from a
-single `sender`, then `portionOFQueueFrom(sender)` will return
-`0.6`. (Recall that a queue has only 10 slots).
+Writing the code `portionOfQueueFrom(sender)` will return a decimal
+number (often called `floats` in programming) describing the portion of the
+current `Router`'s queue that is filled by
+`sender`. For example, if 6 packets in `Router` 5's queue come from a
+single `sender`, then `portionOfQueueFrom(sender)` will return
+`0.6` (recall that a queue has only 10 slots).
 
 Writing the code `return portionOfQueueFrom(sender) > 0.1` will return
 `true` if more than 1 packet in the queue is from `sender`, and will
 return `false` otherwise.
 
 ```
-int amountOfQueueFrom(Router sender)
+int amountInQueueFrom(Router sender)
 ```
 
-Writing the code `amountOfQueueFrom(sender)` will return a nonnegative
-whole number (i.e. 0, 1, 2, 3, ... etc.) describing how many packets
-in a router's queue are from `sender`. For example, if 6 packets in
-router 5's queue come from a single `sender`, then
-`portionOFQueueFrom(sender)` will return `0.6`. (Recall that a queue
-has only 10 slots).
+Writing the code `amountInQueueFrom(sender)` will return the number of packets
+in a `Router`'s queue, which are from `sender`. This will always be a
+non-negative whole number, or `int`eger, (i.e. 0, 1, 2, 3, ... etc.). For
+example, if 6 packets in `Router` 5's queue come from a single `sender`, then
+`amountInQueueFrom(sender)` will return `6`.
 
-Writing the code `return amountOfQueueFrom(sender) > 50` will return
+Writing the code `return amountInQueueFrom(sender) > 5` will return
 `true` if more than half of the queue is from `sender`, and will
 return `false` otherwise.
 
 
 ```
-int numberOfPacketsInQueue()
+int amountInQueue()
 ```
 
-Writing the code `numberOfPacketsInQueue()`the number of packets that
-are currently in the queue. For example, if there are 8 packets in a
-router's queue that may come from many `sender`s, then
-`portionOFQueueFrom(sender)` will return `8`.
+Writing the code `amountInQueue()` will return the number of packets
+that are currently in the queue. This will always be a non-negative whole
+number, or `int`eger, (i.e. 0, 1, 2, 3, ... etc.). For example, if there are 8
+packets in a `Router`'s queue from any number of senders, then
+`amountInQueue()` will return `8`.
 
-Writing the code `return amountOfQueueFrom(sender) > 50` will return
-`true` if more than half of the queue is from `sender`, and will
+Writing the code `return amountInQueue() > 5` will return
+`true` if the queue is at least half full, and will
 return `false` otherwise.
 
 
@@ -180,20 +180,20 @@ return `false` otherwise.
 
 > _Exercise 3b. Modify your `blockSender` command so that it __only__
 > blocks DoS attacks and not normal traffic. To ensure that
-> `blockSender` isn't blocking benificent packets, try and send many
-> (at least 4) packets from Router 1 to Router 2 at the same
-> time. This should feel familiar to your solution to Exercise 1c_
+> `blockSender` isn't blocking nice packets, try to send many
+> (at least 4) packets from `Router` 1 to `Router` 2 at the same
+> time. This should feel familiar to your solution to Exercise 1c_.
 
 Now you can consider a more permissive defense approach. Perhaps a
-router was only being over-eager to send non-malicious traffic (such
+`Router` was only being over-eager to send non-malicious traffic (such
 as in Exercise 3b). Perhaps you accidentally blacklisted a node that
 wasn't actually attacking you!
 
 You will now decide when to unblock traffic from a sender by defining
 the `unblockSender` command. When `unblockSender` returns true, it
-overrides the router's decision to `blockSender` and begins accepting
-packets from the `sender` once more.  The current command definition
-is as follows
+changes the `Router`'s decision to `blockSender` and begins accepting
+packets from the `sender` once more.  The current definition of `unblockSender`
+is as follows:
 
 ```
 boolean unblockSender(Router sender) {
@@ -204,7 +204,8 @@ boolean unblockSender(Router sender) {
 The current definition will _never_ unblock a `sender` because it
 always returns `false`.
 
-> _Exercise 3c. Try replacing `false` to `true`? What happens to the defense you implemented in Exercise 3b?_
+> _Exercise 3c. Try replacing `false` with `true`? What happens to the defense
+> that you just implemented?_
 
 Now, use the commands from the previous exercise to write code that
 returns `true` when you want to `unblockSender`. You will find it
@@ -212,39 +213,38 @@ helpful to know that you can use the less-than sign (`<`) to compare
 numbers just as you did with the greater-than sign (`>`) in the
 previous exercise!
 
-> _Exercise 3d. Implement the `unblockSender` command_
+> _Exercise 3d. Implement the `unblockSender` command._
 
 > _Exercise 3e. Play with the thresholds that you set in `blockSender`
-> and `unblockSender` so that DoS Attacks never bring down a router,
-> and over-eager routers are rejected at first, but if they slow down
-> will be processed as normal.
+> and `unblockSender` so that DoS Attacks never bring down a `Router`,
+> and over-eager `Routers` may be rejected at first, but if they slow down,
+> they will be processed as normal._
 
 
 ### Task 4: An Arms Race
 
-You have a defense (in your `Lab_3` file) to an attack (in your
-`Lab_2` file) that you just wrote! Your task now is to come up with
-creative ways to cause routers to fail (in the `Lab_2` file) and then
-defend against those creative attacks (in your `Lab_3` file).
+You have a defense (in your `Lab_3` tab) to an attack (in your
+`Lab_2` tab) that you just wrote! Your task now is to come up with
+creative ways to cause `Routers` to fail (in the `Lab_2` tab) and then
+defend against those creative attacks (in your `Lab_3` tab).
 
-The `EvilRouter` has 4 commands that you can write code in
-with. You’ve already seen how `evilDoEveryStep` works. There are also
-`evil` versions of the `itsForMe`, `dontKnow` and `doKnow` commands
-from the lab yesterday, called `evilItsForMe`, `evilDontKnow`, and
-`evilDoKnow` respectively. You can make changes to these commands
-while figuring out the answers to your questions.
+The `EvilRouter` has 4 commands where you can change the code. You’ve already
+seen how `evilDoEveryStep` works. There are also `evil` versions of the
+`itsForMe`, `dontKnow` and `doKnow` commands from the lab yesterday, called
+`evilItsForMe`, `evilDontKnow`, and `evilDoKnow` respectively. You can make
+changes to these commands while figuring out the answers to your questions.
 
 If you’d like to see our solution to `Lab_1`, simply scroll to the
-bottom of the `Lab_2` file where it describes the `UnsafeRouter`. You
-may change this solution if you desire!
+bottom of the `Lab_2` tab where it describes the `UnsafeRouter`. You
+may change this solution to modify the `good` `Routers` if you desire!
 
 For now, try to be creative and do whatever you find interesting! You
 might, for example, implement one of the strategies of the Malicious
 Agents from our earlier activity, like refusing to forward packets. If
-you’re stuck on what to do, you might draw inspiration from some
-options we have provided below.
+you’re stuck on what to do, you can draw inspiration from some
+options we have provided below:
 
-> __Remember to Consult your Cheat Sheets to see what kinds of Commands you have available to you__
+> __Remember to Consult your Cheat Sheets to see what kinds of Commands are available to you__
 
 
 _Option 1. Spoofing for fun and profit_
@@ -256,20 +256,21 @@ You might try to implement spoofing, which is just a fancy term for
   p.src = <insert your code here>;
 ```
 
-before you forward the packet on. This changes the Sender (i.e. the
+before you forward the packet on. This changes the `Sender` (i.e. the
 `src`) of the packet. You will need to change some commands besides
 `evilDoEveryStep` for this to work.
 
-Once you've implemented spoofing, try and defend against it! What
-strategies might you employ? This is hard, ask for help if you get to
-this point!
+Once you've implemented spoofing, try to defend against it! What
+strategies might you employ? This is hard, once you've thought about it for a
+few minutes, please ask for help!
 
-_Option 2. Pretend to be a failed router_
+_Option 2. Pretend to be a failed `Router`_
 
 As you learned in task 1, failed routers do not forward packets
 through the network. They are black holes that receive everything and
 send nothing. This makes it difficult for other routers to send
-packets across the network!
+packets across the network! If you are `evil`, just pretending to fail can be an
+effective strategy.
 
 How might you defend against this attack? Think about choosing
 alternate routes through the network.
