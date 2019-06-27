@@ -1,7 +1,9 @@
-# Career Explorations
-## Programming Lab 3
+# Career Explorations 
+## Programming Labs 2 & 3
 
-> _This document can be found at ericthewry.github.io/careerex.html_
+> _Click [here](/pdfs/careerexlab1.pdf) for Lab 1_
+
+> _Click [here](/pdfs/careerexcheatsheet.pdf) for the Cheat Sheet_
 
 Aaaaaand we’re back! 
 
@@ -10,8 +12,6 @@ computer science. We’ll be investigating different ways to cause
 routers to fail.
 
 ### Task 0: Login, Download and Install
-
-Your username is CIT-ph318. Your password is Password1. (Sorry Meryl!)
 
 To kick things off, you will need to install _Processing_ and download
 the starter code.
