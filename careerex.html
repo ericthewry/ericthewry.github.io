@@ -31,111 +31,111 @@
 <h3 id="task-0-login-download-and-install">Task 0: Login, Download and Install</h3>
 <p>Your username is CIT-ph318. Your password is Password1. (Sorry Meryl!)</p>
 <p>To kick things off, you will need to install <em>Processing</em> and download the starter code.</p>
-<p>Please open Firefox. Chrome will not work. Visit this page: <a href="ericthewry.github.io/careerex.html" class="uri">ericthewry.github.io/careerex.html</a>. Click <a href="https://drive.google.com/file/d/1QIw_B6BU1zUarc5avRfUvn72qM5J0tky/view?usp=sharing">here</a> to download both the <em>Processing</em> and the lab code. Press as many download buttons as you need to start the download. Once the download has completed, right click on the downloaded file and click “Extract All.” When the dialog appears, click on “Browse” and select the Desktop. When the resulting progress bar finishes, open <em>Processing</em>. From the <em>Processing</em> tool, open the <code>Lab_2.pde</code> file that resides inside the directory called <code>Main</code>.</p>
+<p>Please open Firefox. Chrome will not work. Visit this page: <a href="ericthewry.github.io/careerex.html" class="uri">ericthewry.github.io/careerex.html</a>. Click <a href="https://drive.google.com/file/d/1PqCkpgFG7JBEAvMdK0Ak4iCzwITRpwtu/view?usp=sharing">here</a> to download both the <em>Processing</em> and the lab code. Press as many download buttons as you need to start the download. Once the download has completed, right click on the downloaded file and click “Extract All.” When the dialog appears, click on “Browse” and select the Desktop. When the resulting progress bar finishes, open <em>Processing</em>. From the <em>Processing</em> tool, open the <code>Lab_2.pde</code> file that resides inside the directory called <code>Main</code>.</p>
 <p>Select the <code>Lab_2</code> tab before moving on.</p>
 <h3 id="task-1-experiment">Task 1: Experiment</h3>
 <blockquote>
 <p><em>You will not write any code to complete this task.</em></p>
 </blockquote>
 <blockquote>
-<p><em>If you get stuck for more than 5 minutes on any Exercise in this task, ask a neighbor or an instructor for help!</em></p>
+<p><em>If you get stuck for more than 5 minutes on any Exercise in this task, discuss with a neighbor or an instructor for help!</em></p>
 </blockquote>
 <blockquote>
 <p><em>If you completed this task yesterday, feel free to skip it!</em></p>
 </blockquote>
-<p>Once you’ve gotten <em>Processing</em> up and running. Start the program by pressing the play button in the upper left corner of the window. You should immediately notice some similarities and differences from yesterday. Routers are indicated by a gray icon. Each has a vertical grey box to the side – its queue. The queue is the “lunch line” of packets waiting to be processed. At each step, each router will process one packet from the front of its queue. When a packet arrives at the router it will go to the back of the queue to be processed.</p>
+<p>Once you’ve gotten <em>Processing</em> up and running. Start the program by pressing the play button in the upper left corner of the window. You should immediately notice some similarities and differences from yesterday. <code>Routers</code> are indicated by a gray icon. Each has a vertical grey box to the side – its queue. The queue is the “lunch line” of packets waiting to be processed. At each step, each <code>Router</code> will process one packet from the front of its queue. When a packet arrives at the <code>Router</code> it will go to the back of the queue to be processed.</p>
 <blockquote>
 <p><em>Exercise 1a.</em> Send some packets around the network to get a sense for how queues work.</p>
 </blockquote>
-<p>Routers can also fail! In our simulation, this is indicated by a router turning yellow. Failed Routers cannot process additional packets – it’s like someone turned them off.</p>
-<p>So when do Routers fail? When their queues fill up, and a new packet arrives to the Router. If there is no space in the queue, the router will fail.</p>
+<p><code>Routers</code> can also fail! In our simulation, this is indicated by a <code>Router</code> turning yellow. Failed <code>Routers</code> cannot process additional packets – it’s like someone turned them off.</p>
+<p>So when do <code>Routers</code> fail? When their queues are full and the <code>Router</code> receives a new packet, they have no place to put it and they will fail.</p>
 <blockquote>
-<p><em>Exercise 1b.</em> Cause any router to fail by filling up its queue.</p>
+<p><em>Exercise 1b.</em> Cause any <code>Router</code> to fail by filling up its queue.</p>
 </blockquote>
 <blockquote>
-<p><em>Exercise 1c.</em> Cause Router 3 to fail</p>
+<p><em>Exercise 1c.</em> Cause <code>Router</code> 3 to fail</p>
 </blockquote>
 <blockquote>
-<p><em>Exercise 1d.</em> Cause Router 3 to fail without sending a packet directly to it</p>
+<p><em>Exercise 1d.</em> Cause <code>Router</code> 3 to fail without sending a packet directly to it</p>
 </blockquote>
 <blockquote>
-<p><em>Exercise 1e.</em> Bring down ONLY Router 3 without sending a packet directly to it</p>
+<p><em>Exercise 1e.</em> Bring down ONLY <code>Router</code> 3 without sending a packet directly to it</p>
 </blockquote>
 <p>Once you’ve completed the exercises above, spend a few minutes to try the following exercise. If you can’t figure it out, feel free to move on to Task 2.</p>
 <blockquote>
-<p><em>Exercise 1f.</em> (extra credit) Bring down ONLY Router 3 without sending a packet directly to it while making sure that Router 1 can still send packets to Router 0. Call over an instructor and have a discussion about why this is hard!</p>
+<p><em>Exercise 1f.</em> (extra credit) Bring down ONLY <code>Router</code> 3 without sending a packet directly to it while making sure that <code>Router</code> 1 can still send packets to <code>Router</code> 0. Call over an instructor and have a discussion about why this is hard!</p>
 </blockquote>
 <h3 id="task-2-denial-of-service">Task 2: Denial of Service</h3>
-<p>In this task you will program an <code>EvilRouter</code> that will target a single router in the network and make it fail by sending too many packets for it to handle. This is called a denial of service attack or DoS attack for short.</p>
-<p>In the simulation pane, you can turn a normal <code>Router</code> into an <code>EvilRouter</code> by double clicking it.. To target another <code>Router</code>, click first on the <code>EvilRouter</code> and then the <code>Router</code> you wish to attack.</p>
-<p>The <code>EvilRouter</code> contains five commands that you can interface with. For now, you will only define the <code>EvilDoEveryStep</code> command, which is executed by <code>EvilRouters</code> whenever the simulation moves forward a single step.</p>
+<p>In this task you will program an <code>EvilRouter</code> that will target a single <code>Router</code> in the network and make it fail by sending too many packets for it to handle. This is called a denial of service attack or DoS attack for short.</p>
+<p>In the simulation pane, you can turn a normal <code>Router</code> into an <code>EvilRouter</code> by double clicking it. To target another <code>Router</code>, click first on the <code>EvilRouter</code> and then the <code>Router</code> that you wish to attack.</p>
+<p>The <code>EvilRouter</code> has five commands that you can change. For now, you will only define the <code>EvilDoEveryStep</code> command, which is executed by <code>EvilRouters</code> whenever the simulation moves forward a single step.</p>
 <pre><code>   void evilDoEveryStep(Router target) {
 
    }</code></pre>
 <p>The <code>target</code> is the <code>Router</code> that the current <code>EvilRouter</code> should attack.</p>
 <blockquote>
-<p><em>Exercise 2a.</em> Write code between the curly braces of the <code>EvilDoEveryStep</code> command to tell an <code>EvilRouter</code> how to attack a <code>Router</code>.</p>
+<p><em>Exercise 2a.</em> Write code between the curly braces of the <code>EvilDoEveryStep</code> command to tell an <code>EvilRouter</code> how to attack a <code>Router</code>. Then run the program, create an <code>EvilRouter</code>, select a <code>target</code> and make sure that the <code>target</code> fails.</p>
 </blockquote>
 <blockquote>
-<p><em>Hint.</em> <code>Router</code>s process one <code>Packet</code> per step from the queue. How many should arrive per step for the queue to eventually fill up?</p>
+<p><em>Hint.</em> <code>Routers</code> process one <code>Packet</code> per step from the queue. How many should arrive per step for the queue to eventually fill up?</p>
 </blockquote>
-<p>Once you’ve completed <em>Exercise 2a</em>, you have a chance to do some real Computer Science. Try and think about other ways to design a solution. How many packets should you send at each step? 5? 10? 100? Can you think of other ways to bring down a router? What might be the advantages of one approach over another?</p>
+<p>Once you’ve completed <em>Exercise 2a</em>, you have a chance to do some real Computer Science. Try to think about other ways to design a solution. How many packets should you send at each step? 5? 10? 100? Can you think of other ways to bring down a <code>Router</code>? What might be the advantages of one approach over another?</p>
 <h3 id="task-3-defend-against-a-dos-attack">Task 3: Defend Against a DoS Attack</h3>
-<p>Now, Switch to your <code>Lab_3</code> file. Your task is to defend against the attack that you just created! You will write a function called <code>blockSender</code> that determines when to block (via, say, a firewall) packets from a router called <code>sender</code>. If the function returns <code>true</code>, then all packets from <code>sender</code> will be blocked. If the function returns <code>false</code> then packets from <code>sender</code> will continue to be accepted. The current definition of <code>blockSender</code> is the following:</p>
+<p>Now, switch to your <code>Lab_3</code> tab. Your task is to defend against the attack that you just created! You will write a function called <code>blockSender</code> that determines when to block (via, say, a firewall) packets from a <code>Router</code> called <code>sender</code>. If the function returns <code>true</code>, then all packets from <code>sender</code> will be blocked. If the function returns <code>false</code> then packets from <code>sender</code> will continue to be accepted. The current definition of <code>blockSender</code> is the following:</p>
 <pre><code>boolean blockSender(Router sender) {
   return false;
 }</code></pre>
-<p>This definition will never block packets (If you are not sure why, ask a neighbor or call over an instructor for help).</p>
+<p>This definition will never block packets (If you are not sure why, discuss with neighbor or call over an instructor for help).</p>
 <blockquote>
 <p><em>Exercise 3a. Fill in the BlockSender method so that your DoS Attacks from Task 2 are ineffective</em></p>
 </blockquote>
 <p>You will find the following methods useful in crafting your solution:</p>
-<pre><code>int portionOfQueueFrom(Router sender)</code></pre>
-<p>Writing the code <code>portionOfQueueFrom(sender)</code> will return an decimal number describing the portion of the routers queue that is filled by <code>sender</code>. For example, if 6 packets in router 5’s queue come from a single <code>sender</code>, then <code>portionOFQueueFrom(sender)</code> will return <code>0.6</code>. (Recall that a queue has only 10 slots).</p>
+<pre><code>float portionOfQueueFrom(Router sender)</code></pre>
+<p>Writing the code <code>portionOfQueueFrom(sender)</code> will return a decimal number (often called <code>floats</code> in programming) describing the portion of the current <code>Router</code>’s queue that is filled by <code>sender</code>. For example, if 6 packets in <code>Router</code> 5’s queue come from a single <code>sender</code>, then <code>portionOfQueueFrom(sender)</code> will return <code>0.6</code> (recall that a queue has only 10 slots).</p>
 <p>Writing the code <code>return portionOfQueueFrom(sender) &gt; 0.1</code> will return <code>true</code> if more than 1 packet in the queue is from <code>sender</code>, and will return <code>false</code> otherwise.</p>
-<pre><code>int amountOfQueueFrom(Router sender)</code></pre>
-<p>Writing the code <code>amountOfQueueFrom(sender)</code> will return a nonnegative whole number (i.e. 0, 1, 2, 3, … etc.) describing how many packets in a router’s queue are from <code>sender</code>. For example, if 6 packets in router 5’s queue come from a single <code>sender</code>, then <code>portionOFQueueFrom(sender)</code> will return <code>0.6</code>. (Recall that a queue has only 10 slots).</p>
-<p>Writing the code <code>return amountOfQueueFrom(sender) &gt; 50</code> will return <code>true</code> if more than half of the queue is from <code>sender</code>, and will return <code>false</code> otherwise.</p>
-<pre><code>int numberOfPacketsInQueue()</code></pre>
-<p>Writing the code <code>numberOfPacketsInQueue()</code>the number of packets that are currently in the queue. For example, if there are 8 packets in a router’s queue that may come from many <code>sender</code>s, then <code>portionOFQueueFrom(sender)</code> will return <code>8</code>.</p>
-<p>Writing the code <code>return amountOfQueueFrom(sender) &gt; 50</code> will return <code>true</code> if more than half of the queue is from <code>sender</code>, and will return <code>false</code> otherwise.</p>
+<pre><code>int amountInQueueFrom(Router sender)</code></pre>
+<p>Writing the code <code>amountInQueueFrom(sender)</code> will return the number of packets in a <code>Router</code>’s queue, which are from <code>sender</code>. This will always be a non-negative whole number, or <code>int</code>eger, (i.e. 0, 1, 2, 3, … etc.). For example, if 6 packets in <code>Router</code> 5’s queue come from a single <code>sender</code>, then <code>amountInQueueFrom(sender)</code> will return <code>6</code>.</p>
+<p>Writing the code <code>return amountInQueueFrom(sender) &gt; 5</code> will return <code>true</code> if more than half of the queue is from <code>sender</code>, and will return <code>false</code> otherwise.</p>
+<pre><code>int amountInQueue()</code></pre>
+<p>Writing the code <code>amountInQueue()</code> will return the number of packets that are currently in the queue. This will always be a non-negative whole number, or <code>int</code>eger, (i.e. 0, 1, 2, 3, … etc.). For example, if there are 8 packets in a <code>Router</code>’s queue from any number of senders, then <code>amountInQueue()</code> will return <code>8</code>.</p>
+<p>Writing the code <code>return amountInQueue() &gt; 5</code> will return <code>true</code> if the queue is at least half full, and will return <code>false</code> otherwise.</p>
 <blockquote>
 <p><em>Exercise 3a. Fill in the <code>blockSender</code> command to defend against your DoS attack from Task 2</em></p>
 </blockquote>
 <blockquote>
-<p><em>Exercise 3b. Modify your <code>blockSender</code> command so that it <strong>only</strong> blocks DoS attacks and not normal traffic. To ensure that <code>blockSender</code> isn’t blocking benificent packets, try and send many (at least 4) packets from Router 1 to Router 2 at the same time. This should feel familiar to your solution to Exercise 1c</em></p>
+<p><em>Exercise 3b. Modify your <code>blockSender</code> command so that it <strong>only</strong> blocks DoS attacks and not normal traffic. To ensure that <code>blockSender</code> isn’t blocking nice packets, try to send many (at least 4) packets from <code>Router</code> 1 to <code>Router</code> 2 at the same time. This should feel familiar to your solution to Exercise 1c</em>.</p>
 </blockquote>
-<p>Now you can consider a more permissive defense approach. Perhaps a router was only being over-eager to send non-malicious traffic (such as in Exercise 3b). Perhaps you accidentally blacklisted a node that wasn’t actually attacking you!</p>
-<p>You will now decide when to unblock traffic from a sender by defining the <code>unblockSender</code> command. When <code>unblockSender</code> returns true, it overrides the router’s decision to <code>blockSender</code> and begins accepting packets from the <code>sender</code> once more. The current command definition is as follows</p>
+<p>Now you can consider a more permissive defense approach. Perhaps a <code>Router</code> was only being over-eager to send non-malicious traffic (such as in Exercise 3b). Perhaps you accidentally blacklisted a node that wasn’t actually attacking you!</p>
+<p>You will now decide when to unblock traffic from a sender by defining the <code>unblockSender</code> command. When <code>unblockSender</code> returns true, it changes the <code>Router</code>’s decision to <code>blockSender</code> and begins accepting packets from the <code>sender</code> once more. The current definition of <code>unblockSender</code> is as follows:</p>
 <pre><code>boolean unblockSender(Router sender) {
   return false;
 }</code></pre>
 <p>The current definition will <em>never</em> unblock a <code>sender</code> because it always returns <code>false</code>.</p>
 <blockquote>
-<p><em>Exercise 3c. Try replacing <code>false</code> to <code>true</code>? What happens to the defense you implemented in Exercise 3b?</em></p>
+<p><em>Exercise 3c. Try replacing <code>false</code> with <code>true</code>? What happens to the defense that you just implemented?</em></p>
 </blockquote>
 <p>Now, use the commands from the previous exercise to write code that returns <code>true</code> when you want to <code>unblockSender</code>. You will find it helpful to know that you can use the less-than sign (<code>&lt;</code>) to compare numbers just as you did with the greater-than sign (<code>&gt;</code>) in the previous exercise!</p>
 <blockquote>
-<p><em>Exercise 3d. Implement the <code>unblockSender</code> command</em></p>
+<p><em>Exercise 3d. Implement the <code>unblockSender</code> command.</em></p>
 </blockquote>
 <blockquote>
-<p>_Exercise 3e. Play with the thresholds that you set in <code>blockSender</code> and <code>unblockSender</code> so that DoS Attacks never bring down a router, and over-eager routers are rejected at first, but if they slow down will be processed as normal.</p>
+<p><em>Exercise 3e. Play with the thresholds that you set in <code>blockSender</code> and <code>unblockSender</code> so that DoS Attacks never bring down a <code>Router</code>, and over-eager <code>Routers</code> may be rejected at first, but if they slow down, they will be processed as normal.</em></p>
 </blockquote>
 <h3 id="task-4-an-arms-race">Task 4: An Arms Race</h3>
-<p>You have a defense (in your <code>Lab_3</code> file) to an attack (in your <code>Lab_2</code> file) that you just wrote! Your task now is to come up with creative ways to cause routers to fail (in the <code>Lab_2</code> file) and then defend against those creative attacks (in your <code>Lab_3</code> file).</p>
-<p>The <code>EvilRouter</code> has 4 commands that you can write code in with. You’ve already seen how <code>evilDoEveryStep</code> works. There are also <code>evil</code> versions of the <code>itsForMe</code>, <code>dontKnow</code> and <code>doKnow</code> commands from the lab yesterday, called <code>evilItsForMe</code>, <code>evilDontKnow</code>, and <code>evilDoKnow</code> respectively. You can make changes to these commands while figuring out the answers to your questions.</p>
-<p>If you’d like to see our solution to <code>Lab_1</code>, simply scroll to the bottom of the <code>Lab_2</code> file where it describes the <code>UnsafeRouter</code>. You may change this solution if you desire!</p>
-<p>For now, try to be creative and do whatever you find interesting! You might, for example, implement one of the strategies of the Malicious Agents from our earlier activity, like refusing to forward packets. If you’re stuck on what to do, you might draw inspiration from some options we have provided below.</p>
+<p>You have a defense (in your <code>Lab_3</code> tab) to an attack (in your <code>Lab_2</code> tab) that you just wrote! Your task now is to come up with creative ways to cause <code>Routers</code> to fail (in the <code>Lab_2</code> tab) and then defend against those creative attacks (in your <code>Lab_3</code> tab).</p>
+<p>The <code>EvilRouter</code> has 4 commands where you can change the code. You’ve already seen how <code>evilDoEveryStep</code> works. There are also <code>evil</code> versions of the <code>itsForMe</code>, <code>dontKnow</code> and <code>doKnow</code> commands from the lab yesterday, called <code>evilItsForMe</code>, <code>evilDontKnow</code>, and <code>evilDoKnow</code> respectively. You can make changes to these commands while figuring out the answers to your questions.</p>
+<p>If you’d like to see our solution to <code>Lab_1</code>, simply scroll to the bottom of the <code>Lab_2</code> tab where it describes the <code>UnsafeRouter</code>. You may change this solution to modify the <code>good</code> <code>Routers</code> if you desire!</p>
+<p>For now, try to be creative and do whatever you find interesting! You might, for example, implement one of the strategies of the Malicious Agents from our earlier activity, like refusing to forward packets. If you’re stuck on what to do, you can draw inspiration from some options we have provided below:</p>
 <blockquote>
-<p><strong>Remember to Consult your Cheat Sheets to see what kinds of Commands you have available to you</strong></p>
+<p><strong>Remember to Consult your Cheat Sheets to see what kinds of Commands are available to you</strong></p>
 </blockquote>
 <p><em>Option 1. Spoofing for fun and profit</em></p>
 <p>You might try to implement spoofing, which is just a fancy term for “lying about who sent a packet”. To do this you will need to write</p>
 <pre><code>  p.src = &lt;insert your code here&gt;;</code></pre>
-<p>before you forward the packet on. This changes the Sender (i.e. the <code>src</code>) of the packet. You will need to change some commands besides <code>evilDoEveryStep</code> for this to work.</p>
-<p>Once you’ve implemented spoofing, try and defend against it! What strategies might you employ? This is hard, ask for help if you get to this point!</p>
-<p><em>Option 2. Pretend to be a failed router</em></p>
-<p>As you learned in task 1, failed routers do not forward packets through the network. They are black holes that receive everything and send nothing. This makes it difficult for other routers to send packets across the network!</p>
+<p>before you forward the packet on. This changes the <code>Sender</code> (i.e. the <code>src</code>) of the packet. You will need to change some commands besides <code>evilDoEveryStep</code> for this to work.</p>
+<p>Once you’ve implemented spoofing, try to defend against it! What strategies might you employ? This is hard, once you’ve thought about it for a few minutes, please ask for help!</p>
+<p><em>Option 2. Pretend to be a failed <code>Router</code></em></p>
+<p>As you learned in task 1, failed routers do not forward packets through the network. They are black holes that receive everything and send nothing. This makes it difficult for other routers to send packets across the network! If you are <code>evil</code>, just pretending to fail can be an effective strategy.</p>
 <p>How might you defend against this attack? Think about choosing alternate routes through the network.</p>
 <p><em>Option 3. Send only one packet on <code>evilDoEveryStep</code></em></p>
 <p>Try to execute an attack on a router where you only send a single packet in evilDoEveryStep. One way to do this is to perform a Distributed Denial of Service attack or DDoS, which is where you send packets from multiple routers. You can do this in the interface (by creating multiple EvilRouters), or, even better, write code to “trick” other, normal routers into sending many packets to your target.</p>
