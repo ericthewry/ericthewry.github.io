@@ -47,6 +47,13 @@ main = hakyll $ do
         >>= loadAndApplyTemplate "templates/default.html" paperCtx
         >>= relativizeUrls
 
+    match "posts/*" $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/post.html"    paperCtx
+        >>= loadAndApplyTemplate "templates/default.html" paperCtx
+        >>= relativizeUrls
+
     create ["whywry.md"] $ do
       route $ setExtension "html"
       compile $ pandocCompiler
@@ -72,6 +79,18 @@ main = hakyll $ do
         getResourceBody
           >>= applyAsTemplate newsCtx
           >>= loadAndApplyTemplate "templates/default.html" newsCtx
+          >>= relativizeUrls
+
+    create ["posts.html"] $ do
+      route idRoute
+      compile $ do
+        posts <- reverse <$> (chronological =<< loadAll "posts/*")
+        let postCtx =
+              listField "posts" postCtx (return posts) `mappend`
+              defaultContext
+        getResourceBody
+          >>= applyAsTemplate postCtx
+          >>= loadAndApplyTemplate "templates/default.html" postCtx
           >>= relativizeUrls
 
     create ["resume.tex"] $ do
@@ -114,12 +133,14 @@ main = hakyll $ do
         route idRoute
         compile $ do
             papers <- recentFirst =<< loadAll "papers/*"
+            posts <- take 7 <$> (recentFirst =<< loadAll "posts/*")
             teaching <- reverse <$> (chronological =<< loadAll "teaching/*")
             news <- (take 7). reverse <$> (chronological =<< loadAll "news/*")
             let indexCtx =
                     listField "papers" paperCtx (return papers)           `mappend`
                     listField "teaching" defaultContext (return teaching) `mappend`
                     listField "news" paperCtx (return news)               `mappend`
+                    listField "posts" paperCtx (return posts)             `mappend`
                     constField "title" "Home"                             `mappend`
                     defaultContext
                     
