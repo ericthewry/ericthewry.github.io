@@ -21,7 +21,7 @@ theoretically unsolvable, but practically quite fast.
 
 This week at Cornell, my research group hosted [a
 workshop](http://network-programming.org/wfr/) that brought together
-experts on packet routing from around the country. Theoreticians and
+experts on packet routing from around the world. Theoreticians and
 Practitioners alike (and everyone in between) got together to discuss
 data plane routing protocols, probabilistic verification tools,
 performant dynamic routing algorithms, static/oblivious routing,
@@ -30,7 +30,7 @@ the work presented in this workshop relied on, exploited or explored
 this strange tension between the theoretical and the practical.
 
 The main theme that stuck with me across all of the research talks was
-that often times the theoretical worst-case or average-case bounds
+that oftentimes the theoretical worst-case or average-case bounds
 don't capture how well we can do in practice. Perhaps the research was
 organized so neatly because much of it was funded by the same grant,
 the _Algorithms in the Field_ NSF grant, designed to fund both
@@ -52,7 +52,7 @@ decisions are processed as the sequence `σ` of requests (e.g. `GET` or
 these algorithms, they compare their result against the optimal
 offline algorithm, which can view all requests in advance, and derive
 a routing scheme with *total* information. Räcke explained the O(`log
-n`) competitive algorithm, and explaine that no algorithm could do
+n`) competitive algorithm, and explained that no algorithm could do
 better than `Ω(√(log n))`.
 
 Immediately after, Kumar presented his work that combined Räcke's
@@ -90,5 +90,3 @@ Jenna?) — during the Q&A portion of Räcke's talk, many of the
 attending systems researchers were very curious to know how Oblivious
 Routing schemes fared in practice. And then lo! up walked Praveen,
 graphs in hand, ready to answer exactly that question...
- 
-
