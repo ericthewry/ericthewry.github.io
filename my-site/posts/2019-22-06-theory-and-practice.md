@@ -1,5 +1,5 @@
 ---
-author: Eric Campbell
+author: Eric Hayden Campbell
 date: June 22, 2019
 title: Theoretically Feasible, Practically Exceptional
 subtitle: Reflections on the NPI Workshop on the Foundations of Routing
@@ -41,10 +41,13 @@ I think the cleanest example of the tension between the theoretical
 and the practical was between Harald Räcke's talk on Compact
 Demand-Oblivious Routing, and Praveen Kumar's talk on Semi-Oblivious
 Routing.  Räcke presented a series of complicated routing schemes
-based on his 2002 and 2008 papers that provided theoretical bounds on
-the latency in the network. He also discussed more recent work on
-*Compact Oblivious Routing*, a variation on the problem that tries to
-minimize the number of forwarding rules installed on each switch.
+based on his
+[2002](https://ieeexplore.ieee.org/abstract/document/1181881) and
+[2008](http://people.cs.uchicago.edu/~hari/routing.pdf) papers that
+provided theoretical bounds on the latency in the network. He also
+discussed more recent work on *Compact Oblivious Routing*, a variation
+on the problem that tries to minimize the number of forwarding rules
+installed on each switch.
 
 All of the papers discuss an on-line algorithm, that is, routing
 decisions are processed as the sequence `σ` of requests (e.g. `GET` or
@@ -55,16 +58,17 @@ a routing scheme with *total* information. Räcke explained the O(`log
 n`) competitive algorithm, and explained that no algorithm could do
 better than `Ω(√(log n))`.
 
-Immediately after, Kumar presented his work that combined Räcke's
-early work on oblivious routing (2002, 2008) with an interfering
-controller that dynamically recalculated edge weights so that route
-selection could be done semi-dynamically, providing near-optimal
-traffic engineering performance. He explained that the congestion,
-latency, and throughput for the online SMORE routing scheme was either
-equal to the offline optimal performance or within 5-15 of optimal. He
-also showed consistently better performance than pure oblivious
-routing schemes and many other well-known routing schemes (such as
-FCC).
+Immediately after, Kumar presented his work,
+[SMORE](https://www.cs.cornell.edu/~praveenk/papers/smore-anrw18.pdf),
+that combined Räcke's early work on oblivious routing with an
+interfering controller that dynamically recalculated edge weights so
+that route selection could be done semi-dynamically, providing
+near-optimal traffic engineering performance. He explained that the
+congestion, latency, and throughput for the online SMORE routing
+scheme was either equal to the offline optimal performance or within
+5-15 of optimal. He also showed consistently better performance than
+pure oblivious routing schemes and many other well-known routing
+schemes (such as FCC).
 
 This is bonkers! -- but not entirely unsurprising in computer
 science. By focusing on the average case, Kumar was able to develop an
