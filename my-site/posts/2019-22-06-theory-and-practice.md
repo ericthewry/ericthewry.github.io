@@ -83,7 +83,7 @@ In keeping with these questions, SMORE is a perfect marriage of
 theoretical computer science and experimental computer science. It is
 systems research motivated by and deeply grounded in theory. This is
 the kind of Systems Research programme that really excites me. Maybe
-thats why I'm working with Nate..?
+that's why I'm working with Nate..?
 
 Also, props to whoever came up with the schedule (Nate? Jen? Praveen?
 Jenna?) — during the Q&A portion of Räcke's talk, many of the
