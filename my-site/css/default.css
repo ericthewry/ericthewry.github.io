@@ -33,6 +33,19 @@ div#header #navigation a {
     text-transform: uppercase;
 }
 
+table.links a{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 12px;
+    /* text-decoration: none; */
+    /* text-transform: uppercase; */
+}
+
+table.links tr td {
+    /* border: 2px solid black;	 */
+}
+
 div#footer {
     border-top: solid 2px black;
     color: #555;
