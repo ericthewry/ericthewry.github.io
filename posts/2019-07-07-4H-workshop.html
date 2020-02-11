@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Hayden Campbell - Teaching Networking Experientally </title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">Eric Hayden Campbell</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../news.html">News</a>
+                <!-- <a href="/papers.html">Publications</a>x -->
+                <a href="../posts.html">Blog</a>
+            </div>
+        </div>
+
+        <div id="content">
+	  <div class="info">
+  <h1> Teaching Networking Experientally </h1>
+  
+  <h3> How to teach 40 high school students to program networks in 3 days </h3>
+  
+    Posted on June 22, 2019
+    
+        by Eric Hayden Campbell
+    
+</div>
+
+<p>The first week of my PhD program, I learned about <em>active teaching strategies</em> for engaging students in the classroom, which force the students to actively engage with the material, by responding to questions, talking to each other, or moving around the classroom to solve problems. The classic example is <em>Think, Pair, Share</em> where students <em>think</em> about the solution to a problem on their own, <em>pair</em> up with someone next to them to discuss the answer, and then <em>share</em> their solution with the whole class (apparently this exact strategy has been used, to great success, at real academic conferences like OOPSLA). More creative and engaging tasks try to get students up out of their seats, and think about the material by talking, doing, or creating.</p>
+<p>It’s difficult to come up with active teaching strategies for computer science. How do you get students up out of their seats to learn about Algorithms? or Networking? How would you even think about that for Formal Logic or Functional Programming? The systems that we think about are so complicated that even thinking about a hands-on activity to teach these concepts beyond the basics seems impossible.</p>
+<p>So, when <a href="http://www.cs.cornell.edu/~jnfoster/">Nate</a> asked <a href="https://www.cs.cornell.edu/~dilorenzo/">Jonathan</a> and me to develop and lead a 3-day workshop for high school students on Networking and Security, I was a little lost. The students were to come to Cornell from a STEM-focused public school in Philadelphia, PA; most of them would have 0 programming experience and 0 knowledge of computer science, networking, or computer security. How were we going to teach them any of this in only three days? The familiar lecture+lab teaching structure that we are used to at the university level wouldn’t work – Professors can hardly keep the attention of a room full of 20-year-olds for an <em>hour</em>, let alone 3 days. It was daunting.</p>
+<p>Luckily, <a href="http://www.cs.cornell.edu/~laurejt/">Laure</a>, <a href="http://www.cs.cornell.edu/~milano/">Matthew</a>, <a href="https://cs.pomona.edu/~ebirrell/">Eleanor</a>, and <a href="https://tommagrino.com/">Tom</a>, had come up with an activity to teach networking to middle schoolers for the EYH conference. The activity aimed to give <em>experiential</em> knowledge to students having them figure out, organically, how routers should behave. I had adopted this EYH workshop as a first year, and thought it would be useful for the 4-H conference. We adapted the activity to work with older students, and used the concepts we could teach to develop programming labs where the students would write code to implement exactly what they had experientialy learned.</p>
+<p>Over the course of three days and two labs we were able to teach basics of programming, networking, and how the scientific method applies to computer science – <em>all without lecturing for more than 10 minutes at a time!</em></p>
+<h3 id="part-1-passing-notes-in-class">Part 1: Passing Notes in Class</h3>
+<p>What do routers do? – They send packets back and forth. What are high school students really good at? – Passing notes back and forth. All we did is construct a scenario that made the students act like routers in a network, only instead of sending packets on the wire, they handed handwritten notes to each other.</p>
+<p>The students were each handed a piece of paper with an animal on it and were told that there was exactly one other student who had the same animal. Their task was to find the other pair with the same animal – without getting up from their desks or communicating verbally – and then learn an icebreaker-style fact about them (e.g. favorite movie, musician, etc.). They were given notecards, pens, and each table had a “grid number” (e.g. <code>A7</code> or <code>B2</code>, like on a chess board).</p>
+<p>That was it! We gave the students no direction about <em>what</em> to write on the notecards, or what kinds of strategies they might use to find the other student with the same animal as them! Nonetheless, in a room with ~40 students, every student found their partner in only 7 minutes!</p>
+<p>The kicker is that they used <em>realistic networking strategies</em> to solve the problem. #### Approaches</p>
+<p>The most common approach that students took was to send a note that said something like</p>
+<blockquote>
+<p><code>We (C3) have the Orangutan</code></p>
+</blockquote>
+<p>Then, on receiving such a note, the students would either randomly pass the note to someone else, or if they knew where the other <em>Orangutan</em> was, they would pass it to them. If they themselves <em>had</em> the other orangutan, they would return a note that said something like</p>
+<blockquote>
+<p><code>(Send to C3) We (A2) also have the Orangutan!</code></p>
+</blockquote>
+<p>This is essentially a nondeterministic version of TCP over the standard <a href="http://yuba.stanford.edu/cs244wiki/index.php/Learning_Switch">learning switch protocol</a>, where instead of flooding unknown traffic to <em>all</em> neighbors, a switch forwards to a nondeterministically chosen neighbor!</p>
+<p>Another approach is to take a generic gossip protocol approach and send around a master list with blanks for everyone’s animal.</p>
+<pre><code>     A1 : ___
+     A2 : ___ 
+     A3 : ___
+     ..</code></pre>
+<p>The students then fill in the master list as it goes around, by the time the master list is completely filled out, at least one of every pair knows who their partner is, so they can establish communication with a message like</p>
+<blockquote>
+<p><code>(Send to A2) We (C3) are the Orangutan!</code></p>
+</blockquote>
+<h4 id="wrapping-up-the-activity">Wrapping Up the Activity</h4>
+<p>To cement the fact that the students had <em>just done what actual routers do</em> we had a short discussion at the end that related the task to real networking concepts: what’s a router? how do they work? what happens when I ask Google for cat pictures? This was actually quite easy, because the answers to all of these questions were some form of “what you just did.”</p>
+<p>I’d done this before with Laure for an EYH workshop, so I wasn’t surprised by the outcome, but the fact that the students were able to come up with realistic strategies that are analogous to the ones used in the real internet was really exciting for Jonathan – who had retained a degree of healthy skepticism about whether or not this would actually work. Oh ye of little faith…</p>
+<h3 id="part-2-eventful-programming-a-with-simple-api">Part 2: Eventful Programming a with Simple API</h3>
+<p>Once this activity came to a close, we moved into the computer lab to get the students programming by having them implement a <a href="https://www.youtube.com/watch?v=8DDjbL4SSlY">simple learning switch</a>. We exposed an <a href="../pdfs/careerexcheatsheet.pdf">simple, declarative API</a> that exposed some high-level functionality to mimic real networking APIs (<a href="https://ericthewry.github.io/pdfs/careerexlab1.pdf">click here for the lab document</a>). Essentially, we divided each router’s functionality into three callbacks: <code>itsForMe(Packet p)</code> (which is called when the destination of the packet (<code>p</code>) is the current router), <code>dontKnow(Packet p)</code> (which is called when you dont know where to send the packet next), and <code>doKnow(Packet p)</code> which is called when you do know where to send the packet next). In a real router, <code>itsForMe</code> roughly corresponds to forwarding to an adjacent host, <code>doKnow</code> roughly corresponds to a table hit, and <code>dontKnow</code> roughly corresponds to a table miss.</p>
+<p>Taking inspiration from Kim Bruce’s textbook <a href="https://dl.acm.org/citation.cfm?id=1060091">Java: An Eventful Approach</a>, we gave the students a graphical playground that they could fully manipluate. We had routers connected by blue lines, and you could send a packet (depicted by an envelope icon) by clicking first on the sender and then on the receiver. <a href="https://drive.google.com/file/d/1PqCkpgFG7JBEAvMdK0Ak4iCzwITRpwtu/view">Download the code here</a>. Much of the OO design and programming work here was done by a precocious undergrad, <a href="https://www.linkedin.com/in/brianna-adams-26b524178">Brianna</a>.</p>
+<p>Overall this lab was a success! About 80% of the students were able to finish the learning switch by the end of the hour we had alloted for the lab. It seemed that the ~20% who really struggled were having difficulty manipulating the syntax, a problem I hadn’t expected, but should have – we didn’t lecture them at all about syntax! Luckily these student were able to grok this “reality gap” by the end of the next day.</p>
+<h3 id="part-3-passing-notes-mafia-style">Part 3: Passing Notes, Mafia Style</h3>
+<p>The next day, we brought the students back in to pass more notes, but with a Byzantine twist. Instead of simply having the students discover their unknown animal-partner, we made a few students “Evil”. Their job was to act just like normal message-passers, but completely mislead their classmates about who had which animal. So if student <code>B7</code> was evil, and they knew that <code>B6</code> had the <code>Hippogriff</code>, they might send a note to <code>A7</code> saying</p>
+<blockquote>
+<p><code>(Send to A7) B6 has the Hippogriff</code></p>
+</blockquote>
+<p>This scheme caused all kinds of chaos and confusion, and the students loved it. Especially since the Evil students didn’t know who else was Evil, or how many evil students there were in total. We also included a mechanic for detecting, and repairing the students my majority vote: if an Evil student was “voted off the island” they flipped to Good, however if a Good student was “voted off the island”, they flipped to being Evil. Here’s how it worked:</p>
+<p>After about 5 minutes of note passing, we stopped all message passing, and collected a note from each student that detailed who they thought had the same animal as them, e.g.</p>
+<blockquote>
+<p><code>A5 thinks C4 has the other Liger</code></p>
+</blockquote>
+<p>We then acted as Teacher-Oracle and gave them one of two responses: “Everyone is correct, and we’re done” or “Someone is wrong, we need to keep going” (we didn’t specify who was wrong, just that someone was wrong). Unfortunately, we never gave the first response (which was entirely our fault).</p>
+<p>Once the students learned that they were collectively wrong, we moved into a second phase, voting. We fielded comments and accusations from the students for about 5 minutes, and recorded their accusations. At the end of the 5 minutes, everyone voted for who they thought was Evil.</p>
+<p>This turned out great! The students were high-engery and deeply involved in figuring out creative schemes to suss out the Evil students. Mostly, they relied on the handwriting to detect forged messages e.g. if they saw messages like <em>A7 has Hippo</em>, <strong>A7 has Cat</strong>, (A8 has Cat), and <strong>A8 has Dog</strong>, they would conclude that it was more likely for A7 to have the hippo and A8 to have the Cat. But even still they often didn’t have enough information to make it through.</p>
+<h4 id="aside-lessons-learned">Aside: Lessons Learned</h4>
+<p>We were disappointed by the fact that the students were unable to figure out who the Evil Students were. In fact, every time, they turned a Good student into an Evil one, never the other way around. We screwed this up by making our initial configuration too difficult.</p>
+<div class="figure">
+<img src="../images/starting_config.png" alt="Clip-art credit to https://free.clipartof.com/details/1508-Free-Clipart-Of-A-Lion" />
+<p class="caption">Clip-art credit to https://free.clipartof.com/details/1508-Free-Clipart-Of-A-Lion</p>
+</div>
+<p>The students were arranged in 6 rows and 4 columns grid (as shown above). They could pass messages forwards, backwards, or sideways, but not diagonally. Then, like hubristic Greek kings, we seeded the byzantine message passing activity with three Evil students, on the major diagonal, meaning that they were one short of a separator set. We thought this would be fun challenging, we thought that the students would learn to pass notes through the one Good student… It turned out to be way too hard of a task: after the first round they voted a single Good Student off the island, completing the separator, and making it impossible for them to accurately figure out who was on the other side of the Evil Blockade.</p>
+<p>On the plus side we were able to instill in them how difficult it is to detect Evildoers on the internet, and how easy it really is to be evil.</p>
+<h3 id="part-4-denying-service-the-arms-race">Part 4: Denying Service &amp; the Arms Race</h3>
+<p>In the <a href="https://ericthewry.github.io/careerex.html">final lab</a> students played with (D)DoS attacks and mitigations, by giving them the ability to speed up Evil Routers, inspect the source of packets, drop incoming packets that have exceeded a certain threshold.</p>
+<p>The idea here was to provide a bit of experience with the scientific method in computer science. First you come up with an attack model (DoS), then you defend against it (Queue Utilization Thresholds), then you measure the emergent properties of the defense (sometimes valid communications get dropped), so you update your model (Sender-Specific Thresholds), and look for more emergent properties. Then you try and see if your defense is robust to a more general attack model (e.g. DDoS/Spoofing), and come up with more sophisticated defense mechanisms, (e.g. Signing).</p>
+<p>This lab period was about 2 hours, and every student was able to complete the DoS Attack and simple DoS mitigation. A few students were able to complete the DDoS and Spoofing portions.</p>
+<h2 id="takeaways-for-networking-and-computer-science-education">Takeaways for Networking and Computer Science Education</h2>
+<p>After having no experience with programming, networking, or with Mafia, our students were able to:</p>
+<ul>
+<li>Implement realistic networking programs with little-to-no prior programming experience</li>
+<li>Derive real-world consensus and discovery protocols by following their noses</li>
+</ul>
+<p>From an education perspective, this really speaks to the power of experiential learning. Without the hands-on experience and visual interface, I hypothesize that our experience would not have been so effective.</p>
+<p>From a Networking perspective, I think this really speaks to the need for better networking abstractions. Our 14-18 year olds (with no programming or CS experience) were able to synthesize and implement these simple, but realistic, policies in three days based on a few very high level primitives. I believe that this provides some weak evidence that operating complex networks doesn’t need to be as complicated as it currently is – we just need effective methods for abstracting away the details, interpreting what networks are doing, and predicting how they will behave.</p>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
