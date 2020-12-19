@@ -1,0 +1,3 @@
+---
+descr: I passed my thesis proposal exam!
+---

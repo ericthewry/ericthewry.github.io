@@ -1,0 +1,16 @@
+---
+title: "Epistemic Semantics in Guarded String Models"
+authors: Eric Hayden Campbell, Mats Rooth
+venue: SCiL
+month: February 2020 
+descr: "Extend Kleene Algebra with Tests to model epistemic semantics of modal verbs in natural English"
+--- 
+
+Constructive and computable multi-agent epistemic possible worlds
+models are defined, where possible worlds models are guarded string
+models in an epistemic extension of Kleene Algebra with Tests. The
+account is framed as a formal language Epik (Epistemic KAT) for
+defining such models. The language is implemented by translation into
+the finite state calculus and alternatively by modeling propositions
+as lazy lists in Haskell. The syntax-semantics interface for a
+fragment of English is defined by a categorial grammar.
