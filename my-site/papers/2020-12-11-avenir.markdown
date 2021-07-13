@@ -4,6 +4,7 @@ authors: Eric Hayden Campbell, William T. Hallahan, Priya Srikumar, Carmelo Casc
 venue: NSDI
 month: April 2020 
 pdf: "pdfs/avenir.pdf"
+slides: "https://www.usenix.org/conference/nsdi21/presentation/campbell"
 descr: "Employ program synthesis to translate abstract switch operations into target switch operations"
 --- 
 

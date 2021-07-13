@@ -4,6 +4,7 @@ authors: Eric Hayden Campbell, Mats Rooth
 venue: SCiL
 month: February 2020 
 pdf: "/pdfs/epistemic_kat.pdf"
+slides: 
 descr: "Extend Kleene Algebra with Tests to model epistemic semantics of modal verbs in natural English"
 --- 
 
