@@ -1,0 +1,3 @@
+---
+descr: I gave an invited talk on control plane synthesis at CAV's P4 Verification Workshop
+---
