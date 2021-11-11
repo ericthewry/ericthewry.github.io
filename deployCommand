@@ -8,10 +8,10 @@ git checkout develop
 cd ./my-site
 stack exec site clean
 stack exec site build
-xelatex ./_site/resume.tex
-latexmk -pdf ./_site/cv.tex
-cp ./resume.pdf ./_site/pdfs/
-cp ./cv.pdf ./_site/pdfs/
+# xelatex ./_site/resume.tex
+# latexmk -pdf ./_site/cv.tex
+# cp ./resume.pdf ./_site/pdfs/
+# cp ./cv.pdf ./_site/pdfs/
 cd -
 
 # Get previous files
