@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Hayden Campbell - Solving Myst Puzzles with Z3 </title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">Eric Hayden Campbell</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../news.html">News</a>
+                <!-- <a href="/papers.html">Publications</a>x -->
+                <a href="../posts.html">Blog</a>
+            </div>
+        </div>
+
+        <div id="content">
+	  <div class="info">
+  <h1> Solving Myst Puzzles with Z3 </h1>
+  
+  <h3> How I Got Nerd-Sniped Playing VR Myst over Christmas </h3>
+  
+    Posted on December 29, 2021
+    
+        by Eric Hayden Campbell, debugging help by Frances Campbell
+    
+</div>
+
+<hr />
+<p>So my sibling, Frances, has a sweet new VR set, and as a family we spent a bunch of time over Christmas nerding out playing Half Life: Alyx, Beat Saber, and Myst. It was a great time! As we were playing, I got nerd-sniped by implementing one of the puzzles in VR Myst. Here’s the puzzle and my Z3 implementation of the solution.</p>
+<blockquote>
+<p><em>Warning: Minor Spoilers for Myst</em></p>
+</blockquote>
+<p>One of the early puzzles in Myst is to rotate a set of 3 vertically-stacked gears to a desired using a pair of levers. Once you find the desired combination from the environment (it’s 2-2-1), the trick is to pull the two levers to move the three gears into that position. The catch is that the left lever moves the top two gears up one and the right lever moves the bottom two gears up one. Holding either lever down causes the middle gear to move after the original simultaneous rotation.</p>
+<p>So, being the nerd I am, this seemed like a fun cheesy SMT problem. So, I spent the rest of the evening not paying attenion to the game and hacking together an SMTLIB implementation, much to the chagrin of my family. My Dad (who was in the Index) solved the actual problem in only a few minutes, but I wanted to flex my Z3 muscles.</p>
+<h3 id="the-datatypes">The Datatypes</h3>
+<p>First, I wrote down the Datatypes for the problem. A <code>Gear</code> is an enum with values <code>one</code>, <code>two</code>, or <code>three</code> as below:</p>
+<pre><code>(declare-datatype ((Gear 0))
+  (( (one) (two) (three) )))</code></pre>
+<p>Then the user can take one of three <code>Action</code>s, pull the right lever (<code>PullRight</code>), pull the left lever (<code>PullLeft</code>), or <code>Hold</code> the previouly pulled lever down. I added a <code>Noop</code> action to give the solver a bit more freedom in finding solutions.</p>
+<pre><code>(declare-datatype ((Action 0)) 
+  (( (PullLeft) (PullRight) (Hold) (Noop) )))</code></pre>
+<p>Finally, I wrote down a triple, <code>Gears</code> representing the <code>top</code>, <code>mid</code>dle and <code>bot</code>tom gears.</p>
+<pre><code>(declare-datatypes ((Gears 0))
+  (( (gears (top Gear) (mid Gear) (bot Gear)) )))</code></pre>
+<h3 id="the-semantic-operations">The Semantic Operations</h3>
+<p>With the datatypes in hand, I wrote down the functions that perform the specific actions. First I defined a helper function <code>shift</code> that shifts the gear using plus-1-mod-3 arithemetic:</p>
+<pre><code>(declare-fun shift ((g Gear)) Gear
+  (if (= one g) two
+      (if (= two g) three one)))</code></pre>
+<p>Now, it’s easy to use these to implement the behavior of pulling the left and right levers, by shifting the appropriate gears. The <code>left</code> and <code>right</code> functions are defined below.</p>
+<pre><code>(define-fun left ((g Gears)) Gears
+  (gears
+   (shift (top g))
+   (shift (mid g))
+   (bot g)))
+
+(define-fun right ((g Gears)) Gears
+  (gears
+   (top g)
+   (shift (mid g))
+   (shift (bot g))))
+</code></pre>
+<p>Then the <code>hold</code> function, which corresponds to holding down the previously-pulled lever is defined similarly, <code>shift</code>ing only the middle one.</p>
+<pre><code>(define-fun hold ((g Gears)) Gears
+  (gears
+   (top g)
+   (shift (mid g))
+   (bot g)))</code></pre>
+<h3 id="the-transition-system">The Transition System</h3>
+<p>Now, in order to turn this into a synthesis problem, where the solver decides what actions to execute, we need interpret the <code>Action</code> datatype. There are a few ways to do this, <code>define</code>-ing the function, <code>declare</code>-ing it, or <code>declare</code>-ing it as a relation and <code>assert</code>-ing the funcitonal constraint. My first attempt was to just <code>define</code> it, but this triggered a known bug relating to inverted argument order in computing the model.</p>
+<p>Instead, I had to declare the interpetation function, called <code>action</code>, and specify it. For the cleanliness of specifying the transition system, I wrote it as a relation with a functional assertion.</p>
+<p>So we define <code>action</code> to be a relation with the following type:</p>
+<pre><code>(declare-fun action (Action Gears Gears) Bool)</code></pre>
+<p>Here, the <code>Action</code> argument is the action being interpreted, the first gear <code>g</code> is the input, and the second is the output.</p>
+<p>I enforced the requisite functional constraint in the standard way. It says that for any action <code>a</code> and gear-triple <code>gin</code>, if <code>(action a gin gout1)</code> and <code>(action a gin gout2)</code> hold for gear triples <code>gout1</code> and <code>gout2</code> the it must be that <code>gout1</code> and <code>gout2</code> are equivalent.`</p>
+<pre><code>(assert (forall ((a Action) (gin Gears) 
+                 (gout1 Gears) (gout2 Gears)) 
+                  (=&gt; (action a gin gout1) 
+                      (action a gin gout2) 
+                      (= gout1 gout2))))</code></pre>
+<p>Now, we can write the specification. of <code>action</code>, which is just that if the action is <code>PullLeft</code> (<code>PullRight</code>), then the output gear is the result of calling <code>left</code> (<code>right</code>) on the input gear. Similarly, if the action is <code>Hold</code> then the output gear is the result of calling <code>hold</code> on the input gear. Finally, if the action is <code>Noop</code> then the input and output gear are the same: <!-- ```  --> <!-- (assert (forall ((a Action) (g Gears)) --> <!--                 (and (=> ((_ is PullLeft) a) (= (takeAction a g) (left g))) --> <!--                      (=> ((_ is PullRight) a) (= (takeAction a g) (right g))) --> <!--                      (=> ((_ is Hold) a) (= (takeAction a g) (hold g))) --> <!--                      (=> ((_ is Noop) a) (= (takeAction a g) g))))) --> <!-- ``` --></p>
+<pre><code>(assert (forall ((a Action) (g Gears))
+   (and (=&gt; (= PullLeft a) (= (takeAction a g) (left g)))
+        (=&gt; (= PullRight a) (= (takeAction a g) (right g)))
+        (=&gt; (= Hold a) (= (takeAction a g) (hold g)))
+        (=&gt; (= Noop a) (= (takeAction a g) g)))))</code></pre>
+<h3 id="solving-mysts-gear-puzzle">Solving Myst’s Gear Puzzle</h3>
+<p>To use this machinery to solve Myst’s gear puzzle, I decided to use an approach related to bounded model checking. That is, first I try to solve the problem using 1 action, then two then three, until Z3 gives me a solution.</p>
+<p>First, we need to declare the actions, and the intermediate gear states. It will turn out that we’ll only need six, so we’ll only declare that many</p>
+<pre><code>(declare-const act1 Action)
+(declare-const act2 Action)
+(declare-const act3 Action)
+(declare-const act4 Action)
+(declare-const act5 Action)
+(declare-const act6 Action)
+
+(declare-const g0 Gears)
+(declare-const g1 Gears)
+(declare-const g2 Gears)
+(declare-const g3 Gears)
+(declare-const g4 Gears)
+(declare-const g5 Gears)
+(declare-const g6 Gears)</code></pre>
+<p>Now we can write down the transitions that make <code>g_i</code> the result of executing <code>act_i</code>on gear <code>g_i-1</code>:</p>
+<pre><code>(assert (action act1 g0 g1))
+(assert (action act2 g1 g2))
+(assert (action act3 g2 g3))
+(assert (action act4 g3 g4))
+(assert (action act5 g4 g5))
+(assert (action act6 g5 g6))</code></pre>
+<p>Also, to obey the semantics of the game, we need the <code>Hold</code> action to only occur after another action has occured (If no lever has been pulled, we can’t hold it down). My initial thought was to enforce this using a big disjuntion on the six actions, but Frances pointed out that it suffices to just ensure that the first action isn’t <code>Hold</code>. Its a little tricky to justify in the presence of <code>Noop</code>, because a <code>Hold</code> following a <code>Noop</code> is hard to realize. However, remembering that <code>Noop</code> is really the absence of an operation, rather than an operation that does nothing, i.e. that <code>PullLeft Noop Hold</code> is equivalent to <code>PullLeft Hold</code>.</p>
+<p>All this is to say that we add the following assertion to prevent bogus action sequences:</p>
+<pre><code>(assert (not (= act1 Hold))</code></pre>
+<p>So now we can compute the problem instance by just setting the start state to 3-3-3, which was the start state in the game, and the final state to the solution, 2-2-1. Now you can see why its important to have a <code>Noop</code> operation. It might be the case that there is a solution that takes only 3 operations! If we care about the minimal solution, then we need that facility.</p>
+<pre><code>(assert (= g0 (gears three three three)))
+(assert (= g6 (gears two two one)))</code></pre>
+<p>Then we can compute the solution!</p>
+<pre><code>(check-sat)
+(get-value (act1 act2 act3 act4 act5 act6))</code></pre>
+<p>which is</p>
+<pre><code>((act1 PullRight)
+ (act2 Noop)
+ (act3 PullLeft)
+ (act4 Hold)
+ (act5 PullLeft)
+ (act6 Hold))</code></pre>
+<p>Notice that the last action here is <code>Noop</code>! This means that we can actually get a solution in 5 actions. We can try this using the following commands</p>
+<pre><code>(check-sat)
+(assert (= g0 (gears three three three)))
+(assert (= g5 (gears two two one)))
+(get-value (act1 act2 act3  act4 act5))
+</code></pre>
+<p>Which gives the solution:</p>
+<pre><code>sat
+((act1 PullLeft)
+ (act2 PullRight)
+ (act3 Hold)
+ (act4 PullLeft)
+ (act5 Hold))</code></pre>
+<p>Which gives us a solution in 5 moves!</p>
+<!-- When I initially tried to verify this I was getting `unsat`! and i was very -->
+<!-- confused. My sibling, Frances Campbell, helped me to figure out that I had -->
+<!-- accidentally written `g1` instead of `g0`, so I was trying to find a solution in -->
+<!-- 4 moves instead of 5. And it's in fact true that there are no solutions with -->
+<!-- only 4 moves! Checking this with `g4`, `g3`, `g2` and `g1` as the final state -->
+<!-- all yield `unsat`. -->
+<p>This model-checking behavior made me wonder about generalizing this problem. How many moves do you need to get from any starting state to any ending state?</p>
+<h3 id="generalizing">Generalizing</h3>
+<p>Formally, I want to know what the smallest number <code>N</code> is such that, for any starting gear state <code>start</code> and ending gear state <code>end</code>, we can always find a action sequence of length <code>N</code>.</p>
+<p>We’ll do this by slowly increasing the number <code>N</code> until we find a value that works. We formalize the problem by dualizing it for a given <code>N</code>. That is, we will attempt to find a pair of gear states, <code>start</code> and <code>end</code> such that there is no sequence of <code>N</code> <code>Action</code>s that transforms <code>start</code> into <code>end</code>. If this query is <code>sat</code>, it gives us a pair of start and end states that require more than <code>N</code> moves to solve. Whereas if it returns <code>unsat</code> it says that no more than <code>N</code> <code>Action</code>s.</p>
+<p>From the concrete Myst problem instance, we know that we need at least 5 actions, otherwise the pair (<code>start=3-3-3</code>, <code>end=2-2-1</code>) is an unsolvable problem. Let’s start with the hypothesis that 5 actions are sufficient.</p>
+<p>In this version of the problem, we use a functional declaration rather than a relational one to reduce the number of quantified variables we need. (If we used the above relational approach we would need a new variable for every intermediate state). We call this <code>takeAction</code> instead of <code>action</code>.</p>
+<pre><code>(declare-fun takeAction (Action Gears) Gears)
+(assert (forall ((a Action) (g Gears))
+  (and (=&gt; (= PullLeft a) (= (takeAction a g) (left g)))
+       (=&gt; (= PullRight a) (= (takeAction a g) (right g)))
+       (=&gt; (= Hold a) (= (takeAction a g) (hold g)))
+       (=&gt; (= Noop a) (= (takeAction a g) g)))))</code></pre>
+<p>Now we can test whether 5 <code>Action</code>s are sufficient by checking the following query:</p>
+<pre><code>(declare-const start Gears)
+(declare-const end Gears)
+(assert (forall ((a1 Action)
+                 (a2 Action)
+                 (a3 Action)
+                 (a4 Action)
+                 (a5 Action))
+                (not (= end
+                        (takeAction a5
+                        (takeAction a4
+                        (takeAction a3
+                        (takeAction a2
+                        (takeAction a1 start))))))))) 
+(check-sat)
+(get-value (start end))</code></pre>
+<p>But this is insufficient! Giving us the output</p>
+<pre><code>sat
+((start (gears one one one))
+ (end (gears three one three)))</code></pre>
+<p>I haven’t tried to come up with a solution to check that it actually is impossible in 5 operations, but (for better or for worse) I believe Z3.</p>
+<p>So it seems that we need at least 6. Let’s check:</p>
+<pre><code>(assert (forall ((a1 Action)
+                 (a2 Action)
+                 (a3 Action)
+                 (a4 Action)
+                 (a5 Action)
+                 (a6 Action))
+                (not (= end
+                        (takeAction a6
+                        (takeAction a5
+                        (takeAction a4
+                        (takeAction a3
+                        (takeAction a2
+                        (takeAction a1 start))))))))))
+(check-sat)</code></pre>
+<p>Z3 outputs</p>
+<pre><code>unsat</code></pre>
+<p>Which lets us conclude that 6 operations are sufficient, which seems sensible, since the search space is small. I could think about this carefully and prove something about this, but I’ll leave that as an exercise for the reader;).</p>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
