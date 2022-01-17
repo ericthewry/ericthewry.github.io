@@ -1,6 +1,6 @@
 ---
 title: "How to Avoid Making a Billion-Dollar Mistake: Type-Safe Data Plane Programming with SafeP4"
-authors: Matthias Eicholtz, Eric Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini
+authors: Matthias Eichholz, Eric Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini
 venue: ECOOP
 month: July 2019 
 pdf: "/pdfs/safep4.pdf"
