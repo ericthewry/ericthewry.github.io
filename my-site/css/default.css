@@ -95,6 +95,19 @@ div.info {
     padding: 10px 15px 10px 10px;
 }
 
+/* #info > p { */
+/*     font-size: 14pt; */
+/*     margin-top: 0; */
+/*     margin-bottom: 5px; */
+/* } */
+
+/* #info a { */
+/*     color: black; */
+/*     font-size: 18px; */
+/*     font-weight: bold; */
+/*     margin-left: 12px; */
+/* } */
+
 .sc {
     font-variant: small-caps;
     font-size: 110%;
