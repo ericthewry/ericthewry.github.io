@@ -3,7 +3,7 @@ title: Kleene Algebra Modulo Theories
 authors: Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell
 month: June 2022
 venue: PLDI
-pdf:https://arxiv.org/pdf/1707.02894.pdf
+pdf: https://arxiv.org/pdf/1707.02894.pdf
 descr: Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.
 ---
 
