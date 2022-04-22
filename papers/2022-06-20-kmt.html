@@ -10,7 +10,7 @@
     <body>
         <div id="header">
             <div id="logo">
-                <a href="../">Eric Hayden Campbell</a>
+                <a href="../">EHC</a>
             </div>
             <div id="navigation">
                 <!-- <a href="/">Home</a> -->
@@ -31,7 +31,7 @@
         <div id="content">
 	  <div>
   <h2> Kleene Algebra Modulo Theories </h2>
-  <h3> Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell </h3>
+  <h3> Michael Greenberg, Ryan Beckett, and <b>Eric Hayden Campbell</b> </h3>
 
   <!-- <p>Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.</p> -->
   <p>
@@ -44,7 +44,7 @@
 
   <h4> Abstract </h4>
 
-  <p>Kleene algebras with tests (KATs) offer sound, complete, and decidable equational reasoning about regularly structured programs. Since NetKAT demonstrated how well various extensions of KATs apply to computer networks, interest in KATs has increased greatly. Unfortunately, extending a KAT to a particular domain by adding custom primitives, proving its equational theory sound and complete, and coming up with effcient automata-theoretic implementations is still an expert’s task. We present a general framework for deriving KATs we call Kleene algebra modulo theories: given primitives and notions of state, we can automatically derive a corresponding KAT’s semantics, prove its equational theory sound and complete, and generate an automata-based implementation of equivalence checking. Our framework is based on pushback, a way of specifying how predicates and actions interact, first used in Temporal NetKAT. We offer several case studies, including theories for bitvectors, increasing natural numbers, unbounded sets and maps, temporal logic, and network protocols. Finally, we provide an OCaml implementation that closely matches the theory: with only a few declarations, users can automatically derive an automata-theoretic decision procedure for a KAT.</p>
+  <p>Kleene algebras with tests (KATs) offer sound, complete, and decidable equational reasoning about regularly structured programs. Interest in KATs has increased greatly since NetKAT demonstrated how well extensions of KATs with domain-specific primitives and extra axioms apply to computer networks. Unfortunately, extending a KAT to a new domain by adding custom primitives, proving its equational theory sound and complete, and coming up with an efficient implementation is still an expert’s task. Abstruse metatheory is holding back KAT’s potential. We offer a fast path to a “minimum viable model” of a KAT, formally or in code through our framework, Kleene algebra modulo theories (KMT). Given primitives and a notion of state, we can automatically derive a corresponding KAT’s semantics, prove its equational theory sound and complete with respect to a tracing semantics (programs are denoted as traces of states), and derive a normalization-based decision procedure for equivalence checking. Our framework is based on pushback, a generalization of weakest preconditions that specifies how predicates and actions interact. We offer several case studies, showing tracing variants of theories from the literature (bitvectors, NetKAT) along with novel compositional theories (products, temporal logic, and sets). We derive new results over unbounded state, reasoning about monotonically increasing, unbounded natural numbers. Our OCaml implementation closely matches the theory: users define and compose KATs with the module system.</p>
 </div>
 
         </div>
