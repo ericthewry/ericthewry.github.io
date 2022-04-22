@@ -1,13 +1,4 @@
 <h1> Blog Posts </h1>
-<table>
-  $for(posts)$
-  <tr>
-    <td>$date$</td>
-    <td><a href=$url$>$title$$if(subtitle)$:<br/>
-	$subtitle$
-      $endif$
-      </a>
-    </td>
-  </tr>
-  $endfor$
-</table>
+<div>
+  $partial("templates/post-list.html")$
+</div>

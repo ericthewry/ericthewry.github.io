@@ -1,9 +1,9 @@
 <table>
   $for(posts)$
-  <tr>
+  <tr class="posts">
     <td>$date$</td>
     <td><a href=$url$>$title$$if(subtitle)$:<br/>
-	$subtitle$
+	      <span class="subtitle">$subtitle$</span>
       $endif$
       </a>
     </td>

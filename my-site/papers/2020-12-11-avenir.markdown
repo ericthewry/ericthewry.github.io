@@ -1,10 +1,12 @@
 ---
 title: "Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis"
-authors: Eric Hayden Campbell, William T. Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, Vignesh Ramamurthy, Hossein Hojjat, Ruzica Piskac, Robert Soulé, J. Nathan Foster
+authors: <b>Eric Hayden Campbell</b>, William T. Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, Vignesh Ramamurthy, Hossein Hojjat, Ruzica Piskac, Robert Soulé, J. Nathan Foster
 venue: NSDI
-month: April 2020 
+month: April 2021
 pdf: "pdfs/avenir.pdf"
-slides: "https://www.usenix.org/conference/nsdi21/presentation/campbell"
+slides: "https://www.usenix.org/system/files/nsdi21_slides_hayden-campbell.pdf"
+video: "https://www.youtube.com/watch?v=nWRMS2KqcD0"
+code: "https://github.com/cornell-netlab/avenir"
 descr: "Employ program synthesis to translate abstract switch operations into target switch operations"
 --- 
 

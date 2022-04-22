@@ -1,9 +1,11 @@
 ---
 title: "How to Avoid Making a Billion-Dollar Mistake: Type-Safe Data Plane Programming with SafeP4"
-authors: Matthias Eichholz, Eric Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini
+authors: Matthias Eichholz, <b>Eric Hayden Campbell</b>, Nate Foster, Guido Salvaneschi, Mira Mezini
 venue: ECOOP
 month: July 2019 
 pdf: "/pdfs/safep4.pdf"
+code: "https://github.com/cornell-netlab/p4check/"
+arxiv: "https://arxiv.org/pdf/1906.07223.pdf"
 descr: "Develop a Type System for P4 that prohibits references to invalid headers. Surveys open source programs to identify real-world bugs that our type system prevents"
 --- 
 

@@ -1,9 +1,11 @@
 body {
-    color: black;
+    color: #030609;
     font-size: 16px;
     margin: 0px auto 0px auto;
     width: 600px;
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: Lato, sans-serif;
+    background-color: #F9FBFD;
 }
 
 div#header {
@@ -12,11 +14,16 @@ div#header {
     padding: 12px 0px 12px 0px;
 }
 
+
+#logo {
+    padding-left: 22px;
+}
+
 div#logo a {
-    color: black;
+    color:  #030609;
     float: left;
     font-size: 18px;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-decoration: none;
 }
 
@@ -24,17 +31,20 @@ div#header #navigation {
     text-align: right;
 }
 
-div#header #navigation a {
-    color: black;
-    font-size: 18px;
+div#header #navigation a:hover {
     font-weight: bold;
+}
+
+div#header #navigation a {
+    color:  #030609;
+    font-size: 18px;
     margin-left: 12px;
     text-decoration: none;
     text-transform: uppercase;
 }
 
 table.links a{
-    color: black;
+    /* color: black; */
     font-size: 18px;
     font-weight: bold;
     margin-left: 12px;
@@ -46,6 +56,16 @@ table.links tr td {
     /* border: 2px solid black;	 */
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: #4682B4;
+    text-decoration: none;
+}
+
+
 div#footer {
     border-top: solid 2px black;
     color: #555;
@@ -56,18 +76,18 @@ div#footer {
 }
 
 h1 {
-    font-size: 24px;
-    color: #0b0a0a;
+    font-size: 30px;
+    font-weight: normal;
 }
 
 h3 {
-    color: #0b0a0a;
+    /* color: #0b0a0a; */
 
 }
 
 h2 {
     font-size: 20px;
-    color: #0b0a0a;
+    /* color: #0b0a0a; */
 }
 
 .float-left{
@@ -78,11 +98,12 @@ h2 {
 }
 
 div.info {
-    color: #555;
+    /* color: #555; */
     font-size: 14px;
-    font-style: italic;
+    /* font-style: italic; */
     padding-bottom: 10px;
 }
+
 
 #profile{
     padding: 0px 0px 20px 0px;
@@ -94,19 +115,6 @@ div.info {
     width: 55%;
     padding: 10px 15px 10px 10px;
 }
-
-/* #info > p { */
-/*     font-size: 14pt; */
-/*     margin-top: 0; */
-/*     margin-bottom: 5px; */
-/* } */
-
-/* #info a { */
-/*     color: black; */
-/*     font-size: 18px; */
-/*     font-weight: bold; */
-/*     margin-left: 12px; */
-/* } */
 
 .sc {
     font-variant: small-caps;
@@ -129,14 +137,39 @@ td, th {
     border: none;
     text-align: left;
     padding: 8px;
+    line-height: 14pt;
 }
 
 tr:nth-child(odd) {
-    background-color: gainsboro;
+    background-color: #E1E6EB;
 }
 
-pre,
+pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    border-radius: 6px;
+    background-color: #E1E6EB;
+}
+
 code {
-    background-color: gainsboro;
-    padding : 2px
+    font-size: 85%;
+    line-height: 1.45;
+    border-radius: 6px;
+    padding: 1px;
+    background-color: #E1E6EB;
+}
+.subtitle {
+    font-style:italic;
+    font-size:14px;
+}
+
+.posts a{
+    color:#030609;
+}
+
+.icon img {
+    width: 15px;
+    height: 15px;
 }

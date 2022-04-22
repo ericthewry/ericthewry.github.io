@@ -2,32 +2,49 @@
     $for(papers)$
     <tr>
       <td>
-        <b>$title$</b>. $authors$.
+          <b>
+              $if(pdf)$
+              <a href = $pdf$>
+              $endif$
+              $title$
+              $if(pdf)$
+              </a>
+              $endif$
+          </b>
+          $if(note)$
+	      <br>[$note$]
+	      $endif$
+          <br/>
+          $authors$
+          <br/>
+
 	$if(venue)$
-	<i>$venue$</i>.
+	<b>$venue$</b>.
 	$endif$
+
 	$if(month)$
-	$month$.
+	<i>$month$</i>.
 	$endif$
-	$if(note)$
-	[$note$]
-	$endif$
-      </td>
-      <td>
-	$if(pdf)$
-	<a href=$pdf$> pdf </a>
-	$endif$
-	$if(draft)$
-	<a href=$draft$> draft </a>
-	$endif$
-      </td>
-      <td>
+      <!-- </td> -->
+      <!-- <td> -->
 	$if(slides)$
-	<a href=$slides$> slides</a>
-	$endif$
-    $if(video)$
-    <a href=$video$> video</a>
+	 <a href=$slides$ title="slides" class="icon"><img src="/images/easel-fill.svg"/></a>
+	 $endif$
+
+    $if(arxiv)$
+     <a href=$arxiv$ title="arxiv" class="icon"><img src="/images/archive.svg"/></a>
     $endif$
+    $if(video)$
+     <a href=$video$ title="video" class="icon">
+         <img src="/images/camera-reels.svg"/>
+     </a>
+    $endif$
+
+    $if(code)$
+     <a href=$code$ title="code" class="icon">
+         <img src="images/code-square.svg"/>
+     </a>
+     $endif$
 	</td>
     </tr>
     $endfor$

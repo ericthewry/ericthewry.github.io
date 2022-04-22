@@ -1,10 +1,12 @@
 ---
 title: "Epistemic Semantics in Guarded String Models"
-authors: Eric Hayden Campbell, Mats Rooth
+authors: <b>Eric Hayden Campbell</b>, Mats Rooth
 venue: SCiL
-month: February 2020 
+month: February 2021 
 pdf: "/pdfs/epistemic_kat.pdf"
 slides: "https://docs.google.com/presentation/d/1QxGgnCmutqUBrrReTZNkEwwnzii2VkCLKAJjq9ba07c/edit?usp=sharing" 
+code: "https://github.com/ericthewry/epikat"
+video: "/images/epikat-talk.mp4"
 descr: "Extend Kleene Algebra with Tests to model epistemic semantics of modal verbs in natural English"
 --- 
 

@@ -1,0 +1,11 @@
+---
+title: Injecting Finiteness to Prove Completeness for Finite Linear Temporal Logic
+authors: <b>Eric Hayden Campbell</b>, Michael Greenberg
+venue: arXiv:2107.06045
+pdf: "https://arxiv.org/pdf/2107.06045.pdf"
+arxiv: "https://arxiv.org/pdf/2107.06045.pdf"
+code: "https://github.com/ericthewry/ltlf-decide"
+descr: "Proved Soundness, Completeness and Decidability for Finite-Trace Linear Temporal Logic. Developed a decision procedure for the logic. Proved the axiomatization equivalent to the temporal axioms in Temporal NetKAT, making a completeness proof possible for TNK."
+---
+
+Temporal logics over finite traces are not the same as temporal logics over potentially infinite traces. Roşu first proved completeness for linear temporal logic on finite traces (LTLf) with a novel coinductive axiom. We offer a different proof, with fewer, more conventional axioms. Our proof is a direct adaptation of Kröger and Merz's Henkin-Hasenjaeger-style proof. The essence of our adaption is that we "inject" finiteness: that is, we alter the proof structure to ensure that models are finite. We aim to present a thorough, accessible proof. 

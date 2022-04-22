@@ -1,12 +1,12 @@
 ---
 title: Infiniteness and Linear Temporal Logic
-authors: Eric Campbell, advised by Michael Greenberg
+authors: <b>Eric Hayden Campbell</b>, advised by Michael Greenberg
 venue: Pomona College
 month: May 2017
 note: Undergraduate Thesis
-withold: True
 pdf: "/pdfs/thesis.pdf"
 slides: "/pdfs/math_thesis_prez.pdf"
+code: "https://github.com/ericthewry/ltlf-decide"
 descr: "Proved Soundness, Completeness and Decidability for Finite-Trace Linear Temporal Logic. Developed a decision procedure for the logic. Proved the axiomatization equivalent to the temporal axioms in Temporal NetKAT, making a completeness proof possible for TNK."
 ---
 
