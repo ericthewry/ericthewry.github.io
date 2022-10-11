@@ -6,7 +6,7 @@ venue: PLDI
 pdf: pdfs/kmts.pdf
 code: "https://github.com/mgree/kmt"
 arxiv: "https://arxiv.org/abs/1707.02894"
-award: "Best Paper Award!"
+award: "Distinguished Paper Award!"
 descr: Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.
 ---
 
