@@ -1,0 +1,20 @@
+---
+title: "P4Cub: A Little Language for Big Routers"
+authors: Rudy Peterson, <b>Eric Hayden Campbell</b>, John Chen, Natalie Isak, Calvin Shyu, Ryan Doenges, Parisa Ataei, and Nate Foster
+month: Jan 2023
+venue: CPP
+pdf: pdfs/p4cub.pdf
+code: "https://github.com/verified-network-toolchain/petr4/tree/poulet4"
+descr: P4Cub is a new intermediate representation (IR) for the P4 programming language that is designed to facilitate the development of certified tools.
+---
+
+P4Cub is a new intermediate representation (IR) for the P4 programming language
+that is designed to facilitate the development of certified tools. It is
+organized around a small set of core constructs that avoid complexities found in
+the surface language such as side effects in expressions, mutual recursion
+between the expressions and statements, and so on. Still, P4Cub retains the
+essential domain-specific features of P4 itself. P4Cub has a front-end based on
+Petr4, and has been fully mechanized in Coq including big-step and small-step
+semantics and a type system. We have built several certified tools using P4Cub
+including a type soundness proof, a compiler pass, and an automated verification
+tool.
