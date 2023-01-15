@@ -1,0 +1,3 @@
+---
+descr: Co-chairing the new session previews track for POPL. Come see my talk on Relational & Automated Verification on Friday!
+---
