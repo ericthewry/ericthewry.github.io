@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Hayden Campbell - Cannibalize your TTL </title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">EHC</a>
+            </div>
+            <div id="navigation">
+                <!-- <a href="/">Home</a> -->
+                <a href="../news.html">News</a>
+                <!-- <a href="/papers.html">Publications</a>x -->
+                <a href="../posts.html">Blog</a>
+                <a href="../pdfs/cv.pdf">Vita</a>
+                <a href="https://github.com/ericthewry">
+	                <img src="../images/github.png" width="15" height="15" />
+	                </a>
+                <a href="https://www.linkedin.com/in/eric-campbell-ba339490/">
+	                <img src="../images/linkedin.png" width="15" height="15" />
+                </a>
+
+            </div>
+        </div>
+
+        <div id="content">
+	  <div class="info">
+  <h1> Cannibalize your TTL </h1>
+  
+  <h3> A SIGBOVIK paper I didn't write </h3>
+  
+    Posted on January 26, 2023
+    
+        by Eric Hayden Campbell
+    
+</div>
+
+<p>These days, its rare to watch a network verification talk that <em>doesn’t</em> start with a cliche smattering of headlines describing “Facebook’s Latest Network Outage”, or “This One Crazy BGP Bug brought down Iran’s National Network”. This device is extremely powerful! It’s effective at convincing skeptics that Network Reliability(TM) is not already solved, It doesn convince people that <em>formal methods</em> are the right solution for network reliability.</p>
+<p><strong>Network Verification evangelists aren’t thinking big enough</strong></p>
+<p>Rather than focus on service level objectives like network reliability and availability, network engineers need to focus on the broad engineering goal of reducing packet size. The plain fact of the matter is that verification renders whole portions of the the IEEE standard obsolete and network operators should feel empowered to resuse those fields for other purposes!</p>
+<h2 id="étude-pour-lanachronisme-time-to-live">Étude pour l’anachronisme: Time to Live</h2>
+<p>For example, in the IEEE standards, the IPv4 header maintains a so-called <em>Time To Live</em> (TTL) field that keeps track of how long the packet will stay in the network before it is unceremoniously thrown to the killing floor. Historically this field literally denoted wall-clock time, but in modern networks it is really a “number of hops” that gets decremented at each switch. This is reflected in the IEEE’s renaming of the field to <em>Hop Count</em> for IPv6. I’ll use “TTL” as a generic term for both <em>Time To Live</em> and <em>Hop Count</em>.</p>
+<p>Perhaps the most important goal of the TTL field is to eliminate semantic forwarding loops. A semantic forwarding loop occurs when the exact same packet, with all the same header field values, arrives at the same switch (with no network configuration changes). If this occurs the packet will be forwarded identically, which will result in it being looped around to the same switch again.. and again.. and again. The TTL field prevents semantic forwarding loops by ensuring that the TTL field is always decremented. That way the same packet never traverses the same switch twice.</p>
+<p>However, forwarding loops can be equally achieved via network verification. A plethora of tools (NetKAT, BagPIPE) can statically verify that your network is <em>loop free</em>. That is, no packet ever traverses the same switch twice. These tools use heavyweight (but efficient!) formal methods to guarantee(!!!) that none of the bad behaviors above can ever occur, which means that we don’t need to use or maintain the TTL field in our networks!</p>
+<p>In fact, these formal tools do <em>even better</em> than the TTL field can ever hope to. Not only can they prevent semantic forwarding loops, they can also prevent <em>topological forwarding loops</em>, which are defined to be when the same packet reaches the same switch regardless of whether any field has changed. The TTL simply mitigates the effect of these loops by ensuring that the packet will not traverse such a loop forever. This certainly will not prevent the packet from becoming a so-called “Chernobyl packet”. A <em>Chernobyl packet</em> is one that triggers such an overaccumulation of broadcast and multicast traffic that switches and/or links begin to fail. Its perfectly feasible for such a traffic burst to occur before the TTL can be reduced to 0.</p>
+<p>Formal verification tools, however, can prevent topological forwarding loops from <em>ever happening</em>. Even in situations where some topological loops are <em>desired behavior</em>, formal verification tools can permit the desired loops and prevent the undesired ones. We’ll call such a tool a “fine-grained topological loop detector”. This leads me to my first approximate thesis.</p>
+<p><strong>The TTL field is obsolete Verified Networking</strong></p>
+<p>Specifically, I mean that the goals achieved by a the TTL field are fully subsumed by a fine-grained topological detector.</p>
+<h2 id="an-early-counterexample-traceroute">An early counterexample: <code>traceroute</code></h2>
+<p>But of course I’m wrong. The <code>traceroute</code> tool is an essential debugging tool in the network engineers tool kit. <code>tracerout</code> well <em>traces</em> the <em>route</em> between one host and another. The way that it works is via the TTL field. It sends a collection of packets to the desired destination host with increasing TTLs. Then, when the TTL of each packet reaches 0, the current switch send an <em>ICMP Time Exceeded</em> error message back to the original host. <code>traceroute</code> then can reconstruct the traversed packets from these error messages.</p>
+<p>So clearly we need the TTL field for this essential task. But is it really that necessary? The clearest use case for <code>traceroute</code> is when you don’t have good visibility into what the network is doing and how its forwarding your packets, for instance in a BGP network.</p>
+<p>However, this use disappears in a software defined network, where the forwarding rules are computed in a logically centralized way, and can be easily logged and snooped on. The increasing popularity of dataplane programming languages like P4 and denotational semantics (Petr4) let you statically compute and verify routes (<em>simulation fidelity not verified by the FDA</em>), rendering the dynamic exploration of <code>tracroute</code> obsolete in a deeply programmable SDN.</p>
+<p>Now we can update our thesis with a few caveats</p>
+<p>__The TTL field is obsolete in Verified, Deeply-Programmable, Software-Defined Networking (VDPSDN)_</p>
+<p>(<em>whew, good thing its still in the IEEE standard</em>)</p>
+<p>So how can we use this obsolescence?</p>
+<h2 id="on-cannibals-use-ttl-for-great-good">On Cannibals: Use TTL for Great Good!</h2>
+<p>Since TTLs are useless for forwarding loop prevention. Lets use them to minimize our packets sizes!</p>
+<p>Let’s consider a verified, deeply programmable, software-defined, campus network (VDPSDCN). We want to partition network traffic into three separate classes, <em>Students</em>, <em>Staff</em> and <em>Visitors</em>, each with ordered privilege sets. <em>Students</em> have at least the privileges of <em>Visitors</em> can and <em>Staff</em> has at least the privileges of Students.</p>
+<p>To implement these traffic classes, we might use the VLAN header, which is a special header that lives between then Ethernet and IP Headers. We can simply assign different values to the 12 bit VLAN id value for each traffic class and implement our security policy by distinguishing these tags.</p>
+<p>This is such a waste of 12 bits in a VDPSDCN! Instead, lets cannibalize the 8-bit TTL field to encode these traffic classes! This way we can save 12 bits of the 1500 bits allowed in a standard packet. This is is 0.8% savings! Wow!</p>
+<p>This case study shows conclusively that verifying your DPSDCN will result in <em>massively</em> more performant networking.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>TTLs are a great example of how verification and deep programmability can realize operational gains in VDPSDNs. Network verification evangelists should turn away from motivating their work with frivolous service level objectives like “uptime” or “availability”, and instead motivate their work on</p>
+<blockquote>
+<p>NB: This is satire. The “creativity” of these “logical” steps should only be taken in a lighthearted manner. Formal specifications are extremely hard to get right and TTLs are very important as an additional line of defense when they fail.</p>
+</blockquote>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
