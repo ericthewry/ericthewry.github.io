@@ -56,7 +56,7 @@
 <p>So clearly we need the TTL field for this essential task. But is it really that necessary? The clearest use case for <code>traceroute</code> is when you don’t have good visibility into what the network is doing and how its forwarding your packets, for instance in a BGP network.</p>
 <p>However, this use disappears in a software defined network, where the forwarding rules are computed in a logically centralized way, and can be easily logged and snooped on. The increasing popularity of dataplane programming languages like P4 and denotational semantics (Petr4) let you statically compute and verify routes (<em>simulation fidelity not verified by the FDA</em>), rendering the dynamic exploration of <code>tracroute</code> obsolete in a deeply programmable SDN.</p>
 <p>Now we can update our thesis with a few caveats</p>
-<p>__The TTL field is obsolete in Verified, Deeply-Programmable, Software-Defined Networking (VDPSDN)_</p>
+<p><strong>The TTL field is obsolete in Verified, Deeply-Programmable, Software-Defined Networking (VDPSDN)</strong></p>
 <p>(<em>whew, good thing its still in the IEEE standard</em>)</p>
 <p>So how can we use this obsolescence?</p>
 <h2 id="on-cannibals-use-ttl-for-great-good">On Cannibals: Use TTL for Great Good!</h2>
