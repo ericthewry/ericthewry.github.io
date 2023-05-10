@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Hayden Campbell - Symbolic Compilation for GCL </title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">EHC</a>
+            </div>
+            <div id="navigation">
+                <!-- <a href="/">Home</a> -->
+                <a href="../news.html">News</a>
+                <!-- <a href="/papers.html">Publications</a>x -->
+                <a href="../posts.html">Blog</a>
+                <a href="../pdfs/cv.pdf">Vita</a>
+                <a href="https://github.com/ericthewry">
+	                <img src="../images/github.png" width="15" height="15" />
+	                </a>
+                <a href="https://www.linkedin.com/in/eric-campbell-ba339490/">
+	                <img src="../images/linkedin.png" width="15" height="15" />
+                </a>
+
+            </div>
+        </div>
+
+        <div id="content">
+	  <div class="info">
+  <h1> Symbolic Compilation for GCL </h1>
+  
+  <h3> A Beginner's Guide to GCL and the Weakest Precondition </h3>
+  
+    Posted on May 10, 2023
+    
+        by Eric Hayden Campbell
+    
+</div>
+
+<p>Dijkstra’s Guarded Command Language (GCL) has become a staple of automated verification. I often use it as an intermediate language in my verification tasks, primarily because it has a well understood compilation algorithm to formal logic. It’s very similar to the IMP language that we study in introductory PL courses, but it has a key difference: nondeterminism.</p>
+<p>GCL models the core elements of imperative programming languages: variables, branching control flow and iteration. The language also incorporates some logical constructs used for verification tasks: assertions and assumptions.</p>
+<p>The first and simplest thing you can do in GCL is assign an expression (e) to a variable (x) like so:</p>
+<pre><code>x := e</code></pre>
+<p>Here, the expression language can really be anything (arithmetic, bitvectors, booleans), but here we’ll assume that they range over fixed-width bitvector expressions. The semantics of such an assignment is the following: first, <code>e</code> is evaluated to some value <code>v</code>, then the state is updated so that <code>x</code> has value <code>v</code>.</p>
+<p>We can also make assertions about the program state. For instance <code>assert b</code> crashes the program when <code>b</code> is <code>false</code> and has no effect when the program fails. In answering verification questions, our goal will be to statically show that <em>no assertion ever fails</em>.</p>
+<p>The first mechanism we have for constructing larger programs from smaller ones is sequential composition, which we write using a semicolon (<code>;</code>) as in Java or C. If we have two smaller programs <code>c1</code> and <code>c2</code>, we construct their composition by sequentially composing them—i.e. by writing <code>c1;c2</code>. This code first executes <code>c1</code> and then <code>c2</code> on the resulting state.</p>
+<p>The second mechanism for constructing larger programs is the eponymous guarded command. A guarded command is a sequence of boolean guards <code>b1, ..., bn</code> and corresponding programs <code>c1,..,cn</code> written as follows:</p>
+<pre><code>if  b1 -&gt; c1
+    b2 -&gt; c2
+    ...
+    bn -&gt; cn
+fi</code></pre>
+<p>Very similar to an if statement, the above guarded command will only run <code>ci</code> if its guard <code>bi</code> evaluates to <code>true</code>. However, different from traditional if-statements, all of the guards are evaluated simultaneously and of those that are true, one is nondeterministically chosen. For instance, consider the following code where both guards are true.</p>
+<pre><code>i = 1;
+if  i &lt; 2 -&gt; j := 0
+    i &lt; 3 -&gt; j := 99
+fi </code></pre>
+<p>The semantics of this GCL program is to nondeterministically chose either <code>j :=0</code> or <code>j:=99</code> to execute, that is it’s equivalent to</p>
+<pre><code>if  true -&gt; j := 0
+    true -&gt; j := 99
+fi</code></pre>
+<p>If we want to implement the standard disjoint semantics for if-statements we need to negate the conditions of the previous rows. That is, to express</p>
+<pre><code>if (b0) { 
+  c1
+} elseif (b1) { 
+  c2 
+} else {}</code></pre>
+<p>we would need to write the following guarded command</p>
+<pre><code>if  b0         -&gt; c1
+    !b0 &amp;&amp; b1  -&gt; c2
+    !b0 &amp;&amp; !b2 -&gt; skip
+fi</code></pre>
+<p>Here, <code>skip</code> is simply the command that does nothing.</p>
+<p>And that’s all there is to GCL! It’s a very simple yet powerful language. <em>Dijkstra’s original GCL does have a mechanism for iteration. I’ll discuss how loops work in a future post.</em></p>
+<p>I do find that this version of GCL has some unnecessary complexity. I prefer the a more algebraic presentation of the same language.</p>
+<h2 id="gcl-with-an-algebraic-flavor">GCL with an Algebraic Flavor</h2>
+<p>A more algebraic presentation of GCL breaks down the guarded command operation into two operations, the assume b operator, and the binary nondeterministic choice operator <code>c1 [] c2</code> and the assume b operator. Here’s how they work:</p>
+<p>The choice operator <code>c1 [] c2</code> uses demonic nondeterminism to choose between terminating executions in <code>c1</code> and <code>c2</code>. The demonic modifier here describes the behavior of choice with respect to assert statements. It’s a kind of worst-case behavior where the whole program crashes if either <code>c1</code> or <code>c2</code> crashes. (Conversely, in angelic nondeterminism, <code>c1 [] c2</code> only crashes if both <code>c1</code> and <code>c2</code> crash).</p>
+<p>The <code>assume b</code> command behaves similarly to the <code>assert</code> operator, except instead of crashing the program when <code>b</code> fails, it runs an infinite loop. This semantic design is important for the fact that nondeterministic choice only considers terminating executions. For instance, a GCL programmer can disable a non-deterministic branch by assuming <code>false</code>. That is the following two programs are equivalent <em>on their terminating executions</em>.</p>
+<pre><code>x := 5 [] (assume false; x := 7)
+===
+x := 5</code></pre>
+<p>Let’s see why. The right-hand branch in the first program <code>(assume false; x:=7)</code> is a non-terminating loop because <code>false</code> will never evaluate to <code>true</code>, causing <code>assume false</code> to spin in an infinite loop. The left-hand branch simply assigns <code>x</code> to <code>5</code>, which means the only terminating execution that <code>[]</code> can choose from is <code>x:=5</code>. So the programs are equal. With these two operators we define GCL using a slightly more algebraic flavor (which is my preference):</p>
+<pre><code>   assume : Bool -&gt; GCL 
+   assert : Bool -&gt; GCL
+   ( := ) : Var -&gt; Expr -&gt; GCL
+   ( ; ) : GCL -&gt; GCL -&gt; GCL
+   ( [] ) : GCL -&gt; GCL -&gt; GCL</code></pre>
+<p>Note that we can recover the guarded commands using these operators by implementing guarded commands as follows:</p>
+<pre><code>(assume b1; c1) []
+(assume b2: c2) []
+…
+(assume bn; cn)</code></pre>
+<p>(Note that <code>[]</code> is associative)</p>
+<blockquote>
+<p>Aside. I’ve found both the guarded command presentation and the GCL presentation to be ergonomic in different settings. For instance, guards were convenient in modeling concrete tables in Avenir, but I’ve found choice to be more ergonomic in doing path splitting. Predicate Transformer Semantics</p>
+</blockquote>
+<p>As I mentioned earlier, the reason we want to use GCL is to perform logical analyses of programs. We can compile a GCL program into first order logic using something called predicate transformers, which are two ways of giving formal semantics to GCL programs. They are called the weakest precondition and strongest postcondition semantics. Here we’ll only talk about the weakest precondition, and an efficient variant of the strongest postcondition formalized by Cormac Flanagan &amp; Jonathan Saxe in 2001.</p>
+<h2 id="the-weakest-precondition">The Weakest Precondition</h2>
+<p>The weakest precondition P is defined with respect to GCL command c and a postcondition Q and must satisfy two conditions: first, that if a state satisfies P, running c in that state produces an output state satisfying Q, and second, that if some other formula P’ satisfies the first condition, that P’ =&gt; P. The first property characterizes the correctness requirement for P to be a valid precondition of c and Q at all, while the second property characterizes what it means to be weakest: that every other valid precondition is stronger than or equal to P’.</p>
+<p>This is best explored with an example. Consider the postcondition <code>x &gt; 3</code> and the command <code>x := x + 1</code>. Consider a few candidate preconditions below:</p>
+<ol style="list-style-type: decimal">
+<li>x = 0</li>
+<li>x = 3</li>
+<li>x = 3 || x = 4</li>
+<li>x &gt; 2</li>
+</ol>
+<p>The first formula <code>x = 0</code> is not a valid precondition, because incrementing <code>x</code> when it is zero produces an output where <code>x = 1</code>, which is less than <code>3</code>, violating the desired postcondition. The second formula is a valid postcondition, since <code>3 + 1 &gt; 3</code>, however it is not the weakest, since <code>x = 3 || x = 4</code> also is a valid postcondition and <code>x = 3 =&gt; x = 4</code>. The fourth condition <em>is</em> the weakest precondition. Notice that <code>x = 3 =&gt; x &gt; 2</code> and <code>x =3 || x=5 =&gt; x &gt; 2</code>.</p>
+<h2 id="the-weakest-precondition-function">The Weakest Precondition Function</h2>
+<p>The cool thing about the weakest precondition is that Dijkstra came up with an algorithm in the 70s for computing them for terminating executions! This is often called “weakest liberal preconditions” As in the semantics, the “terminating” caveat is important to reason about assume statements.</p>
+<p>The weakest liberal precondition function, written <code>P = wlp(c, Q)</code> returns <code>P</code>, the weakest liberal precondition of <code>c</code> w.r.t <code>Q</code>. We’ll define the weakest precondition recursively over each variant of GCL commands. The first case is when <code>c</code> is assignment:</p>
+<pre><code>wlp(x:=e, Q) = Q[e/x]</code></pre>
+<p>Here <code>Q[e/x]</code> represents the formula <code>Q</code> with every occurrence of <code>x</code> replaced by <code>e</code>. The justification here is that <code>Q</code> is reasoning about the state after the assignment occurred, when <code>x = e</code>, but before the assignment occurred, <code>x</code> could have been anything, so we need to eliminate all facts about <code>x</code> by replacing it with an equivalent expression <code>e</code>.</p>
+<p>The next case is for assertions, and is straightforward.</p>
+<pre><code>wlp(assert b, Q) = b &amp;&amp; Q</code></pre>
+<p>Asserting a condition <code>b</code> means that we must prove its truth at that point to avoid errors—it must be conjoined to postcondition.</p>
+<p>The case for assumption is a bit tricky semantically, but easy from a terminology perspective. Assumptions and implications have a tight connection in proof theory, so why not also in program verification?</p>
+<pre><code>wlp (assume b, Q) = b =&gt; Q</code></pre>
+<p>The reason for this is a bit subtle and again relies on the liberality of our preconditions. In only considering terminating executions, we are only concerned with executions that pass the assumption, i.e. for which <code>b</code> holds, which means that rather than requiring b to hold, we assume that it does, and disregard all other (non-terminating) inputs falsifying <code>b</code>.</p>
+<p>The rule for sequential composition simply propagates the precondition backwards through thr program:</p>
+<pre><code>wlp (c1;c2, Q) = wlp(c1, wlp(c2, Q))</code></pre>
+<p>Notice that it’s very common to say “the” weakest precondition because weakest preconditions are “unique”. The proof of this is very simple. If both <code>P</code> and <code>P'</code> are weakest preconditions, then <code>P =&gt; P'</code> and <code>P' =&gt; P</code> which means they are logically equivalent and therefore unique. The nuance here is that <code>P</code> and <code>P'</code> may be syntactically very different even if they are semantically the same. For instance, conditions 4 and 5 above are semantically identical but syntactically different. They are still both “the” weakest precondition.</p>
+<h2 id="a-simple-symbolic-compiler">A Simple Symbolic Compiler</h2>
+<p>Now that we have the weakest precondition its quite easy to build a symbolic compiler for GCL programs. A symbolic compiler simply produces a formula φ that describes the relational sematnics of the input program.</p>
+<p>To do this we’ll take the weakest precondition of a program <code>c</code> with respect to a special formula <code>X = X'</code>, where <code>X</code> is the set of variables that occur in the program <code>c</code>, and <code>X'</code> is the same set of variables given fresh names. Morally, <code>X</code> represents the input state and <code>X'</code> represents the output state. For instance in the program <code>x := 1</code>, <code>X = {x}</code> and <code>X' = {x'}</code>. Then, the symbolic relational semantics of the program is <code>x' = 1</code>. This characterizes the notion that for all input states, the output state has <code>x ↦ 1</code>.</p>
+<p>So, the implementation of a simple symbolic compiler is</p>
+<pre><code>wp(c, X = X')</code></pre>
+<p>And we’re done!</p>
+<p>In future posts I’ll discuss other kinds of symbolic compilers and how we can make them <em>fast</em></p>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
