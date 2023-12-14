@@ -9,7 +9,7 @@ cd ./my-site
 stack exec site clean
 stack exec site build
 # xelatex ./_site/resume.tex
-# latexmk -pdf ./_site/cv.tex
+# latexmk -pdf ./cv.tex
 # cp ./resume.pdf ./_site/pdfs/
 # cp ./cv.pdf ./_site/pdfs/
 cd -
