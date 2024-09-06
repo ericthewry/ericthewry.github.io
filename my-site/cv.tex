@@ -1,9 +1,10 @@
 %%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Change the font size of your document - 10pt, 12.1pt, etc.
-\documentclass[letterpaper,10pt,oneside]{article}
+\documentclass[letterpaper,1pt,oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
+\usepackage{array}
 
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
@@ -34,9 +35,16 @@
 % Your email address, website, and Skype name are links to send email, open your website and add you on Skype. 
 
 \begin{center}
+  % \begin{tabular}{l l}
+  %   Research Fellow, University of Texas, Austin 
+  %   & \hspace{1in} \href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} \\ 
+  %   Department of Computer Science 
+  %   & \hspace{1in} \href{ericthewry.github.io}{www.ericthewry.github.io} \\
+  %   2515 Speedway, Austin, TX\hspace{0.75em} 78712 \\
+  % \end{tabular}
 \begin{tabular}{l l}
  PhD Candidate, Cornell University    & \hspace{1in} \href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} \\
- Department of Computer Science    & \hspace{1in}  \href{ericthewry.github.io}{www.ericthewry.github.io}   \\
+ Department of Computer and Information Science    & \hspace{1in}  \href{ericthewry.github.io}{www.ericthewry.github.io}   \\
  430 Gates Hall            & \\
  Ithaca, NY\hspace{.75em}14853, U.S.A. \\
 \end{tabular}
@@ -48,143 +56,160 @@
 % The main body is contained in a tabular environment. To move sections onto the next page, simply end the tabular environment and begin a new tabular environment.
 
 \noindent
-\begin{tabular}{@{} l l}
-  \Large{Education} 
-  & \textbf{Cornell University} \\
-  & Ph.D. in Programming Languages, Expected Dec 2024 \\
-  % & M.Sc. in Computer Science, December 2020 \\
-  & \textbf{Thesis Topic}: Robust Interfaces in Software Defined Networks \\
-  & \textit{2019 NSF GRFP Fellow} \\
-  \\
-
-  & \textbf{Pomona College} \\
-  & B.A.s in Computer Science \& Mathematics, May 2017 \\
-  & \textbf{Thesis:} Infiniteness and Linear Temporal Logic \\
-  & \\
-
+\begin{tabular}{>{\quad}r l}
+  \multicolumn{2}{l}{\Large{Education} } \\[0.5em]
+  \multicolumn{2}{>{\qquad}l}{%
+    \begin{tabular}{l}
+      \textbf{Cornell University} \\
+      Ph.D. in Programming Languages, Expected Dec 2024 \\
+      M.Sc. in Computer Science, December 2020 \\
+    \textbf{Thesis Topic}: Verified Configuration of Programmable Networks \\
+    \textit{2019 NSF GRFP Fellow} \\
+    \\
+    \textbf{Pomona College} \\
+    B.A.s in Computer Science \& Mathematics, May 2017 \\
+    \textbf{Thesis:} (In)finiteness and Linear Temporal Logic 
+  \end{tabular}}\\\\
 
   % & \textbf{International School of Amsterdam} \\
   % & International Baccalaureate, Graduated May 2013 \\
   % & Concentration in Mathematics \\
 
-  \Large{Current Projects}
-  & \textbf{Relational Hoare Lenses}\\
-  & Eric Hayden Campbell, Nate Foster \\
-  & \textbf{Synthesis of Control Plane Maps} \\
-  & Eric Hayden Campbell, Nate Foster, Aditya Akella, Isil Dillig \\
-  % & \textit{In Submission} \\
-  & \\
-
-  \Large{Refereed}
-  & \textbf{Computing Precise Control Interface Specifications} \\
-  \Large{Publications}
-  & Eric Hayden Campbell, Hossein Hojjat, Nate Foster \\
-  & \textit{OOPSLA 2024} \\
-  & \\
-
-  & \textbf{Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis}\\
-  & Eric Hayden Campbell, Bill Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, \\ & Vignesh Ramamurthy, Hossein Hojjat, Robert  Soul\'{e}, Ruzica Piskac,  and  Nate Foster\\
-  & \textit{NSDI 2021} \\
-  &\\
-
-  & \textbf{Kleene Algebra Modulo Theories} \\
-  & Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell \\
-  & \textit{PLDI 2022, Distinguished Paper Award} \\
-  &\\
-
-  & \textbf{$\Pi4$: Dependently-Typed Data Plane Programming} \\
-  & Matthias Eichholz, Eric Hayden Campbell, Matthias Krebs, Nate Foster, Mira Mezini \\
-  & \textit{POPL 2022}\\ & \\
-
-  & \textbf{How to Avoid Making a Billion-Dollar Mistake:}\\
-  & \textbf{Type-Safe Data Plane Programming with SafeP4} \\
-  & Matthias Eichholz, Eric Hayden Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini \\
-  & \textit{ECOOP 2019} \\
-  & \\
-  % & \textbf{Epistemic Semantics in Guarded String Models}\\
-  % & Eric Hayden Campbell and Mats Rooth \\
-  % & \textit{SCiL 2021} \\
+  % \Large{Current Projects}
+  % & \textbf{Relational Hoare Lenses}\\
+  % & Eric Hayden Campbell, Nate Foster \\
+  % \\
+  % & \textbf{Synthesis of Control Plane Maps} \\
+  % & Eric Hayden Campbell, Nate Foster, Aditya Akella, Isil Dillig \\
+  % % & \textit{In Submission} \\
   % & \\
 
-  % & \textbf{Injecting Finiteness to Prove Completeness for} \\
-  % & \textbf{Finite Linear Temporal Logic} \\
+  \multicolumn{2}{l}{\Large{Refereed Publications}} \\[0.5em]
+  OOPSLA '24 & \textbf{Computing Precise Control Interface Specifications} \\
+  & Eric Hayden Campbell, Hossein Hojjat, Nate Foster \\
+  % & \textit{OOPSLA 2024} \\
+  & \\
+
+  NSDI '21 & \textbf{Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis} \\
+  & Eric Hayden Campbell, Bill Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, \\ 
+  & Vignesh Ramamurthy, Hossein Hojjat, Robert  Soul\'{e}, Ruzica Piskac,  and  Nate Foster\\
+  % & \textit{NSDI 2021} \\
+  &\\
+
+  PLDI '22 & \textbf{Kleene Algebra Modulo Theories} \\
+  & Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell \\
+  % & \textit{PLDI 2022} 
+  & \textit{Distinguished Paper Award} \\
+  &\\
+
+  POPL '22 & \textbf{$\Pi4$: Dependently-Typed Data Plane Programming} \\
+  & Matthias Eichholz, Eric Hayden Campbell, Matthias Krebs, Nate Foster, Mira Mezini \\
+  % & \textit{POPL 2022}\\ 
+  & \\
+
+  ECOOP '19 & \textbf{How to Avoid Making a Billion-Dollar Mistake:}\\
+  & \textbf{Type-Safe Data Plane Programming with SafeP4} \\
+  & Matthias Eichholz, Eric Hayden Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini \\
+  % & \textit{ECOOP 2019} \\
+  & \\
+
+  CPP '23 & \textbf{P4Cub: A Little Language for Big Routers} \\
+  & Rudy Peterson, Eric Hayden Campbell, John Chen, Natalie Isak, Calvin Shyu, \\
+  & Ryan Doenges, Parisa Ataei, and Nate Foster \\
+  % & \textit{CPP 2023} \\
+  & \\
+
+  SCiL '21 & \textbf{Epistemic Semantics in Guarded String Models}\\
+  & Eric Hayden Campbell and Mats Rooth \\
+  % & \textit{SCiL 2021} \\
+  & \\
+
+  % & \textbf{Injecting Finiteness to Prove Completeness for LTL$_f$} \\
   % & Eric Hayden Campbell and Michael Greenberg \\
   % & \textit{arXiv:2107.06045}, July 2021\\
   % &\\
 
-  & \textbf{Constructing Integer Matrices with Integer Eigenvalues} \\
+  TMS '16 & \textbf{Constructing Integer Matrices with Integer Eigenvalues} \\
   & Christopher Towse and Eric Hayden Campbell \\
   & \textit{The Mathematical Scientist}, June 2016 \\
   & \\
 
 \end{tabular}
 
-\begin{tabular}{@{} l l }
+\begin{tabular}{@{}l }
 
-  \Large{Industry}
-  & \textbf{Fujitsu Laboratories of America} \\
-  & Research Intern, Property Inference for Legacy Networks \\
-  & \textit{Sunnyvale, CA}. May 2018 - Aug 2018 \\
-  & \\
-  & \textbf{Originate, Inc} \\
-  & Software Engineering Intern, Web Development \\
-  & \textit{San Francisco, CA}. May 2015 - Aug 2015 \\
-  & \\
-  & \textbf{Gladly, Inc} \\
-  & Software Engineering Intern, Web Development \\
-  & \textit{Palo Alto, CA}. May 2014 - Aug 2014 \\ \\
+  \Large{Industry} \\[0.5em]
+  \begin{tabular}{>{\qquad}l}
+  \textbf{Fujitsu Laboratories of America} \\
+  Research Intern, Property Inference for Legacy Networks \\
+  \textit{Sunnyvale, CA}. May 2018 - Aug 2018 \\
+  \\
+  \textbf{Originate, Inc} \\
+  Software Engineering Intern, Web Development \\
+  \textit{San Francisco, CA}. May 2015 - Aug 2015 \\
+  \\
+  \textbf{Gladly, Inc} \\
+  Software Engineering Intern, Web Development \\
+  \textit{Palo Alto, CA}. May 2014 - Aug 2014 
+  \end{tabular}\\ \\
 
-  \Large{Invited Talks}
-  & \textbf{Avenir: Managing Data Plane Diversity with Control Plane Synthesis}: \\
-      & \tabitem \textit{VLCS Seminar}. EPFL. Oct 23. \\
-      & \tabitem \textit{Tech Talk}. Intel. May 2022. \\
-      & \tabitem \textit{Tech Talk}. Intel. March 2022. \\
-      & \tabitem \textit{Computer Aided Verification}. P4 Verification Workshop. July 2021.\\
-      & \tabitem \textit{Simons Institute}. Synthesis of Models and Systems. May 2021\\
-      & \tabitem \textit{Networked Systems Design \& Implementation}. April 2021\\
-      & \tabitem \textit{Synthesis Discussion Group}. Yale University.  September 2020\\
-      & \tabitem \textit{P4 Expert Roundtable Series}. How is P4 Evolving as a language?. April 2020\\
+  \Large{Invited Talks} \\[0.5em]
+  \begin{tabular}{>{\qquad}l}
+  \textbf{Avenir: Managing Data Plane Diversity with Control Plane Synthesis} \\
+    \tabitem \textit{VLCS Seminar}. EPFL. Oct 23 \\
+    \tabitem \textit{Tech Talk}. Intel. May 2022 \\
+    \tabitem \textit{Tech Talk}. Intel. March 2022 \\
+    \tabitem \textit{Computer Aided Verification}. P4 Verification Workshop. July 2021 \\
+    \tabitem \textit{Simons Institute}. Synthesis of Models and Systems. May 2021 \\
+    \tabitem \textit{Networked Systems Design \& Implementation}. April 2021 \\
+    \tabitem \textit{Synthesis Discussion Group}. Yale University.  September 2020\\
+    \tabitem \textit{P4 Expert Roundtable Series: How is P4 Evolving as a language?} Virtual. April 2020 \\
   % & \textbf{Computational Ethics: Responsibilities for Correctness} \\
   % & \textbullet \textit{Cornell University}. \textit{Guest Lecturer: Philosophy}. February 2019 \\
-  & \\
-  & \textbf{Epistemic Semantics in Guarded String Models} \\
-  & \tabitem \textit{Scientific Computing in Linguistics}. February 2021\\
-  & \\
-
-  \Large{Outreach}
-  & \textbf{Jane Street AMP} \\
-  & Advanced CS Instruction \& Course Design, \emph{CS3}, Summers 2022 \& 2023 \\
   \\
-  & \textbf{4H Career Explorations Conference} \\
-  & Workshop Designer \& Leader, \emph{Networking and Security}, 2018-2022 \\
-  & \\
-  & \textbf{Expand Your Horizons Conference} \\
-  & Workshop Leader, \emph{Googling With Paper Airplanes}, 2017-2019 \\
-  & \\
-  & \textbf{Originate, Inc} \\
-  & Counselor, \emph{Approachable Web Design}, 2015 \\
-  & \\
+  \textbf{Epistemic Semantics in Guarded String Models} \\
+  \tabitem \textit{Scientific Computing in Linguistics}. February 2021\\
+  \end{tabular}
+  \\\\
 
-  \Large{Teaching}
-  & \textbf{Computer Science Department, Cornell University} \\
+  \Large{Outreach}\\[0.5em]
+  \begin{tabular}{>{\qquad}l}
+  \textbf{4H Career Explorations Conference} \\
+  Workshop Designer \& Leader, \emph{Networking and Security}, 2018-2022 \\
+  \\
+  \textbf{Expand Your Horizons Conference} \\
+  Workshop Leader, \emph{Googling With Paper Airplanes}, 2017-2019 \\
+  \\
+  \textbf{Originate, Inc} \\
+  Counselor, \emph{Approachable Web Design}, 2015 \\
+  \end{tabular}
+  \\\\
+
+  \Large{Teaching}\\[0.5em]  
+  \begin{tabular}{>{\qquad}l}
+  \textbf{Academy of Math and Programming, Jane Street Capital} \\
+  Advanced Instructor, CS3, Summer 2023, \textit{Bespoke course design} \\
+  Instructor, CS3, Summer 2022, \textit{Bespoke course design}  \\
+  \\
+  \textbf{Computer Science Department, Cornell University} \\
+  TA, OOP and Data Structures, Spring 2018, \textit{Teaching Excellence Award} \\
+  TA, OOP and Data Structures, Fall 2017 \\
+  \\
   
-  & TA, OOP and Data Structures, Spring 2018, \textit{Teaching Excellence Award} \\
-  & TA, OOP and Data Structures, Fall 2017 \\
-  &\\
-  
-  & \textbf{Computer Science Department, Pomona College} \\
-  & TA, Databases Systems, Spring 2017 \\
-  & TA, Programming Languages, Fall 2016 \\
-  & Head TA, Intro to CS, Spring 2016 \\
-  & TA, Intro to CS, Fall 2015 \\
-  &\\
+  \textbf{Computer Science Department, Pomona College} \\
+  TA, Databases Systems, Spring 2017 \\
+  TA, Programming Languages, Fall 2016 \\
+  Head TA, Intro to CS, Spring 2016 \\
+  TA, Intro to CS, Fall 2015 \\
+  \end{tabular}\\\\
 
-  \Large{Guest Lectures}
-  & \textbf{Responsible AI}. Entrepreneurship: Growth Hacking. \textit{Hult Business}. June 2023\\
-  & \textbf{SafeP4}. Network Programming. \textit{Cornell CS}. Oct 2019 \\
-  & \textbf{Decidability of }\textsc{Kat}. Intro To Kleene Algebra. \textit{Cornell CS}. March 2019 \\
-  & \textbf{Responsibilities for Correctness}. FWS: Ethics. \textit{Cornell Philosophy}. Feb 2019\\
-
+  \Large{Guest Lectures} \\[0.5em]
+  \begin{tabular}{>{\qquad}l}
+  \textbf{Responsible AI}. Entrepreneurship: Growth Hacking. \textit{Hult Business}. June 2023\\
+  \textbf{SafeP4}. Network Programming. \textit{Cornell CS}. Oct 2019 \\
+  \textbf{Decidability of }\textsc{Kat}. Intro To Kleene Algebra. \textit{Cornell CS}. March 2019 \\
+  \textbf{Responsibilities for Correctness}. FWS: Ethics. \textit{Cornell Philosophy}. Feb 2019\\
+  \end{tabular}
 \end{tabular}
 \end{document}
 
