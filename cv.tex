@@ -1,9 +1,10 @@
 %%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Change the font size of your document - 10pt, 12.1pt, etc.
-\documentclass[letterpaper,10pt,oneside]{article}
+\documentclass[letterpaper,1pt,oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
+\usepackage{array}
 
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
@@ -34,9 +35,16 @@
 % Your email address, website, and Skype name are links to send email, open your website and add you on Skype. 
 
 \begin{center}
+  % \begin{tabular}{l l}
+  %   Research Fellow, University of Texas, Austin 
+  %   & \hspace{1in} \href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} \\ 
+  %   Department of Computer Science 
+  %   & \hspace{1in} \href{ericthewry.github.io}{www.ericthewry.github.io} \\
+  %   2515 Speedway, Austin, TX\hspace{0.75em} 78712 \\
+  % \end{tabular}
 \begin{tabular}{l l}
  PhD Candidate, Cornell University    & \hspace{1in} \href{mailto:ehc86@cornell.edu}{ehc86@cornell.edu} \\
- Department of Computer Science    & \hspace{1in}  \href{ericthewry.github.io}{www.ericthewry.github.io}   \\
+ Department of Computer and Information Science    & \hspace{1in}  \href{ericthewry.github.io}{www.ericthewry.github.io}   \\
  430 Gates Hall            & \\
  Ithaca, NY\hspace{.75em}14853, U.S.A. \\
 \end{tabular}
@@ -48,48 +56,50 @@
 % The main body is contained in a tabular environment. To move sections onto the next page, simply end the tabular environment and begin a new tabular environment.
 
 \noindent
-\begin{tabular}{@{} l l}
-  \Large{Education} 
-  & \textbf{Cornell University} \\
-  & Ph.D. in Programming Languages, Expected Dec 2024 \\
-  % & M.Sc. in Computer Science, December 2020 \\
-  & \textbf{Thesis Topic}: Robust Interfaces in Software Defined Networks \\
-  & \textit{2019 NSF GRFP Fellow} \\
-  \\
-
-  & \textbf{Pomona College} \\
-  & B.A.s in Computer Science \& Mathematics, May 2017 \\
-  & \textbf{Thesis:} Infiniteness and Linear Temporal Logic \\
-  & \\
-
+\begin{tabular}{>{\quad}r l}
+  \multicolumn{2}{l}{\Large{Education} } \\[0.5em]
+  \multicolumn{2}{>{\qquad}l}{%
+    \begin{tabular}{l}
+      \textbf{Cornell University} \\
+      Ph.D. in Programming Languages, Expected Dec 2024 \\
+      M.Sc. in Computer Science, December 2020 \\
+    \textbf{Thesis Topic}: Verified Configuration of Programmable Networks \\
+    \textit{2019 NSF GRFP Fellow} \\
+    \\
+    \textbf{Pomona College} \\
+    B.A.s in Computer Science \& Mathematics, May 2017 \\
+    \textbf{Thesis:} (In)finiteness and Linear Temporal Logic 
+  \end{tabular}}\\\\
 
   % & \textbf{International School of Amsterdam} \\
   % & International Baccalaureate, Graduated May 2013 \\
   % & Concentration in Mathematics \\
 
-  \Large{Current Projects}
-  & \textbf{Relational Hoare Lenses}\\
-  & Eric Hayden Campbell, Nate Foster \\
-  & \textbf{Synthesis of Control Plane Maps} \\
-  & Eric Hayden Campbell, Nate Foster, Aditya Akella, Isil Dillig \\
-  % & \textit{In Submission} \\
-  & \\
+  % \Large{Current Projects}
+  % & \textbf{Relational Hoare Lenses}\\
+  % & Eric Hayden Campbell, Nate Foster \\
+  % \\
+  % & \textbf{Synthesis of Control Plane Maps} \\
+  % & Eric Hayden Campbell, Nate Foster, Aditya Akella, Isil Dillig \\
+  % % & \textit{In Submission} \\
+  % & \\
 
-  \Large{Refereed}
-  & \textbf{Computing Precise Control Interface Specifications} \\
-  \Large{Publications}
+  \multicolumn{2}{l}{\Large{Refereed Publications}} \\[0.5em]
+  OOPSLA '24 & \textbf{Computing Precise Control Interface Specifications} \\
   & Eric Hayden Campbell, Hossein Hojjat, Nate Foster \\
-  & \textit{OOPSLA 2024} \\
+  % & \textit{OOPSLA 2024} \\
   & \\
 
-  & \textbf{Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis}\\
-  & Eric Hayden Campbell, Bill Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, \\ & Vignesh Ramamurthy, Hossein Hojjat, Robert  Soul\'{e}, Ruzica Piskac,  and  Nate Foster\\
-  & \textit{NSDI 2021} \\
+  NSDI '21 & \textbf{Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis} \\
+  & Eric Hayden Campbell, Bill Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, \\ 
+  & Vignesh Ramamurthy, Hossein Hojjat, Robert  Soul\'{e}, Ruzica Piskac,  and  Nate Foster\\
+  % & \textit{NSDI 2021} \\
   &\\
 
-  & \textbf{Kleene Algebra Modulo Theories} \\
+  PLDI '22 & \textbf{Kleene Algebra Modulo Theories} \\
   & Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell \\
-  & \textit{PLDI 2022, Distinguished Paper Award} \\
+  % & \textit{PLDI 2022} 
+  & \textit{Distinguished Paper Award} \\
   &\\
 
-  & \textbf{
+  POPL '22 & \textbf{
