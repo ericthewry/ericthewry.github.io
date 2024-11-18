@@ -1,7 +1,7 @@
 ---
 title: "Computing Precise Control Interface Specifications"
 authors: <b>Eric Hayden Campbell</b>, Hossein Hojjat, Nate Foster
-month: To Appear, Oct 2024
+month: Oct 2024
 venue: OOPSLA
 pdf: pdfs/capisce.pdf
 code: "https://github.com/cornell-netlab/capisce"
