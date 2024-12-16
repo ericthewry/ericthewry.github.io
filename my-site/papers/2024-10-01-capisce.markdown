@@ -4,6 +4,7 @@ authors: <b>Eric Hayden Campbell</b>, Hossein Hojjat, Nate Foster
 month: Oct 2024
 venue: OOPSLA
 pdf: pdfs/capisce.pdf
+slides: pdfs/capisce-oopsla24.pdf
 code: "https://github.com/cornell-netlab/capisce"
 descr: Capisce computes control plane interface specifications from data plane programs
 ---
