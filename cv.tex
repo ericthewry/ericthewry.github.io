@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Change the font size of your document - 10pt, 12.1pt, etc.
+\documentclass[letterpaper,1pt,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\usepackage{graphicx}
+\graphicspath{ {images/}} %upload your signature to this file
+%Change the margins to fit your CV/resume content
+\usepackage[left=0.75in, right=1in, bottom=1.25in, top=1.25in]{geometry}
+
+%Skype information - include your Skype name for a link to add you on Skype
+% \newcommand*{\Skype}{\href{skype:e.h.campbell?add}{e.h.campbell}} 
+% \newcommand{\Absender}[1][\normalsize]{\Skype} 
+
+%Changes the page numbers - {arabic}=arabic numerals, {gobble}=no page numbers, {roman}=Roman numerals
+\pagenumbering{gobble}
+
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%% NAME OF APPLICANT %%%%%%%%%%%%%%%%%%%
+
+\noindent  \LARGE{\textbf{Eric Hayden Campbell}}  \\
+\vspace{-2ex}
+\hrule
+\normalsize
+
+%%%%%%%%%%%%%%%%% CONTACT INFORMATION %%%%%%%%%%%%%%%%%
+% Your email address, website, and Skype name are links to send email, open your website and add you on Skype. 
+
+\begin{center}
+  \begin{tabular}{l l}
+  Postdoctoral Research Fellow, UT Austin
+  & \hspace{1in} \href{mailto:eric.hayden.campbell@utexas.edu}{eric.hayden.campbell@utexas.edu} \\
+  Department of Computer Science    
+  & \hspace{1in}  \href{ericthewry.github.io}{www.ericthewry.github.io}   \\
+  317 Speedway \\
+  Austin, TX\hspace{0.75em}78712, U.S.A.
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+
+%%%%%%%%%%%%%%%%% MAIN BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The main body is contained in a tabular environment. To move sections onto the next page, simply end the tabular environment and begin a new tabular environment.
+
+\noindent
+\begin{tabular}{>{\quad}r l}
+  \multicolumn{2}{l}{\Large{Education} } \\[0.5em]
+  \multicolumn{2}{>{\qquad}l}{%
+    \begin{tabular}{l}
+      \textbf{Cornell University} \\
+      Ph.D. in Programming Languages, Dec 2024 \\
+    \textbf{Thesis Topic}: Verified Configuration of Programmable Networks \\
+    \textit{2019 NSF GRFP Fellow} \\
+    \\
+    \textbf{Pomona College} \\
+    B.A.s in Computer Science \& Mathematics, May 2017 \\
+    \textbf{Thesis:} (In)finiteness and Linear Temporal Logic 
+  \end{tabular}}\\\\
+
+  % & \textbf{International School of Amsterdam} \\
+  % & International Baccalaureate, Graduated May 2013 \\
+  % & Concentration in Mathematics \\
+
+  % \Large{Current Projects}
+  % & \textbf{Relational Hoare Lenses}\\
+  % & Eric Hayden Campbell, Nate Foster \\
+  % \\
+  % & \textbf{Synthesis of Control Plane Maps} \\
+  % & Eric Hayden Campbell, Nate Foster, Aditya Akella, Isil Dillig \\
+  % % & \textit{In Submission} \\
+  % & \\
+
+  \multicolumn{2}{l}{\Large{Refereed Publications}} \\[0.5em]
+  OOPSLA '24 & \textbf{Computing Precise Control Interface Specifications} \\
+  & Eric Hayden Campbell, Hossein Hojjat, Nate Foster \\
+  % & \textit{OOPSLA 2024} \\
+  & \\
+
+  NSDI '21 & \textbf{Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis} \\
+  & Eric Hayden Campbell, Bill Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, \\ 
+  & Vignesh Ramamurthy, Hossein Hojjat, Robert  Soul\'{e}, Ruzica Piskac,  and  Nate Foster\\
+  % & \textit{NSDI 2021} \\
+  &\\
+
+  PLDI '22 & \textbf{Kleene Algebra Modulo Theories} \\
+  & Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell \\
+  % & \textit{PLDI 2022} 
+  & \textit{Distinguished Paper Award} \\
+  &\\
+
+  POPL '22 & \textbf{
