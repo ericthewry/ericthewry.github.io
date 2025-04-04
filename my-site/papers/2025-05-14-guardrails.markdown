@@ -1,6 +1,6 @@
 ---
 title: "How I learned to stop worrying and love learned OS policies"
-authors: Diyanshu Saxena, Jiayi Chen, Sujay Yadalam, Yeonju Ro, Rohit Dwivedula, </br><b>Eric Hayden Campbell</b>, Aditya Akella, Chrostopher J. Rossbach, Michael Swift
+authors: Diyanshu Saxena, Jiayi Chen, Sujay Yadalam, Yeonju Ro, Rohit Dwivedula, </br><b>Eric Hayden Campbell</b>, Aditya Akella, Christopher J. Rossbach, Michael Swift
 month: May 2025
 venue: HotOS
 descr: "This paper proposes a way to manage learned os policies using Guardrails"
