@@ -1,0 +1,3 @@
+---
+descr: I'll be serving on the OOPSLA '26 PC!
+---
