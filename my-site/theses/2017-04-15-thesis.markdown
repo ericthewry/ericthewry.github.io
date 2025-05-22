@@ -3,7 +3,6 @@ title: Infiniteness and Linear Temporal Logic
 authors: <b>Eric Hayden Campbell</b>, advised by Michael Greenberg
 venue: Pomona College
 month: May 2017
-note: Undergraduate Thesis
 pdf: "/pdfs/thesis.pdf"
 slides: "/pdfs/math_thesis_prez.pdf"
 code: "https://github.com/ericthewry/ltlf-decide"

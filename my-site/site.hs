@@ -26,6 +26,20 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" paperCtx
             >>= relativizeUrls
 
+    match "theses/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/paper.html" paperCtx
+            >>= loadAndApplyTemplate "templates/default.html" paperCtx
+            >>= relativizeUrls
+
+    match "workshops/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/paper.html" paperCtx
+            >>= loadAndApplyTemplate "templates/default.html" paperCtx
+            >>= relativizeUrls                        
+
     match "teaching/*" $ do
       route $ setExtension "html"
       compile $ pandocCompiler
@@ -133,6 +147,8 @@ main = hakyll $ do
         route idRoute
         compile $ do
             papers <- recentFirst =<< loadAll "papers/*"
+            workshops <- recentFirst =<< loadAll "workshops/*"
+            theses <- recentFirst =<< loadAll "theses/*"
             posts <- take 7 <$> (recentFirst =<< loadAll "posts/*")
             teaching <- reverse <$> (chronological =<< loadAll "teaching/*")
             news <- (take 7). reverse <$> (chronological =<< loadAll "news/*")
@@ -141,6 +157,8 @@ main = hakyll $ do
                     listField "teaching" defaultContext (return teaching) `mappend`
                     listField "news" paperCtx (return news)               `mappend`
                     listField "posts" paperCtx (return posts)             `mappend`
+                    listField "workshops" paperCtx (return workshops)     `mappend`
+                    listField "theses" paperCtx (return theses)           `mappend`
                     constField "title" "Home"                             `mappend`
                     defaultContext
                     

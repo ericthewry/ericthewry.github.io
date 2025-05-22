@@ -1,0 +1,54 @@
+<table>
+    $for(theses)$
+    <tr>
+      <td>
+          <b>
+              $if(pdf)$
+              <a href = $pdf$>
+              $endif$
+              $title$
+              $if(pdf)$
+              </a>
+              $endif$
+          </b>
+          $if(award)$
+          <br/><b>$award$</b>
+          $endif$
+          $if(note)$
+	      <br/>[$note$]
+	      $endif$
+          <br/>
+          $authors$
+          <br/>
+
+	$if(venue)$
+	<b>$venue$</b>.
+	$endif$
+
+	$if(month)$
+	<i>$month$</i>.
+	$endif$
+      <!-- </td> -->
+      <!-- <td> -->
+	$if(slides)$
+	 <a href=$slides$ title="slides" class="icon"><img src="/images/easel-fill.svg"/></a>
+	 $endif$
+
+    $if(arxiv)$
+     <a href=$arxiv$ title="arxiv" class="icon"><img src="/images/archive.svg"/></a>
+    $endif$
+    $if(video)$
+     <a href=$video$ title="video" class="icon">
+         <img src="/images/camera-reels.svg"/>
+     </a>
+    $endif$
+
+    $if(code)$
+     <a href=$code$ title="code" class="icon">
+         <img src="images/code-square.svg"/>
+     </a>
+     $endif$
+	</td>
+    </tr>
+    $endfor$
+</table>
