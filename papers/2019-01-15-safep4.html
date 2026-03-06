@@ -44,8 +44,27 @@
 
   <h4> Abstract </h4>
 
-  <p>The P4 programming language offers high-level, declarative abstractions that bring the flexibility of software to the domain of networking. Unfortunately, the main abstraction used to represent packet data in P4—header types—lacks basic safety guarantees. Over the last few years, expe- rience with an increasing number of P4 programs has shown the risks of the unsafe approach, which often leads to subtle software bugs.</p>
-<p>This paper proposes SafeP4, a domain-specific language for programmable data planes in which all packet data is guaranteed to have a well-defined meaning and satisfy essential safety guarantees. We equip SafeP4 with a formal semantics and a static type system that statically guarantees header validity—a major source of safety bugs according to our analysis of real-world P4 programs. Statically ensuring header validity is challenging because the set of valid headers can be modified at runtime, making it a dynamic program property. Our type system achieves static safety by using a form of path-sensitive reasoning that tracks dynamic information from conditional statements, routing tables, and the control plane. Our empirical evaluation shows that SafeP4’s type system can effectively eliminate common failures in many real-world programs.</p>
+  <p>The P4 programming language offers high-level, declarative
+abstractions that bring the flexibility of software to the domain of
+networking. Unfortunately, the main abstraction used to represent
+packet data in P4—header types—lacks basic safety guarantees. Over the
+last few years, expe- rience with an increasing number of P4 programs
+has shown the risks of the unsafe approach, which often leads to
+subtle software bugs.</p>
+<p>This paper proposes SafeP4, a domain-specific language for
+programmable data planes in which all packet data is guaranteed to
+have a well-defined meaning and satisfy essential safety
+guarantees. We equip SafeP4 with a formal semantics and a static type
+system that statically guarantees header validity—a major source of
+safety bugs according to our analysis of real-world P4
+programs. Statically ensuring header validity is challenging because
+the set of valid headers can be modified at runtime, making it a
+dynamic program property. Our type system achieves static safety by
+using a form of path-sensitive reasoning that tracks dynamic
+information from conditional statements, routing tables, and the
+control plane. Our empirical evaluation shows that SafeP4’s type
+system can effectively eliminate common failures in many real-world
+programs.</p>
 </div>
 
         </div>
