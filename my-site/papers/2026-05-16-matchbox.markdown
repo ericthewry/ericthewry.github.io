@@ -1,0 +1,22 @@
+---
+title: "MatchBox: A Semantic Foundation for Data Plane Portability"
+authors: <b>Eric Hayden Campbell</b>, Robert Zhang, Divyanshu Saxena, Aditya Akella, Isil Dillig
+month: June 2026, Conditionally Accepted
+venue: PLDI
+descr: MatchBox is a statcically-typed declarative language and compiler for translating match-action tables.
+---
+
+Match-action tables form the core abstraction for programming network packet-processing systems, from
+fixed-function switches to eBPF-based software dataplanes. However, their concrete syntax and semantics vary
+widely across targets, reflecting differences in hardware generations, engineering practices, and vendor design
+choices. As a result, portability of these programs across different environments becomes a persistent chal-
+lenge. This paper presents MatchBox, a system for translating match-action programs across heterogeneous
+environments. At its core is the Match Algebra, a compositional formalism for expressing transformations
+on match-action tables in a concise and declarative manner. To ensure unambiguous semantics, MatchBox
+introduces a static type system based on guarded functional dependencies (GFDs) that guarantee that every
+well-typed Match Algebra expression denotes a mathematical function. Given such an expression, the Match-
+Box compiler automatically realizes it as a set of match-action tables for the target environment, efficiently
+producing compact match-action tables that are semantically faithful to the specification. To demonstrate the
+usefulness and practicality of MatchBox, we evaluate it on realistic portability challenges across the network
+stack and show that it enables concise, declarative specifications that can be effectively realized into compact
+match-action tables.

@@ -123,18 +123,6 @@ main = hakyll $ do
           >>= applyAsTemplate resumeCtx
           >>= loadAndApplyTemplate "templates/resume.tex" resumeCtx
           >>= relativizeUrls
-  
-    create ["cv.tex"] $ do
-      route idRoute
-      compile $ do
-        education <- recentFirst =<< loadAll "education/*"
-        papers <- recentFirst =<< loadAll "papers/*"
-        teaching <- reverse <$> (chronological =<< loadAll "teaching/*")
-        let resumeCtx =
-              listField "education" paperCtx (return education)     `mappend`
-              listField "papers" paperCtx (return papers)           `mappend`
-              listField "teaching" defaultContext (return teaching) `mappend`
-              defaultContext
 
         getResourceBody
           >>= applyAsTemplate resumeCtx

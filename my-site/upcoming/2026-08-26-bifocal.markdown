@@ -1,0 +1,20 @@
+---
+title: "Refractional Program Logic"
+authors: <b>Eric Hayden Campbell</b>, Mark Barbone, Nate Foster
+month: August 2026
+venue: ICFP
+descr: Refractional program logic permits compositional reasoning about lens-synchronized reconfigurable programs
+---
+We present Refractional Program Logic, a novel framework for verifying relational properties of programs
+whose behavior is parameterized by configurations that evolve dynamically at runtime. Reasoning about such
+reconfigurable programs poses unique challenges, as one must verify not only relations between programs but
+also relations between configurations. Existing relational logics do not offer tools for managing configurations,
+typically requiring ad hoc approaches to specification and synchronization.
+Refractional Program Logic fills this gap by factoring relational reasoning through a different abstraction:
+bidirectional lenses, which maintain specified relations on configurations. Rather than viewing lenses solely as
+a mechanism for data synchronization, as in prior work, we use them to construct relational invariants on
+configurations. We design a proof system that lifts lens-maintained relations on configurations to relational
+specifications on programs, enabling concise and modular proofs.
+We formalize Refractional Program Logic in a core calculus, prove soundness and relative completeness,
+and implement a prototype verifier in OCaml and Z3. We evaluate our approach on case studies drawn from
+the networking domain, demonstrating that it is both expressive and practical.
