@@ -50,7 +50,7 @@
 
 <p>Dijkstra’s Guarded Command Language (GCL) has become a staple of automated
 verification. I often use it as an intermediate language in my verification
-tasks, primarily because it has a well understood compilation algorithm to
+tasks, primarily because it has a well-understood compilation algorithm to
 formal logic. It’s very similar to the IMP language that we study in
 introductory PL courses, but it has a key difference: nondeterminism.</p>
 <p>GCL models the core elements of imperative programming languages: variables,
@@ -74,7 +74,7 @@ by sequentially composing them—i.e. by writing <code>c1;c2</code>. This code 
 <code>c1</code> and then <code>c2</code> on the resulting state.</p>
 <p>The second mechanism for constructing larger programs is the eponymous guarded
 command. A guarded command is a sequence of boolean guards <code>b1, ..., bn</code> and
-corresponding programs <code>c1,..,cn</code> written as follows:</p>
+corresponding programs <code>c1, ..., cn</code> written as follows:</p>
 <pre><code>if  b1 -&gt; c1
     b2 -&gt; c2
     ...
@@ -89,7 +89,7 @@ following code where both guards are true.</p>
 if  i &lt; 2 -&gt; j := 0
     i &lt; 3 -&gt; j := 99
 fi </code></pre>
-<p>The semantics of this GCL program is to nondeterministically chose either <code>j :=0</code> or <code>j:=99</code> to execute, that is it’s equivalent to</p>
+<p>The semantics of this GCL program is to nondeterministically choose either <code>j :=0</code> or <code>j:=99</code> to execute, that is it’s equivalent to</p>
 <pre><code>if  true -&gt; j := 0
     true -&gt; j := 99
 fi</code></pre>
@@ -103,14 +103,14 @@ need to negate the conditions of the previous rows. That is, to express</p>
 <p>we would need to write the following guarded command</p>
 <pre><code>if  b0         -&gt; c1
     !b0 &amp;&amp; b1  -&gt; c2
-    !b0 &amp;&amp; !b2 -&gt; skip
+    !b0 &amp;&amp; !b1 -&gt; skip
 fi</code></pre>
 <p>Here, <code>skip</code> is simply the command that does nothing.</p>
 <p>And that’s all there is to GCL! It’s a very simple yet powerful language.
 <em>Dijkstra’s original GCL does have a mechanism for iteration. I’ll discuss how
 loops work in a future post.</em></p>
-<p>I do find that this version of GCL has some unnecessary complexity. I prefer the
-a more algebraic presentation of the same language.</p>
+<p>I do find that this version of GCL has some unnecessary complexity. I prefer a
+more algebraic presentation of the same language.</p>
 <h2 id="gcl-with-an-algebraic-flavor">GCL with an Algebraic Flavor</h2>
 <p>A more algebraic presentation of GCL breaks down the guarded command operation
 into two operations, the assume b operator, and the binary nondeterministic
@@ -144,7 +144,7 @@ using a slightly more algebraic flavor (which is my preference):</p>
 <p>Note that we can recover the guarded commands using these operators by
 implementing guarded commands as follows:</p>
 <pre><code>(assume b1; c1) []
-(assume b2: c2) []
+(assume b2; c2) []
 …
 (assume bn; cn)</code></pre>
 <p>(Note that <code>[]</code> is associative)</p>
@@ -175,8 +175,8 @@ the command <code>x := x + 1</code>. Consider a few candidate preconditions belo
 <p>The first formula <code>x = 0</code> is not a valid precondition, because incrementing <code>x</code>
 when it is zero produces an output where <code>x = 1</code>, which is less than <code>3</code>,
 violating the desired postcondition. The second formula is a valid
-postcondition, since <code>3 + 1 &gt; 3</code>, however it is not the weakest, since <code>x = 3 || x = 4</code> also is a valid postcondition and <code>x = 3 =&gt; x = 4</code>. The fourth condition
-<em>is</em> the weakest precondition. Notice that <code>x = 3 =&gt; x &gt; 2</code> and <code>x =3 || x=5 =&gt; x &gt; 2</code>.</p>
+precondition, since <code>3 + 1 &gt; 3</code>, however it is not the weakest, since <code>x = 3 || x = 4</code> also is a valid precondition and <code>x = 3 =&gt; x = 3 || x = 4</code>. The fourth condition
+<em>is</em> the weakest precondition. Notice that <code>x = 3 =&gt; x &gt; 2</code> and <code>x = 3 || x = 4 =&gt; x &gt; 2</code>.</p>
 <h2 id="the-weakest-precondition-function">The Weakest Precondition Function</h2>
 <p>The cool thing about the weakest precondition is that Dijkstra came up with an
 algorithm in the 70s for computing them for terminating executions! This is
@@ -202,8 +202,14 @@ preconditions. In only considering terminating executions, we are only concerned
 with executions that pass the assumption, i.e. for which <code>b</code> holds, which means
 that rather than requiring b to hold, we assume that it does, and disregard all
 other (non-terminating) inputs falsifying <code>b</code>.</p>
-<p>The rule for sequential composition simply propagates the precondition backwards through thr program:</p>
+<p>The rule for sequential composition simply propagates the precondition backwards through the program:</p>
 <pre><code>wlp (c1;c2, Q) = wlp(c1, wlp(c2, Q))</code></pre>
+<p>The final case is nondeterministic choice:</p>
+<pre><code>wlp (c1 [] c2, Q) = wlp(c1, Q) &amp;&amp; wlp(c2, Q)</code></pre>
+<p>Intuitively, <code>[]</code> is demonic choice: at runtime we do not control whether <code>c1</code>
+or <code>c2</code> is picked. So to guarantee <code>Q</code> after the choice, the input state must be
+safe for <em>both branches</em>, not just one, so we join the WLPs for both <code>c1</code> and <code>c2</code>
+w.r.t <code>Q</code>.</p>
 <p>Notice that it’s very common to say “the” weakest precondition because weakest
 preconditions are “unique”. The proof of this is very simple. If both <code>P</code> and
 <code>P'</code> are weakest preconditions, then <code>P =&gt; P'</code> and <code>P' =&gt; P</code> which means they
@@ -212,9 +218,9 @@ are logically equivalent and therefore unique. The nuance here is that <code>P</
 For instance, conditions 4 and 5 above are semantically identical but
 syntactically different. They are still both “the” weakest precondition.</p>
 <h2 id="a-simple-symbolic-compiler">A Simple Symbolic Compiler</h2>
-<p>Now that we have the weakest precondition its quite easy to build a symbolic
+<p>Now that we have the weakest precondition it’s quite easy to build a symbolic
 compiler for GCL programs. A symbolic compiler simply produces a formula φ that
-describes the relational sematnics of the input program.</p>
+describes the relational semantics of the input program.</p>
 <p>To do this we’ll take the weakest precondition of a program <code>c</code> with respect to
 a special formula <code>X = X'</code>, where <code>X</code> is the set of variables that occur in the
 program <code>c</code>, and <code>X'</code> is the same set of variables given fresh names. Morally,
@@ -225,7 +231,7 @@ that for all input states, the output state has <code>x ↦ 1</code>.</p>
 <p>So, the implementation of a simple symbolic compiler is</p>
 <pre><code>wp(c, X = X')</code></pre>
 <p>And we’re done!</p>
-<p>In future posts I’ll discuss other kinds of symbolic compilers and how we can make them <em>fast</em></p>
+<p>In future posts I’ll discuss other kinds of symbolic compilers and how we can make them <em>fast</em>.</p>
 
         </div>
 
