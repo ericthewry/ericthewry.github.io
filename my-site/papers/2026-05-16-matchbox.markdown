@@ -1,7 +1,7 @@
 ---
 title: "MatchBox: A Semantic Foundation for Data Plane Portability"
 authors: <b>Eric Hayden Campbell</b>, Robert Zhang, Divyanshu Saxena, Aditya Akella, Isil Dillig
-month: June 2026, Conditionally Accepted
+month: June 2026, Accepted
 venue: PLDI
 descr: MatchBox is a statcically-typed declarative language and compiler for translating match-action tables.
 ---
