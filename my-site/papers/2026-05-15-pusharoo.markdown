@@ -1,8 +1,10 @@
 ---
 title: "Optimal Predicate Pushdown Synthesis"
 authors: Robert Zhang, <b>Eric Hayden Campbell</b>, Dixin Tang, Isil Dillig
-month: June 2026, Accepted
+month: June 2026    
 venue: PLDI
+pdf: "https://arxiv.org/abs/2604.13351"
+code: "https://github.com/utopia-group/pushdown"
 descr: Compute optimal pre-filters for UDAFs
 ---
 
