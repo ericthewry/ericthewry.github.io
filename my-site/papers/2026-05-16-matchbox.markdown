@@ -4,7 +4,7 @@ authors: <b>Eric Hayden Campbell</b>, Robert Zhang, Divyanshu Saxena, Aditya Ake
 month: June 2026
 venue: PLDI
 award: "Distinguished Paper Award!"
-pdf: "pdfs/matchbox.pdf"
+pdf: "pdfs/matchbox_pldi26.pdf"
 code: "https://github.com/utopia-group/matchbox"
 descr: MatchBox is a statcically-typed declarative language and compiler for translating match-action tables.
 ---
