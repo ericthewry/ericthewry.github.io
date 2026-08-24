@@ -1,8 +1,8 @@
 <table>
     $for(workshops)$
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               $if(pdf)$
               <a href = $pdf$>
               $endif$
@@ -10,26 +10,25 @@
               $if(pdf)$
               </a>
               $endif$
-          </b>
+          </span>
           $if(award)$
-          <br/><b>$award$</b>
+          <br/><span class="pub-award">$award$</span>
           $endif$
           $if(note)$
-	      <br/>[$note$]
-	      $endif$
+          <br/><span class="pub-note">[$note$]</span>
+          $endif$
           <br/>
-          $authors$
+          <span class="pub-authors">$authors$</span>
           <br/>
 
 	$if(venue)$
-	<b>$venue$</b>.
+	<span class="pub-venue">$venue$</span>.
 	$endif$
 
 	$if(month)$
-	<i>$month$</i>.
+	<span class="pub-month">$month$</span>.
 	$endif$
-      <!-- </td> -->
-      <!-- <td> -->
+
 	$if(slides)$
 	 <a href=$slides$ title="slides" class="icon"><img src="/images/easel-fill.svg"/></a>
 	 $endif$

@@ -2,74 +2,50 @@
 title: Eric Hayden Campbell
 ---
 
-<div id="profile" >
-  <img class=".float-left" src="/images/ehc86_2018.jpg" style="margin-left: 20px; margin-top: 10px; width: 180px;" />
+<div id="profile">
+  <img id="portrait" src="/images/ehc86_2018.jpg" alt="Eric Hayden Campbell" />
   <div id="info">
-    <h1> Eric Hayden Campbell </h1>
-    <h2> 
-      Postdoctoral Research Fellow <br/>
-      <a href="https://www.cs.utexas.edu/~isil/#students">UToPiA</a>, 
-      <a href="https://utns.cs.utexas.edu/">UTNS</a>  @ 
-      UT Austin 
-    </h2>
-    <p> email: first [.] middle [.] last [at] utexas [.] edu </p>
-    <p>
-      My research focuses on program semantics, verification, and synthesis for
-      open programs. I believe that hands-off formal methods tools
-      can help us precisely reason about dynamically (re)-configurable code.
+    <h1>Eric Hayden Campbell</h1>
+    <p class="role">
+      Postdoctoral Research Fellow<br/>
+      <a href="https://www.cs.utexas.edu/~isil/#students">UToPiA</a> &amp;
+      <a href="https://utns.cs.utexas.edu/">LDOS</a> &middot; UT&nbsp;Austin
     </p>
-    </div>
+    <p class="contact">first [.] middle [.] last [at] utexas [.] edu</p>
+    <p class="notice">I am actively searching for tenure track faculty positions&mdash;please reach out if your institution is hiring this cycle.</p>
   </div>
 </div>
-<p> 
-  During my PhD at Cornell University, I focused on a particular kind of open program, 
-  networking data plane programs: type checking them, inferring their specs,
-  and generating their configurations. These days, I'm interested in a broader 
-  class of open programs, including databases, operating systems, and
-  AI programming systems.
+
+<p  class="intro">
+  I study <b>verified adaptation</b>. Rather than yearn for a world where programs, architectures, and deployments hold still, 
+  I build hands-off programming languages, type systems, synthesis engines, and verifiers that permit systems to embrace the natural ebb and flow of software and hardware,
+  while still providing strong guarantees about system behavior.
 </p>
-
-<p> 
-  In my free time, I dabble in 
-  <a href="/pdfs/epistemic_kat.pdf">linguistics</a>, 
-  <a href="http://latindance.arts.cornell.edu/">dance</a>,
-  and <a href="https://www.youtube.com/watch?v=Ph2zyrPXloQ">music</a>. 
-</p>
-<!-- <br/> -->
-<!-- <p style="text-align: center;">
-  <i> 
-    <b></b>
-    </b>
-  </i>
-</p> -->
-
-<div>
-  <h2>Theses</h2>
-  $partial("templates/theses.html")$
-</div>
-
-
-<div id="pubs">
+<div id="pubs" class="section">
   <h2>Conference Papers</h2>
   $partial("templates/paper-list.html")$
 </div>
 
-<div>
+<div class="section">
   <h2>Other Publications</h2>
   $partial("templates/wkshop-list.html")$
 </div>
 
+<div class="section">
+  <h2>Theses</h2>
+  $partial("templates/theses.html")$
+</div>
 
-<div id="News">
+<div id="News" class="section">
   <h2>News</h2> $partial("templates/news.html")$
 </div>
 
-<div>
+<div class="section">
   <h2> Blog Posts </h2>
   $partial("templates/post-list.html")$
 </div>
 
-<div>
+<div class="section">
   <h2>Teaching</h2>
   $partial("templates/teaching-list.html")$
 </div>

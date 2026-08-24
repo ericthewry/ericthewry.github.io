@@ -1,29 +1,158 @@
-body {
-    color: #030609;
-    font-size: 16px;
-    margin: 0px auto 0px auto;
-    width: 600px;
-    /* font-family: Arial, sans-serif; */
-    font-family: Lato, sans-serif;
-    background-color: #F9FBFD;
+/* ---------------------------------------------------------------- fonts */
+
+@font-face {
+    font-family: Lato;
+    src: url("/fonts/lato/Lato-Lig.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: Lato;
+    src: url("/fonts/lato/Lato-Reg.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("/fonts/lato/Lato-RegIta.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("/fonts/lato/Lato-Bol.ttf") format("truetype");
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("/fonts/lato/Lato-BolIta.ttf") format("truetype");
+    font-weight: 600 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ----------------------------------------------------------- foundation */
+
+:root {
+    --ink: #222c37;
+    --ink-soft: #40505f;
+    --ink-faint: #6a7885;
+    --rule: #dde3e9;
+    --rule-faint: #e7ecf1;
+    --accent: #4682B4;
+    --wash: #eef2f6;
+    --portrait: 150px;
+}
+
+body {
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0px auto 0px auto;
+    max-width: 632px;
+    padding: 0px 16px;
+    box-sizing: border-box;
+    font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    background-color: #F9FBFD;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 14px 0;
+    line-height: 1.6;
+}
+
+/* ------------------------------------------------------------- headings */
+
+h1, h2, h3, h4 {
+    color: var(--ink);
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin: 0 0 18px 0;
+}
+
+h2 {
+    font-size: 21px;
+    font-weight: 400;
+    margin: 34px 0 6px 0;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin: 0 0 6px 0;
+}
+
+h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin: 24px 0 6px 0;
+}
+
+/* Section headers on the front page read as quiet labels, not banners. */
+.section > h2 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 5px;
+    margin: 40px 0 0 0;
+}
+
+/* ------------------------------------------------------ header & footer */
 
 div#header {
-    border-bottom: 2px solid black;
-    margin-bottom: 30px;
-    padding: 12px 0px 12px 0px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+    padding: 16px 0px 12px 0px;
 }
-
 
 #logo {
     padding-left: 22px;
 }
 
 div#logo a {
-    color:  #030609;
+    color: var(--ink);
     float: left;
-    font-size: 18px;
-    /* font-weight: bold; */
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-decoration: none;
 }
 
@@ -31,102 +160,108 @@ div#header #navigation {
     text-align: right;
 }
 
-div#header #navigation a:hover {
-    font-weight: bold;
-}
-
 div#header #navigation a {
-    color:  #030609;
-    font-size: 18px;
-    margin-left: 12px;
+    color: var(--ink-faint);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-left: 16px;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-table.links a{
-    /* color: black; */
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 12px;
-    /* text-decoration: none; */
-    /* text-transform: uppercase; */
-}
-
-table.links tr td {
-    /* border: 2px solid black;	 */
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a {
-    color: #4682B4;
+div#header #navigation a:hover {
+    color: var(--accent);
     text-decoration: none;
 }
 
-
 div#footer {
-    border-top: solid 2px black;
-    color: #555;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-faint);
     font-size: 12px;
-    margin-top: 30px;
-    padding: 12px 0px 12px 0px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 44px;
+    padding: 14px 0px 24px 0px;
     text-align: right;
 }
 
-h1 {
-    font-size: 30px;
-    font-weight: normal;
+/* ------------------------------------------------------------- profile */
+
+#profile {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 8px 20px 8px 20px;
 }
 
-h3 {
-    /* color: #0b0a0a; */
-
-}
-
-h2 {
-    font-size: 20px;
-    /* color: #0b0a0a; */
-}
-
-.float-left{
-    float: left;
-}
-.float-right{
-    float: right;
-}
-
-div.info {
-    /* color: #555; */
-    font-size: 14px;
-    /* font-style: italic; */
-    padding-bottom: 10px;
-}
-
-
-#profile{
-    padding: 0px 0px 20px 0px;
+#portrait {
+    width: var(--portrait);
+    flex: none;
+    border-radius: 3px;
 }
 
 #info {
-    float: right;
-    margin: auto;
-    width: 55%;
-    padding: 10px 15px 10px 10px;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.4;
+    position: relative;
+    top: -15px;
 }
 
-.sc {
-    font-variant: small-caps;
-    font-size: 110%;
+#info h1 {
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    margin: 0 0 6px 0;
 }
 
-
-#blurb {
-    margin-top: 10px;
-    clear: left;
-    border-top: 2px solid black;
+#info p {
+    margin: 0 0 9px 0;
+    line-height: inherit;
 }
+
+#info .role {
+    font-size: 15px;
+    color: var(--ink-soft);
+}
+
+#info .contact {
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+}
+
+#info .notice {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--accent);
+    /* Vertical space as margin, not padding: padding is inside the border box
+       and would stretch the accent bar past the text. */
+    padding: 0 0 0 12px;
+    margin-top: 23px;
+    margin-bottom: 9px;
+}
+
+/* The research statement carries the page, so give it a little more air. */
+.intro {
+    /* Set apart by size and leading, not by weight and colour: this is the
+       longest prose on the page, so it wants the most readable settings. */
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 6px 20px 10px 20px;
+}
+
+.intro b, .intro strong {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* --------------------------------------------------------------- lists */
 
 table {
     border-collapse: collapse;
@@ -135,41 +270,202 @@ table {
 
 td, th {
     border: none;
+    border-bottom: 1px solid var(--rule-faint);
     text-align: left;
-    padding: 8px;
-    line-height: 14pt;
+    vertical-align: top;
+    padding: 13px 8px;
+    line-height: 1.45;
 }
 
-tr:nth-child(odd) {
-    background-color: #E1E6EB;
+/* Publication entries stack several short lines, so they set tighter than
+   a cell holding a wrapping sentence. */
+td.pub {
+    line-height: 1.3;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Dates, semesters, and other leading metadata columns. */
+table td:first-child:not(:only-child),
+table td.meta {
+    color: var(--ink-faint);
+    font-size: 13px;
+    white-space: nowrap;
+    width: 1%;
+    padding-right: 16px;
+    /* These are always one short line against a taller cell, so centre them
+       rather than letting a 13px line box hang off the top of a 16px one. */
+    vertical-align: middle;
+}
+
+table.links a {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 12px;
+}
+
+/* ------------------------------------------------------- publications */
+
+.pub-title {
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--ink);
+}
+
+.pub-authors {
+    font-size: 14px;
+    color: var(--ink-faint);
+}
+
+.pub-authors b {
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+.pub-venue {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+.pub-month {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-faint);
+}
+
+.pub-note {
+    font-size: 13px;
+    color: var(--ink-faint);
+}
+
+.pub-award {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9a6b1f;
+}
+
+.icon img {
+    width: 15px;
+    height: 15px;
+    opacity: 0.45;
+    vertical-align: baseline;
+}
+
+.icon:hover img {
+    opacity: 0.9;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faint);
+}
+
+.posts a {
+    color: var(--ink);
+}
+
+.posts a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------- misc */
+
+div.info {
+    font-size: 14px;
+    color: var(--ink-faint);
+    padding-bottom: 10px;
+}
+
+div.info h1 {
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.sc {
+    font-variant: small-caps;
+    font-size: 110%;
+}
+
+#blurb {
+    margin-top: 10px;
+    clear: left;
+    border-top: 1px solid var(--rule);
+}
+
+blockquote {
+    margin: 20px 0;
+    padding: 2px 0 2px 18px;
+    border-left: 2px solid var(--rule);
+    color: var(--ink-soft);
+    font-style: italic;
 }
 
 pre {
     padding: 16px;
     overflow: auto;
     font-size: 85%;
-    line-height: 1.45;
+    line-height: 1.5;
     border-radius: 6px;
-    background-color: #E1E6EB;
+    background-color: var(--wash);
 }
 
 code {
-    font-size: 85%;
-    line-height: 1.45;
-    border-radius: 6px;
-    padding: 1px;
-    background-color: #E1E6EB;
-}
-.subtitle {
-    font-style:italic;
-    font-size:14px;
+    font-size: 88%;
+    border-radius: 3px;
+    padding: 1px 4px;
+    background-color: var(--wash);
 }
 
-.posts a{
-    color:#030609;
+pre code {
+    padding: 0;
+    background: none;
 }
 
-.icon img {
-    width: 15px;
-    height: 15px;
+hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 32px 0;
+}
+
+/* -------------------------------------------------------------- narrow */
+
+@media (max-width: 640px) {
+    #profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding: 8px 0 8px 0;
+    }
+
+    /* Stacked, there is nothing to optically centre against. */
+    #info {
+        top: 0;
+    }
+
+    .intro {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    td, th {
+        padding: 11px 4px;
+    }
 }

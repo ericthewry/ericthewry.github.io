@@ -6,7 +6,7 @@ venue: PLDI
 pdf: "pdfs/pusharoo_pldi26.pdf"
 code: "https://github.com/utopia-group/pushdown"
 descr: Compute optimal pre-filters for UDAFs
----
+
 
 Predicate pushdown is a long-standing performance optimization that filters data as early as possible in a
 computational workflow. In modern data pipelines, this transformation is especially important because much
