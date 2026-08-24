@@ -38,138 +38,31 @@
 
         <div id="content">
 	  <div id="profile">
-  <img class=".float-left" src="./images/ehc86_2018.jpg" style="margin-left: 20px; margin-top: 10px; width: 180px;" />
+  <img id="portrait" src="./images/ehc86_2018.jpg" alt="Eric Hayden Campbell" />
   <div id="info">
-    <h1> Eric Hayden Campbell </h1>
-    <h2> 
-      Postdoctoral Research Fellow <br />
-      <a href="https://www.cs.utexas.edu/~isil/#students">UToPiA</a>, 
-      <a href="https://utns.cs.utexas.edu/">UTNS</a>  @ 
-      UT Austin 
-    </h2>
-    <p> email: first [.] middle [.] last [at] utexas [.] edu </p>
-    <p>
-      My research focuses on program semantics, verification, and synthesis for
-      open programs. I believe that hands-off formal methods tools
-      can help us precisely reason about dynamically (re)-configurable code.
+    <h1>Eric Hayden Campbell</h1>
+    <p class="role">
+      Postdoctoral Research Fellow<br />
+      <a href="https://www.cs.utexas.edu/~isil/#students">UToPiA</a> &amp;
+      <a href="https://utns.cs.utexas.edu/">LDOS</a> &middot; UT&nbsp;Austin
     </p>
-    </div>
+    <p class="contact">first [.] middle [.] last [at] utexas [.] edu</p>
+    <p class="notice">I am actively searching for tenure track faculty positions&mdash;please reach out if your institution is hiring this cycle.</p>
   </div>
 </div>
-<p> 
-  During my PhD at Cornell University, I focused on a particular kind of open program, 
-  networking data plane programs: type checking them, inferring their specs,
-  and generating their configurations. These days, I'm interested in a broader 
-  class of open programs, including databases, operating systems, and
-  AI programming systems.
+
+<p class="intro">
+  I study <b>verified adaptation</b>. Rather than yearn for a world where programs, architectures, and deployments hold still, 
+  I build hands-off programming languages, type systems, synthesis engines, and verifiers that permit systems to embrace the natural ebb and flow of software and hardware,
+  while still providing strong guarantees about system behavior.
 </p>
-
-<p> 
-  In my free time, I dabble in 
-  <a href="./pdfs/epistemic_kat.pdf">linguistics</a>, 
-  <a href="http://latindance.arts.cornell.edu/">dance</a>,
-  and <a href="https://www.youtube.com/watch?v=Ph2zyrPXloQ">music</a>. 
-</p>
-<!-- <br/> -->
-<!-- <p style="text-align: center;">
-  <i> 
-    <b></b>
-    </b>
-  </i>
-</p> -->
-
-<div>
-  <h2>Theses</h2>
-  <table>
-    
-    <tr>
-      <td>
-          <b>
-              
-              <a href="./pdfs/dissertation.pdf">
-              
-              Verified Configuration of Programmable Networks
-              
-              </a>
-              
-          </b>
-          
-          
-          <br />
-          <b>Eric Hayden Campbell</b>, advised by Nate Foster
-          <br />
-
-	
-	<b>Cornell University</b>.
-	
-
-	
-	<i>December 2024</i>.
-	
-      <!-- </td> -->
-      <!-- <td> -->
-	
-
-    
-    
-
-    
-	</td>
-    </tr>
-    
-    <tr>
-      <td>
-          <b>
-              
-              <a href="./pdfs/thesis.pdf">
-              
-              Infiniteness and Linear Temporal Logic
-              
-              </a>
-              
-          </b>
-          
-          
-          <br />
-          <b>Eric Hayden Campbell</b>, advised by Michael Greenberg
-          <br />
-
-	
-	<b>Pomona College</b>.
-	
-
-	
-	<i>May 2017</i>.
-	
-      <!-- </td> -->
-      <!-- <td> -->
-	
-	 <a href="./pdfs/math_thesis_prez.pdf" title="slides" class="icon"><img src="./images/easel-fill.svg" /></a>
-	 
-
-    
-    
-
-    
-     <a href="https://github.com/ericthewry/ltlf-decide" title="code" class="icon">
-         <img src="images/code-square.svg" />
-     </a>
-     
-	</td>
-    </tr>
-    
-</table>
-
-</div>
-
-
-<div id="pubs">
+<div id="pubs" class="section">
   <h2>Conference Papers</h2>
   <table>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/matchbox_pldi26.pdf">
               
@@ -177,24 +70,23 @@
               
               </a>
               
-          </b>
+          </span>
           
-          <br /><b>Distinguished Paper Award!</b>
+          <br /><span class="pub-award">Distinguished Paper Award!</span>
           
           
           <br />
-          <b>Eric Hayden Campbell</b>, Robert Zhang, Divyanshu Saxena, Aditya Akella, Isil Dillig
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, Robert Zhang, Divyanshu Saxena, Aditya Akella, Isil Dillig</span>
           <br />
 
 	
-	<b>PLDI</b>.
+	<span class="pub-venue">PLDI</span>.
 	
 
 	
-	<i>June 2026</i>.
+	<span class="pub-month">June 2026</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -209,8 +101,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/pusharoo_pldi26.pdf">
               
@@ -218,22 +110,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          Robert Zhang, <b>Eric Hayden Campbell</b>, Dixin Tang, Isil Dillig
+          <span class="pub-authors">Robert Zhang, <b>Eric Hayden Campbell</b>, Dixin Tang, Isil Dillig</span>
           <br />
 
 	
-	<b>PLDI</b>.
+	<span class="pub-venue">PLDI</span>.
 	
 
 	
-	<i>June 2026</i>.
+	<span class="pub-month">June 2026</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -248,8 +139,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/capisce.pdf">
               
@@ -257,22 +148,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          <b>Eric Hayden Campbell</b>, Hossein Hojjat, Nate Foster
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, Hossein Hojjat, Nate Foster</span>
           <br />
 
 	
-	<b>OOPSLA</b>.
+	<span class="pub-venue">OOPSLA</span>.
 	
 
 	
-	<i>Oct 2024</i>.
+	<span class="pub-month">Oct 2024</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 	 <a href="pdfs/capisce-oopsla24.pdf" title="slides" class="icon"><img src="./images/easel-fill.svg" /></a>
 	 
@@ -289,8 +179,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/kmts.pdf">
               
@@ -298,24 +188,23 @@
               
               </a>
               
-          </b>
+          </span>
           
-          <br /><b>Distinguished Paper Award!</b>
+          <br /><span class="pub-award">Distinguished Paper Award!</span>
           
           
           <br />
-          Michael Greenberg, Ryan Beckett, and <b>Eric Hayden Campbell</b>
+          <span class="pub-authors">Michael Greenberg, Ryan Beckett, and <b>Eric Hayden Campbell</b></span>
           <br />
 
 	
-	<b>PLDI</b>.
+	<span class="pub-venue">PLDI</span>.
 	
 
 	
-	<i>June 2022</i>.
+	<span class="pub-month">June 2022</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -332,8 +221,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/pi4.pdf">
               
@@ -341,22 +230,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          Matthias Eichholz, <b>Eric Hayden Campbell</b>, Matthias Krebs, Nate Foster,  Mira Mezini
+          <span class="pub-authors">Matthias Eichholz, <b>Eric Hayden Campbell</b>, Matthias Krebs, Nate Foster,  Mira Mezini</span>
           <br />
 
 	
-	<b>POPL</b>.
+	<span class="pub-venue">POPL</span>.
 	
 
 	
-	<i>January 2022</i>.
+	<span class="pub-month">January 2022</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -375,8 +263,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/avenir.pdf">
               
@@ -384,22 +272,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          <b>Eric Hayden Campbell</b>, William T. Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, Vignesh Ramamurthy, Hossein Hojjat, Ruzica Piskac, Robert Soulé, J. Nathan Foster
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, William T. Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, Vignesh Ramamurthy, Hossein Hojjat, Ruzica Piskac, Robert Soulé, J. Nathan Foster</span>
           <br />
 
 	
-	<b>NSDI</b>.
+	<span class="pub-venue">NSDI</span>.
 	
 
 	
-	<i>April 2021</i>.
+	<span class="pub-month">April 2021</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 	 <a href="https://www.usenix.org/system/files/nsdi21_slides_hayden-campbell.pdf" title="slides" class="icon"><img src="./images/easel-fill.svg" /></a>
 	 
@@ -420,8 +307,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="./pdfs/safep4.pdf">
               
@@ -429,22 +316,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          Matthias Eichholz + <b>Eric Hayden Campbell</b>, Nate Foster, Guido Salvaneschi, Mira Mezini
+          <span class="pub-authors">Matthias Eichholz + <b>Eric Hayden Campbell</b>, Nate Foster, Guido Salvaneschi, Mira Mezini</span>
           <br />
 
 	
-	<b>ECOOP</b>.
+	<span class="pub-venue">ECOOP</span>.
 	
 
 	
-	<i>July 2019</i>.
+	<span class="pub-month">July 2019</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -461,8 +347,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="./pdfs/imies.pdf">
               
@@ -470,22 +356,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          Christopher Towse and <b>Eric Hayden Campbell</b>
+          <span class="pub-authors">Christopher Towse and <b>Eric Hayden Campbell</b></span>
           <br />
 
 	
-	<b>The Mathematical Scientist, UK</b>.
+	<span class="pub-venue">The Mathematical Scientist, UK</span>.
 	
 
 	
-	<i>June 2016</i>.
+	<span class="pub-month">June 2016</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 	 <a href="./pdfs/imies_prez.pdf" title="slides" class="icon"><img src="./images/easel-fill.svg" /></a>
 	 
@@ -505,13 +390,13 @@
 
 </div>
 
-<div>
+<div class="section">
   <h2>Other Publications</h2>
   <table>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="./pdfs/guardrails.pdf">
               
@@ -519,22 +404,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          Diyanshu Saxena, Jiayi Chen, Sujay Yadalam, Yeonju Ro, Rohit Dwivedula, </br><b>Eric Hayden Campbell</b>, Aditya Akella, Christopher J. Rossbach, Michael Swift
+          <span class="pub-authors">Diyanshu Saxena, Jiayi Chen, Sujay Yadalam, Yeonju Ro, Rohit Dwivedula, </br><b>Eric Hayden Campbell</b>, Aditya Akella, Christopher J. Rossbach, Michael Swift</span>
           <br />
 
 	
-	<b>HotOS</b>.
+	<span class="pub-venue">HotOS</span>.
 	
 
 	
-	<i>May 2025</i>.
+	<span class="pub-month">May 2025</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -545,8 +429,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="pdfs/p4cub.pdf">
               
@@ -554,22 +438,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          Rudy Peterson, <b>Eric Hayden Campbell</b>, John Chen, Natalie Isak, Calvin Shyu, Ryan Doenges, Parisa Ataei, and Nate Foster
+          <span class="pub-authors">Rudy Peterson, <b>Eric Hayden Campbell</b>, John Chen, Natalie Isak, Calvin Shyu, Ryan Doenges, Parisa Ataei, and Nate Foster</span>
           <br />
 
 	
-	<b>CPP</b>.
+	<span class="pub-venue">CPP</span>.
 	
 
 	
-	<i>Jan 2023</i>.
+	<span class="pub-month">Jan 2023</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -584,8 +467,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="./pdfs/epistemic_kat.pdf">
               
@@ -593,22 +476,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          <b>Eric Hayden Campbell</b>, Mats Rooth
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, Mats Rooth</span>
           <br />
 
 	
-	<b>SCiL</b>.
+	<span class="pub-venue">SCiL</span>.
 	
 
 	
-	<i>February 2021</i>.
+	<span class="pub-month">February 2021</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 	 <a href="https://docs.google.com/presentation/d/1QxGgnCmutqUBrrReTZNkEwwnzii2VkCLKAJjq9ba07c/edit?usp=sharing" title="slides" class="icon"><img src="./images/easel-fill.svg" /></a>
 	 
@@ -629,8 +511,8 @@
     </tr>
     
     <tr>
-      <td>
-          <b>
+      <td class="pub">
+          <span class="pub-title">
               
               <a href="https://arxiv.org/pdf/2107.06045.pdf">
               
@@ -638,22 +520,21 @@
               
               </a>
               
-          </b>
+          </span>
           
           
           <br />
-          <b>Eric Hayden Campbell</b>, Michael Greenberg
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, Michael Greenberg</span>
           <br />
 
 	
-	<b>arXiv:2107.06045</b>.
+	<span class="pub-venue">arXiv:2107.06045</span>.
 	
 
 	
-	<i>July 2021</i>.
+	<span class="pub-month">July 2021</span>.
 	
-      <!-- </td> -->
-      <!-- <td> -->
+
 	
 
     
@@ -673,8 +554,89 @@
 
 </div>
 
+<div class="section">
+  <h2>Theses</h2>
+  <table>
+    
+    <tr>
+      <td class="pub">
+          <span class="pub-title">
+              
+              <a href="./pdfs/dissertation.pdf">
+              
+              Verified Configuration of Programmable Networks
+              
+              </a>
+              
+          </span>
+          
+          
+          <br />
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, advised by Nate Foster</span>
+          <br />
 
-<div id="News">
+	
+	<span class="pub-venue">Cornell University</span>.
+	
+
+	
+	<span class="pub-month">December 2024</span>.
+	
+
+	
+
+    
+    
+
+    
+	</td>
+    </tr>
+    
+    <tr>
+      <td class="pub">
+          <span class="pub-title">
+              
+              <a href="./pdfs/thesis.pdf">
+              
+              Infiniteness and Linear Temporal Logic
+              
+              </a>
+              
+          </span>
+          
+          
+          <br />
+          <span class="pub-authors"><b>Eric Hayden Campbell</b>, advised by Michael Greenberg</span>
+          <br />
+
+	
+	<span class="pub-venue">Pomona College</span>.
+	
+
+	
+	<span class="pub-month">May 2017</span>.
+	
+
+	
+	 <a href="./pdfs/math_thesis_prez.pdf" title="slides" class="icon"><img src="./images/easel-fill.svg" /></a>
+	 
+
+    
+    
+
+    
+     <a href="https://github.com/ericthewry/ltlf-decide" title="code" class="icon">
+         <img src="images/code-square.svg" />
+     </a>
+     
+	</td>
+    </tr>
+    
+</table>
+
+</div>
+
+<div id="News" class="section">
   <h2>News</h2> <table>
   
   <tr>
@@ -716,12 +678,11 @@
 
 </div>
 
-<div>
+<div class="section">
   <h2> Blog Posts </h2>
   <table>
   
   <tr class="posts">
-    <td>May 10, 2023</td>
     <td><a href="./posts/2023-05-10-gcl.html">Symbolic Compilation for GCL:<br />
 	      <span class="subtitle">A Beginner's Guide to GCL and the Weakest Precondition</span>
       
@@ -730,7 +691,6 @@
   </tr>
   
   <tr class="posts">
-    <td>February 27, 2023</td>
     <td><a href="./posts/2023-02-27-tofino.html">P4 is not going anywhere:<br />
 	      <span class="subtitle">Nick McKeown's Committment to P4</span>
       
@@ -739,7 +699,6 @@
   </tr>
   
   <tr class="posts">
-    <td>January 26, 2023</td>
     <td><a href="./posts/2023-01-26-ttls.html">Cannibalize your TTL:<br />
 	      <span class="subtitle">A SIGBOVIK paper I didn't write</span>
       
@@ -748,7 +707,6 @@
   </tr>
   
   <tr class="posts">
-    <td>December 29, 2021</td>
     <td><a href="./posts/2021-12-29-myst.html">Solving Myst Puzzles with Z3:<br />
 	      <span class="subtitle">How I Got Nerd-Sniped Playing VR Myst over Christmas</span>
       
@@ -757,7 +715,6 @@
   </tr>
   
   <tr class="posts">
-    <td>July  7, 2019</td>
     <td><a href="./posts/2019-07-07-4H-workshop.html">Teaching Networking Experientally:<br />
 	      <span class="subtitle">How to teach 40 high school students to program networks in 3 days</span>
       
@@ -766,7 +723,6 @@
   </tr>
   
   <tr class="posts">
-    <td>June 22, 2019</td>
     <td><a href="./posts/2019-22-06-theory-and-practice.html">Theoretically Feasible, Practically Exceptional:<br />
 	      <span class="subtitle">Reflections on the NPI Workshop on the Foundations of Routing</span>
       
@@ -778,7 +734,7 @@
 
 </div>
 
-<div>
+<div class="section">
   <h2>Teaching</h2>
   <table>
     
@@ -786,7 +742,7 @@
       <td>
         Summer 2023
       </td>
-      <td>
+      <td class="meta">
 	Instructor
       </td>
       <td>
@@ -800,7 +756,7 @@
       <td>
         Summer 2022
       </td>
-      <td>
+      <td class="meta">
 	Instructor
       </td>
       <td>
@@ -814,7 +770,7 @@
       <td>
         Spring 2018
       </td>
-      <td>
+      <td class="meta">
 	TA
       </td>
       <td>
@@ -828,7 +784,7 @@
       <td>
         Fall 2017
       </td>
-      <td>
+      <td class="meta">
 	TA
       </td>
       <td>
@@ -842,7 +798,7 @@
       <td>
         Spring 2017
       </td>
-      <td>
+      <td class="meta">
 	TA
       </td>
       <td>
@@ -856,7 +812,7 @@
       <td>
         Fall 2016
       </td>
-      <td>
+      <td class="meta">
 	TA
       </td>
       <td>
@@ -870,7 +826,7 @@
       <td>
         Spring 2016
       </td>
-      <td>
+      <td class="meta">
 	Head TA
       </td>
       <td>
@@ -884,7 +840,7 @@
       <td>
         Fall 2015
       </td>
-      <td>
+      <td class="meta">
 	TA
       </td>
       <td>
