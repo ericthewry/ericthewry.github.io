@@ -1,6 +1,6 @@
 ---
 title: "Optimal Predicate Pushdown Synthesis"
-authors: Robert Zhang, <b>Eric Hayden Campbell</b>, Dixin Tang, Isil Dillig
+authors: "Robert Zhang, <b>Eric Hayden Campbell</b>, Dixin Tang, Isil Dillig"
 month: June 2026    
 venue: PLDI
 pdf: "pdfs/pusharoo_pldi26.pdf"
