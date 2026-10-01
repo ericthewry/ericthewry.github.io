@@ -1,0 +1,30 @@
+---
+title: "Vulcan: Instance-Specialized, Verifiable Systems Heuristics Through LLM-Driven Search"
+authors: "Rohit Dwivedula, Divyanshu Saxena, Sujay Yadalam, <b>Eric Hayden Campbell</b>, Daehyeok Kim, Aditya Akella"
+month: April 2027
+venue: EuroSys
+pdf: "pdfs/vulcan.pdf"
+code: "https://github.com/ldos-project/vulcan-demo"
+descr: Vulcan uses LLMs to synthesize safe, instance-specialized systems heuristics in a restricted language
+---
+
+Systems resource management tasks rely primarily on hand-designed
+heuristics. However, growing hardware heterogeneity and workload
+diversity require heuristics specialized to particular deployment
+instances, making manual design expensive and difficult to scale. In
+this paper, we explore how to synthesize systems heuristics using
+LLMs. The main challenge is ensuring that generated heuristics execute
+safely, integrate correctly with the surrounding system, and still
+achieve strong performance. We propose Vulcan, a framework that
+identifies LLM-friendly interfaces that isolate core decision logic
+from the rest of the implementation. With Vulcan, LLM-generated code
+is restricted to simple stateless decision functions, while trusted
+runtime abstractions provide rich derived statistics for meaningful
+policy exploration without system-integration bugs. To ensure
+execution safety, LLMs synthesize heuristics in a restricted language,
+Anvil, that guarantees important properties by construction. We
+evaluate Vulcan across three well-studied domains and demonstrate up
+to 4.9× higher savings for spot-VM scheduling, up to 2× lower miss
+ratios for cache eviction, and up to 14% higher application
+performance for tiered-memory systems, while ensuring execution safety
+throughout.
