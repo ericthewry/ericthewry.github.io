@@ -1,3 +1,17 @@
+# Refuse to deploy while `site watch` is running. The watcher rebuilds _site
+# whenever a source file changes, so when this script checks out master it
+# rebuilds _site from master's *old* sources, and the stale output gets
+# published. Must run before anything below touches the working tree.
+if pgrep -f 'site watch' > /dev/null; then
+    echo "ERROR: a Hakyll 'site watch' process is running:" >&2
+    pgrep -fl 'site watch' >&2
+    echo "" >&2
+    echo "It will rebuild _site from master's sources during the branch switch" >&2
+    echo "and publish stale output. Stop it (Ctrl-C in its terminal, or" >&2
+    echo "'pkill -f \"site watch\"') and re-run this script." >&2
+    exit 1
+fi
+
 # Temporarily store uncommited changes
 git stash
 
