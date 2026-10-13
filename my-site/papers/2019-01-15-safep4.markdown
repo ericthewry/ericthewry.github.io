@@ -6,7 +6,7 @@ month: July 2019
 pdf: "/pdfs/safep4.pdf"
 code: "https://github.com/cornell-netlab/p4check/"
 arxiv: "https://arxiv.org/pdf/1906.07223.pdf"
-descr: "Develop a Type System for P4 that prohibits references to invalid headers. Surveys open source programs to identify real-world bugs that our type system prevents"
+descr: SafeP4 uses a type system to rule out references to invalid headers in P4 programs
 --- 
 
 The P4 programming language offers high-level, declarative

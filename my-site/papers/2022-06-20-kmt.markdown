@@ -7,7 +7,7 @@ pdf: pdfs/kmts.pdf
 code: "https://github.com/mgree/kmt"
 arxiv: "https://arxiv.org/abs/1707.02894"
 award: "Distinguished Paper Award"
-descr: Generate Soundness proofs, Completeness proofs, and Decision procedures for KAs plus a Sound, Complete and Decidable, client theory.
+descr: KMT derives sound, complete, and decidable Kleene algebras with tests from client theories
 ---
 
 Kleene algebras with tests (KATs) offer sound, complete, and decidable equational reasoning about regularly structured programs. Interest in KATs has increased greatly since NetKAT demonstrated how well extensions of KATs with domain-specific primitives and extra axioms apply to computer networks. Unfortunately, extending a KAT to a new domain by adding custom primitives, proving its equational theory sound and complete, and coming up with an efficient implementation is still an expert's task. Abstruse metatheory is holding back KAT's potential.

@@ -6,7 +6,7 @@ venue: PLDI
 award: "Distinguished Paper Award"
 pdf: "pdfs/matchbox_pldi26.pdf"
 code: "https://github.com/utopia-group/matchbox"
-descr: MatchBox is a statcically-typed declarative language and compiler for translating match-action tables.
+descr: MatchBox compiles statically-typed, declarative specifications into match-action tables for heterogeneous targets
 ---
 
 Match-action tables form the core abstraction for programming network packet-processing systems, from

@@ -5,7 +5,7 @@ month: June 2026
 venue: PLDI
 pdf: "pdfs/pusharoo_pldi26.pdf"
 code: "https://github.com/utopia-group/pushdown"
-descr: Compute optimal pre-filters for UDAFs
+descr: Pusharoo synthesizes optimal pre-filters to push predicates ahead of user-defined aggregations
 ---
 
 Predicate pushdown is a long-standing performance optimization that filters data as early as possible in a

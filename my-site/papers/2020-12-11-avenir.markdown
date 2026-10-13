@@ -7,7 +7,7 @@ pdf: "pdfs/avenir.pdf"
 slides: "https://www.usenix.org/system/files/nsdi21_slides_hayden-campbell.pdf"
 video: "https://www.youtube.com/watch?v=nWRMS2KqcD0"
 code: "https://github.com/cornell-netlab/avenir"
-descr: "Employ program synthesis to translate abstract switch operations into target switch operations"
+descr: Avenir synthesizes control plane operations to ensure uniform behavior across heterogeneous data planes
 --- 
 
 The classical conception of software-defined networking (SDN) is based
