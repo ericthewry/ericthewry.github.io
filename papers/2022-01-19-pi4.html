@@ -41,7 +41,7 @@
   <h2> Dependently-Typed Data Plane Programming </h2>
   <h3> Matthias Eichholz, <b>Eric Hayden Campbell</b>, Matthias Krebs, Nate Foster,  Mira Mezini </h3>
 
-  <!-- <p>Develop a dependent refinement type system for P4 with a liquid-style Z3 backend to prohibit undefined behavior</p> -->
+  <!-- <p>Pi4 uses dependent refinement types to statically verify properties of P4 programs</p> -->
   <p>
     
     We submitted the <a href="pdfs/pi4.pdf">manuscript</a> to POPL for January 2022.
@@ -113,6 +113,33 @@ illustrating Π4’s ability to check realistic program properties.</p>
                 }
                 var randomIndex = Math.floor(Math.random() * quotes.length);
                 quotes[randomIndex].style.display = "inline";
+            })();
+        </script>
+        <script>
+            (function () {
+                var offset = 14;
+                function place(popup, x, y) {
+                    var w = popup.offsetWidth, h = popup.offsetHeight;
+                    var left = x + offset, top = y + offset;
+                    if (left + w > window.innerWidth - 8) left = Math.max(8, x - offset - w);
+                    if (top + h > window.innerHeight - 8) top = Math.max(8, y - offset - h);
+                    popup.style.left = left + "px";
+                    popup.style.top = top + "px";
+                }
+                var cells = document.querySelectorAll("td.pub");
+                for (var i = 0; i < cells.length; i++) {
+                    (function (cell) {
+                        var popup = cell.querySelector(".pub-popup");
+                        if (!popup) return;
+                        cell.addEventListener("mousemove", function (e) {
+                            place(popup, e.clientX, e.clientY);
+                        });
+                        cell.addEventListener("focusin", function (e) {
+                            var r = e.target.getBoundingClientRect();
+                            place(popup, r.left, r.bottom);
+                        });
+                    })(cells[i]);
+                }
             })();
         </script>
     </body>

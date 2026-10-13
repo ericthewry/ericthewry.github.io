@@ -97,5 +97,32 @@
                 quotes[randomIndex].style.display = "inline";
             })();
         </script>
+        <script>
+            (function () {
+                var offset = 14;
+                function place(popup, x, y) {
+                    var w = popup.offsetWidth, h = popup.offsetHeight;
+                    var left = x + offset, top = y + offset;
+                    if (left + w > window.innerWidth - 8) left = Math.max(8, x - offset - w);
+                    if (top + h > window.innerHeight - 8) top = Math.max(8, y - offset - h);
+                    popup.style.left = left + "px";
+                    popup.style.top = top + "px";
+                }
+                var cells = document.querySelectorAll("td.pub");
+                for (var i = 0; i < cells.length; i++) {
+                    (function (cell) {
+                        var popup = cell.querySelector(".pub-popup");
+                        if (!popup) return;
+                        cell.addEventListener("mousemove", function (e) {
+                            place(popup, e.clientX, e.clientY);
+                        });
+                        cell.addEventListener("focusin", function (e) {
+                            var r = e.target.getBoundingClientRect();
+                            place(popup, r.left, r.bottom);
+                        });
+                    })(cells[i]);
+                }
+            })();
+        </script>
     </body>
 </html>

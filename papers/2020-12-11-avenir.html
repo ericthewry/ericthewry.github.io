@@ -41,7 +41,7 @@
   <h2> Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis </h2>
   <h3> <b>Eric Hayden Campbell</b>, William T. Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, Vignesh Ramamurthy, Hossein Hojjat, Ruzica Piskac, Robert Soulé, J. Nathan Foster </h3>
 
-  <!-- <p>Employ program synthesis to translate abstract switch operations into target switch operations</p> -->
+  <!-- <p>Avenir synthesizes control plane operations to ensure uniform behavior across heterogeneous data planes</p> -->
   <p>
     
     We submitted the <a href="pdfs/avenir.pdf">manuscript</a> to NSDI for April 2021.
@@ -117,6 +117,33 @@ heterogeneity with modest overheads.</p>
                 }
                 var randomIndex = Math.floor(Math.random() * quotes.length);
                 quotes[randomIndex].style.display = "inline";
+            })();
+        </script>
+        <script>
+            (function () {
+                var offset = 14;
+                function place(popup, x, y) {
+                    var w = popup.offsetWidth, h = popup.offsetHeight;
+                    var left = x + offset, top = y + offset;
+                    if (left + w > window.innerWidth - 8) left = Math.max(8, x - offset - w);
+                    if (top + h > window.innerHeight - 8) top = Math.max(8, y - offset - h);
+                    popup.style.left = left + "px";
+                    popup.style.top = top + "px";
+                }
+                var cells = document.querySelectorAll("td.pub");
+                for (var i = 0; i < cells.length; i++) {
+                    (function (cell) {
+                        var popup = cell.querySelector(".pub-popup");
+                        if (!popup) return;
+                        cell.addEventListener("mousemove", function (e) {
+                            place(popup, e.clientX, e.clientY);
+                        });
+                        cell.addEventListener("focusin", function (e) {
+                            var r = e.target.getBoundingClientRect();
+                            place(popup, r.left, r.bottom);
+                        });
+                    })(cells[i]);
+                }
             })();
         </script>
     </body>
