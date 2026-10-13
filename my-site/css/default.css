@@ -195,17 +195,15 @@ td, th {
 }
 
 td.pub {
-    position: relative;
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
-/* description shown when hovering (or focusing a link in) a paper */
+/* description shown when hovering (or focusing a link in) a paper;
+   default.html moves it to follow the mouse */
 .pub-popup {
     display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
+    position: fixed;
     z-index: 10;
     max-width: 32em;
     padding: 8px 12px;
