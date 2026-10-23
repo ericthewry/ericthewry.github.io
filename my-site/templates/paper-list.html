@@ -10,10 +10,18 @@
           <span class="pub-title">
               $if(pdf)$
               <a href = $pdf$>
+              $else$
+              $if(link)$
+              <a href = $link$>
+              $endif$
               $endif$
               $title$
               $if(pdf)$
               </a>
+              $else$
+              $if(link)$
+              </a>
+              $endif$
               $endif$
           </span>
           $if(note)$

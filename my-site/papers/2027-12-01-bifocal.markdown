@@ -1,0 +1,7 @@
+---
+title: "Refractional Program Logic"
+authors: "<b>Eric Hayden Campbell</b>, Mark Barbone, Eva Veciana, Neelu Kalani, Nate Foster"
+venue: "<i>In Preparation</i>"
+link: "/"
+descr: Bifocal synchronizes two changing configurations with a lens and proves that the programs they configure agree
+---

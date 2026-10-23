@@ -1,0 +1,7 @@
+---
+title: "Robust Strategy Synthesis for Prediction-based Safety Games"
+authors: "<b>Eric Hayden Campbell</b>, Aditya Akella, Isil Dillig"
+venue: "<i>In Preparation</i>"
+link: "/"
+descr: Crucible repairs safety-game strategies to tolerate imperfect predictions, changing a decision only where safety requires it
+---
