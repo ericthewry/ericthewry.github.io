@@ -205,20 +205,18 @@ td.pub {
     display: none;
     position: fixed;
     z-index: 10;
-    max-width: 32em;
-    padding: 8px 12px;
+    box-sizing: border-box;
+    padding: 12px;
     background: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     color: #333;
     font-weight: normal;
     font-style: normal;
     pointer-events: none;
 }
 
-td.pub:hover .pub-popup,
-td.pub:focus-within .pub-popup {
+.pub-popup.open {
     display: block;
 }
 
