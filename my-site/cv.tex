@@ -1,250 +1,281 @@
 %%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Change the font size of your document - 10pt, 12.1pt, etc.
-\documentclass[letterpaper,1pt,oneside]{article}
+\documentclass[letterpaper,10pt,oneside]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[semibold]{libertine}
+\usepackage[libertine]{newtxmath}
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{xcolor}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
 
-\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage[left=0.75in, right=1in, bottom=0.65in, top=0.65in]{geometry}
 
-\usepackage{graphicx}
-\graphicspath{ {images/}} %upload your signature to this file
-%Change the margins to fit your CV/resume content
-\usepackage[left=0.75in, right=1in, bottom=0.75in, top=0.75in]{geometry}
-
-%Skype information - include your Skype name for a link to add you on Skype
-% \newcommand*{\Skype}{\href{skype:e.h.campbell?add}{e.h.campbell}} 
-% \newcommand{\Absender}[1][\normalsize]{\Skype} 
-
-%Changes the page numbers - {arabic}=arabic numerals, {gobble}=no page numbers, {roman}=Roman numerals
 \pagenumbering{gobble}
+
+% Publication entries: the title in semibold, the author list plain,
+% and my name in italics.
+\newcommand{\pubtitle}[1]{\textbf{#1}}
+\newcommand{\authors}[1]{#1}
+\newcommand{\me}{\mbox{\textit{Eric Hayden Campbell}}}
+
+% Marks shown in the left column, under the venue
+\newcommand{\venuenote}[1]{\leavevmode{\footnotesize\itshape\color{black!70}#1}}
+\newcommand{\distinguished}{\venuenote{\textbf{Distinguished Paper}}}
+\newcommand{\underreview}{\venuenote{Under Review}}
+
+% Equal-contribution marker
+\newcommand{\eqcontrib}{\textsuperscript{*}}
+
+% Every section is a two-column table: dates/venues on the left,
+% content on the right. Section headings sit flush at the margin.
+\newlength{\leftcol}  \setlength{\leftcol}{1.05in}
+\newlength{\colsep}   \setlength{\colsep}{1em}
+\newlength{\rightcol}
+
+% Ragged-right setting for the content column that refuses short last lines
+% ("orphans"): every line, including the last, may fall short of the margin
+% by only a bounded amount, so TeX rebalances wrapped titles and author lists
+% instead of leaving one or two words dangling. Word spaces never stretch,
+% so only the right edge is ragged. No hyphenation.
+\newcommand{\balancedrag}{%
+  \setlength{\rightskip}{0pt plus 0.45\rightcol}%
+  \setlength{\parfillskip}{0pt}%
+  \spaceskip=\fontdimen2\font minus \fontdimen4\font
+  \xspaceskip=\spaceskip
+  \hbadness=10000 \hyphenpenalty=10000 \exhyphenpenalty=10000 \emergencystretch=0pt}
+\newenvironment{cvsection}[1]
+  {\par\vspace{0.9em}%
+   \setlength{\rightcol}{\dimexpr\linewidth-\leftcol-\colsep\relax}%
+   \noindent\begin{longtable}[l]{@{}>{\raggedleft\arraybackslash}p{\leftcol}@{\hspace{\colsep}}>{\raggedright\balancedrag\arraybackslash}p{\rightcol}@{}}
+   % The heading is the table's first row, so it never strands at a page bottom
+   \multicolumn{2}{@{}l}{\Large #1} \\*\noalign{\nobreak\vspace{0.4em}}}
+  {\end{longtable}}
+
+% Space between entries
+\newcommand{\gap}{\noalign{\vspace{0.4em}}}
+
 
 %%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%% NAME OF APPLICANT %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% NAME & CURRENT POSITION %%%%%%%%%%%%%
 
-\noindent  \LARGE{\textbf{Eric Hayden Campbell}}  \\
-\vspace{-2ex}
+\noindent{\LARGE\textbf{Eric Hayden Campbell}} \\[0.4em]
+\noindent{\large Postdoctoral Research Fellow, The University of Texas at Austin} \\[-1.5ex]
 \hrule
-\normalsize
+\vspace{0.6em}
+\noindent Department of Computer Science
+\hfill \href{mailto:eric.hayden.campbell@utexas.edu}{eric.hayden.campbell@utexas.edu} \\
+\noindent Austin, TX, U.S.A.
+\hfill \href{https://ericthewry.github.io}{ericthewry.github.io}
 
-%%%%%%%%%%%%%%%%% CONTACT INFORMATION %%%%%%%%%%%%%%%%%
-% Your email address, website, and Skype name are links to send email, open your website and add you on Skype. 
+%%%%%%%%%%%%%%%%% RESEARCH POSITIONS %%%%%%%%%%%%%%%%%%%
 
-\begin{center}
-  \begin{tabular}{l l}
-  Postdoctoral Research Fellow, UT Austin
-  & \hspace{1in} \href{mailto:eric.hayden.campbell@utexas.edu}{eric.hayden.campbell@utexas.edu} \\
-  Department of Computer Science    
-  & \hspace{1in}  \href{ericthewry.github.io}{www.ericthewry.github.io}   \\
-  317 Speedway \\
-  Austin, TX\hspace{0.75em}78712, U.S.A.
-\end{tabular}
-\end{center}
+\begin{cvsection}{Research Positions}
+  2024 -- present & \textbf{The University of Texas at Austin}, \textit{Austin, TX} \\*
+  & Postdoctoral Research Fellow, advised by Isil Dillig and Aditya Akella \\
+  \gap
+  Summer 2018 & \textbf{Fujitsu Laboratories of America}, \textit{Sunnyvale, CA} \\*
+  & Research Intern, mentored by Alex Horn \\
+\end{cvsection}
 
-\vspace{1em}
+%%%%%%%%%%%%%%%%% EDUCATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%% MAIN BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The main body is contained in a tabular environment. To move sections onto the next page, simply end the tabular environment and begin a new tabular environment.
+\begin{cvsection}{Education}
+  Dec 2024 & \textbf{Cornell University}, \textit{Ithaca, NY} \\*
+  & Ph.D. in Programming Languages, advised by Nate Foster \\*
+  & Thesis Topic: Verified Configuration of Programmable Networks \\
+  \gap
+  May 2017 & \textbf{Pomona College}, \textit{Claremont, CA} \\*
+  & B.A.s in Computer Science \& Mathematics \\*
+  & Thesis: (In)finiteness and Linear Temporal Logic \\
+\end{cvsection}
 
-\noindent
-\begin{longtable}[l]{>{\quad}r l}
-  \multicolumn{2}{l}{\Large{Education} } \\[0.5em]
-  \multicolumn{2}{>{\qquad}l}{%
-    \begin{tabular}{l}
-      \textbf{Cornell University} \\
-      Ph.D. in Programming Languages, Dec 2024 \\
-    \textbf{Thesis Topic}: Verified Configuration of Programmable Networks \\
-    \textit{2019 NSF GRFP Fellow} \\
-    \\
-    \textbf{Pomona College} \\
-    B.A.s in Computer Science \& Mathematics, May 2017 \\
-    \textbf{Thesis:} (In)finiteness and Linear Temporal Logic 
-  \end{tabular}}\\\\
+%%%%%%%%%%%%%%%%% AWARDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  % & \textbf{International School of Amsterdam} \\
-  % & International Baccalaureate, Graduated May 2013 \\
-  % & Concentration in Mathematics \\
+\begin{cvsection}{Awards \& Honors}
+  2026 & \textbf{Distinguished Paper Award}, PLDI, \textit{MatchBox} \\
+  2022 & \textbf{Distinguished Paper Award}, PLDI, \textit{Kleene Algebra Modulo Theories} \\
+  2019 & \textbf{NSF Graduate Research Fellowship} \\
+  2018 & \textbf{Teaching Excellence Award}, Cornell CS, \textit{OOP and Data Structures}, nominated by David Gries \\
+\end{cvsection}
 
-  % \Large{Current Projects}
-  % & \textbf{Relational Hoare Lenses}\\
-  % & Eric Hayden Campbell, Nate Foster \\
-  % \\
-  % & \textbf{Synthesis of Control Plane Maps} \\
-  % & Eric Hayden Campbell, Nate Foster, Aditya Akella, Isil Dillig \\
-  % % & \textit{In Submission} \\
-  % & \\
+%%%%%%%%%%%%%%%%% PUBLICATIONS %%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \multicolumn{2}{l}{\Large{Publications}} \\*[0.5em]
-  PLDI '27 & \textbf{Refractional Program Logic} \\*
-  & Eric Hayden Campbell, Mark Barbone, Eva Veciana, Neelu Kalani, and Nate Foster \\*
-  & \textit{In Submission} \\*
-  & \\[-0.5em]
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{cvsection}{Publications: Formal Foundations of Networking}
 
-  PLDI '27 & \textbf{Robust Strategy Synthesis for Prediction-based Safety Games} \\*
-  & Eric Hayden Campbell, Aditya Akella, and Isil Dillig \\*
-  & \textit{In Submission} \\*
-  & \\[-0.5em]
+  PLDI '26 & \pubtitle{MatchBox: A Semantic Foundation for Data Plane Portability} \\*
+  \distinguished & \authors{\me, Robert~Zhang, Divyanshu~Saxena, Aditya~Akella, and Isil~Dillig} \\
+  \gap
 
-  PLDI '27 & \textbf{Reading Between the Lines: Finding Hidden Lemmas in Formal Proofs} \\*
-  & Maxine Xin, Eric Hayden Campbell, Sara Ansari, and Isil Dillig \\*
-  & \textit{In Submission} \\*
-  & \\[-0.5em]
+  OOPSLA '24 & \pubtitle{Computing Precise Control Interface Specifications} \\*
+  & \authors{\me, Hossein~Hojjat, and Nate~Foster} \\
+  \gap
 
-  PLDI '26 & \textbf{MatchBox: A Semantic Foundation for Data Plane Portability} \\*
-  & Eric Hayden Campbell, Robert Zhang, Divyanshu Saxena, Aditya Akella, and Isil Dillig \\*
-  & \textit{Distinguished Paper Award} \\*
-  & \\[-0.5em]
+  CPP '23 & \pubtitle{P4Cub: A Little Language for Big Routers} \\*
+  & \authors{Rudy~Peterson, \me, John~Chen, Natalie~Isak, Calvin~Shyu, Ryan~Doenges, Parisa~Ataei, and Nate~Foster} \\
+  \gap
 
-  PLDI '26 & \textbf{Optimal Predicate Pushdown Synthesis} \\*
-  & Robert Zhang, Eric Hayden Campbell, Dixin Tang, and Isil Dillig \\*
-  & \\[-0.5em]
+  POPL '22 & \pubtitle{$\Pi4$: Dependently-Typed Data Plane Programming} \\*
+  & \authors{Matthias~Eichholz, \me, Matthias~Krebs, Nate~Foster, and Mira~Mezini} \\
+  \gap
 
-  EuroSys '27 & \textbf{Vulcan: Instance-Specialized, Verifiable Systems Heuristics}\\*
-  & \textbf{Through LLM-Driven Search} \\*
-  & Rohit Dwivedula, Divyanshu Saxena, Sujay Yadalam, Eric Hayden Campbell, \\*
-  & Daehyeok Kim, and Aditya Akella \\*
-  & \\[-0.5em]
+  NSDI '21 & \pubtitle{Avenir: Managing Data Plane Diversity with Control Plane Synthesis} \\*
+  & \authors{\me, Bill~Hallahan, Priya~Srikumar, Carmelo~Cascone, Jed~Liu, Vignesh~Ramamurthy, Hossein~Hojjat, Robert~Soul\'{e}, Ruzica~Piskac, and Nate~Foster} \\
+  \gap
 
-  OOPSLA '24 & \textbf{Computing Precise Control Interface Specifications} \\*
-  & Eric Hayden Campbell, Hossein Hojjat, Nate Foster \\*
-  % & \textit{OOPSLA 2024} \\
-  & \\[-0.5em]
+  ECOOP '19 & \pubtitle{How to Avoid Making a Billion-Dollar Mistake: Type-Safe Data Plane Programming with SafeP4} \\*
+  & \authors{Matthias~Eichholz\eqcontrib, \me\eqcontrib, Nate~Foster, Guido~Salvaneschi, and Mira~Mezini} \\
 
-  NSDI '21 & \textbf{Avenir: Managing Data Plane Heterogeneity via Control Plane Synthesis} \\*
-  & Eric Hayden Campbell, Bill Hallahan, Priya Srikumar, Carmelo Cascone, Jed Liu, \\* 
-  & Vignesh Ramamurthy, Hossein Hojjat, Robert  Soul\'{e}, Ruzica Piskac,  and  Nate Foster\\*
-  % & \textit{NSDI 2021} \\
-  & \\[-0.5em]
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{cvsection}
 
-  PLDI '22 & \textbf{Kleene Algebra Modulo Theories} \\*
-  & Michael Greenberg, Ryan Beckett, and Eric Hayden Campbell \\*
-  % & \textit{PLDI 2022} 
-  & \textit{Distinguished Paper Award} \\*
-  & \\[-0.5em]
+\begin{cvsection}{Publications: Formal Foundations for Adaptive Operating Systems}
 
-  POPL '22 & \textbf{$\Pi4$: Dependently-Typed Data Plane Programming} \\*
-  & Matthias Eichholz, Eric Hayden Campbell, Matthias Krebs, Nate Foster, Mira Mezini \\*
-  % & \textit{POPL 2022}\\ 
-  & \\[-0.5em]
+  PLDI '27 & \pubtitle{Refractional Program Logic} \\*
+  \underreview & \authors{\me, Mark~Barbone, Eva~Veciana, Neelu~Kalani, and Nate~Foster} \\
+  \gap
 
-  ECOOP '19 & \textbf{How to Avoid Making a Billion-Dollar Mistake:}\\*
-  & \textbf{Type-Safe Data Plane Programming with SafeP4} \\*
-  & Matthias Eichholz, Eric Hayden Campbell, Nate Foster, Guido Salvaneschi, Mira Mezini \\*
-  % & \textit{ECOOP 2019} \\
-  & \\[-0.5em]
+  PLDI '27 & \pubtitle{Robust Strategy Synthesis for Prediction-based Safety Games} \\*
+  \underreview & \authors{\me, Aditya~Akella, and Isil~Dillig} \\
+  \gap
 
-  CPP '23 & \textbf{P4Cub: A Little Language for Big Routers} \\*
-  & Rudy Peterson, Eric Hayden Campbell, John Chen, Natalie Isak, Calvin Shyu, \\*
-  & Ryan Doenges, Parisa Ataei, and Nate Foster \\*
-  % & \textit{CPP 2023} \\
-  & \\[-0.5em]
+  EuroSys '27 & \pubtitle{Vulcan: Instance-Specialized, Verifiable Systems Heuristics Through LLM-Driven Search} \\*
+  & \authors{Rohit~Dwivedula, Divyanshu~Saxena, Sujay~Yadalam, \me, Daehyeok~Kim, and Aditya~Akella} \\
+  \gap
 
-  HotOS '25 & \textbf{How I Learned to Stop Worrying and Love Learned OS Policies} \\*
-  & Divyanshu Saxena, Jiayi Chen, Sujay Yadalam, Yeonju Ro, Rohit Dwivedula, \\*
-  & Eric Hayden Campbell, Aditya Akella, Christopher J. Rossbach, and Michael Swift \\*
-  & \\[-0.5em]
+  PLDI '26 & \pubtitle{Optimal Predicate Pushdown Synthesis} \\*
+  & \authors{Robert~Zhang, \me, Dixin~Tang, and Isil~Dillig} \\
+  \gap
 
-  SCiL '21 & \textbf{Epistemic Semantics in Guarded String Models}\\*
-  & Eric Hayden Campbell and Mats Rooth \\*
-  % & \textit{SCiL 2021} \\
-  & \\[-0.5em]
+  HotOS '25 & \pubtitle{How I Learned to Stop Worrying and Love Learned OS Policies} \\*
+  & \authors{Divyanshu~Saxena, Jiayi~Chen, Sujay~Yadalam, Yeonju~Ro, Rohit~Dwivedula, \me, Aditya~Akella, Christopher~J.~Rossbach, and Michael~Swift} \\
 
-  % & \textbf{Injecting Finiteness to Prove Completeness for LTL$_f$} \\
-  % & Eric Hayden Campbell and Michael Greenberg \\
-  % & \textit{arXiv:2107.06045}, July 2021\\
-  % &\\
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{cvsection}
 
-  TMS '16 & \textbf{Constructing Integer Matrices with Integer Eigenvalues} \\*
-  & Christopher Towse and Eric Hayden Campbell \\*
-  & \textit{The Mathematical Scientist}, June 2016 \\[1em]
+\begin{cvsection}{Publications: Logic and Algebra}
 
-\end{longtable}
+  PLDI '27 & \pubtitle{Reading Between the Lines: Finding Hidden Lemmas in Formal Proofs} \\*
+  \underreview & \authors{Maxine~Xin, \me, Sara~Ansari, and Isil~Dillig} \\
+  \gap
 
-\begin{longtable}[l]{@{}l}
+  PLDI '22 & \pubtitle{Kleene Algebra Modulo Theories} \\*
+  \distinguished & \authors{Michael~Greenberg, Ryan~Beckett, and \me} \\
+  \gap
 
-  \Large{Industry} \\*[0.5em]
-  \begin{tabular}{>{\qquad}l}
-  \textbf{Fujitsu Laboratories of America} \\
-  \quad Research Intern, Property Inference for BGP Networks \\
-  \quad \textit{Sunnyvale, CA}. May 2018 - Aug 2018 \\
-  \\
-  \textbf{Originate, Inc} \\
-  \quad Software Engineering Intern, Web Development \\
-  \quad \textit{San Francisco, CA}. May 2015 - Aug 2015 \\
-  \\
-  \textbf{Gladly, Inc} \\
-  \quad Software Engineering Intern, Web Development \\
-  \quad \textit{Palo Alto, CA}. May 2014 - Aug 2014 
-  \end{tabular}\\ \\
+  SCiL '21 & \pubtitle{Epistemic Semantics in Guarded String Models} \\*
+  & \authors{\me{} and Mats~Rooth} \\
+  \gap
 
-%   \Large{Invited Talks} \\[0.5em]
-%   \begin{tabular}{>{\qquad}l}
-%   \textbf{Computing Precise Control Invariant Specifications} \\
-%   \quad \textit{OOPSLA}. Oct 24.\\
-%   \\
-%   \textbf{Avenir: Managing Data Plane Diversity with Control Plane Synthesis} \\
-%   \quad \textit{VLCS Seminar}. EPFL. Oct 23 \\
-%   \quad \textit{Tech Talk}. Intel. May 2022 \\
-%   \quad \textit{Tech Talk}. Intel. March 2022 \\
-%   \quad \textit{P4 Verification Workshop}. CAV. July 2021 \\
-%   \quad \textit{Simons Institute}. Synthesis of Models and Systems. May 2021 \\
-%   \quad \textit{NSDI}. April 2021 \\
-%   \quad \textit{Synthesis Discussion Group}. Yale University.  September 2020\\
-%   \quad \textit{P4 Expert Roundtable Series: How is P4 Evolving as a language?} Virtual. April 2020 \\
-  % & \textbf{Computational Ethics: Responsibilities for Correctness} \\
-  % & \textbullet \textit{Cornell University}. \textit{Guest Lecturer: Philosophy}. February 2019 \\
-%   \\
-%   \textbf{Epistemic Semantics in Guarded String Models} \\
-%   \quad \textit{Society for Computation in Linguistics}. February 2021\\
-%   \end{tabular}
-%   \\\\
-% 
-  \Large{Outreach}\\*[0.5em]
-  \begin{tabular}{>{\qquad}l}
-  \textbf{4H Career Explorations Conference} \\
-  \quad Workshop Designer \& Leader, \emph{Networking and Security}, 2018-2022 \\
-  \\
-  \textbf{Expand Your Horizons Conference} \\
-  \quad Workshop Leader, \emph{Googling With Paper Airplanes}, 2017-2019 \\
-  \\
-  \textbf{Originate, Inc} \\
-  \quad Counselor, \emph{Approachable Web Design}, 2015 \\
-  \end{tabular}
-  \\\\
+  TMS '16 & \pubtitle{Constructing Integer Matrices with Integer Eigenvalues} \\*
+  & \authors{Christopher~Towse and \me} \\*
+  & \textit{The Mathematical Scientist}, June 2016 \\
 
-  \Large{Teaching}\\*[0.5em]  
-  \begin{tabular}{>{\qquad}l}
-  \textbf{Academy of Math and Programming, Jane Street Capital} \\
-  \quad Advanced Instructor, CS3, Summer 2023, \textit{Bespoke course design} \\
-  \quad Instructor, CS3, Summer 2022, \textit{Bespoke course design}  \\
-  \\
-  \textbf{Computer Science Department, Cornell University} \\
-  \quad TA, OOP and Data Structures, Spring 2018, \textit{Teaching Excellence Award} \\
-  \quad TA, OOP and Data Structures, Fall 2017 \\
-  \\
-  
-  \textbf{Computer Science Department, Pomona College} \\
-  \quad TA, Databases Systems, Spring 2017 \\
-  \quad TA, Programming Languages, Fall 2016 \\
-  \quad Head TA, Introduction to Computer Science, Spring 2016 \\
-  \quad TA, Introduction to to Computer Science, Fall 2015 \\
-  \end{tabular}\\
+\end{cvsection}
 
-  % \Large{Guest Lectures} \\[0.5em]
-  % \begin{tabular}{>{\qquad}l}
-  % \textbf{Responsible AI}. Entrepreneurship: Growth Hacking. \textit{Hult Business}. June 2023\\
-  % \textbf{SafeP4}. Network Programming. \textit{Cornell CS}. Oct 2019 \\
-  % \textbf{Decidability of }\textsc{Kat}. Intro To Kleene Algebra. \textit{Cornell CS}. March 2019 \\
-  % \textbf{Responsibilities for Correctness}. FWS: Ethics. \textit{Cornell Philosophy}. Feb 2019\\
-  % \end{tabular}
-\end{longtable}
+%%%%%%%%%%%%%%%%% TEACHING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cvsection}{Teaching}
+  & \textbf{Computer Science Department, The University of Texas at Austin} \\*
+  Fall 2026 & Designer \& Instructor, PL Foundations for Systems Researchers, \textit{Informal research seminar} \\
+  \gap
+  & \textbf{Academy of Math and Programming, Jane Street Capital} \\*
+  Summer 2023 & Advanced Instructor, CS3, \textit{Bespoke course design} \\*
+  Summer 2022 & Instructor, CS3, \textit{Bespoke course design} \\
+  \gap
+  & \textbf{Computer Science Department, Cornell University} \\*
+  Spring 2018 & TA, OOP and Data Structures, \textit{Teaching Excellence Award} \\*
+  Fall 2017 & TA, OOP and Data Structures \\
+  \gap
+  & \textbf{Computer Science Department, Pomona College} \\*
+  Spring 2017 & TA, Database Systems \\*
+  Fall 2016 & TA, Programming Languages \\*
+  Spring 2016 & Head TA, Introduction to Computer Science \\*
+  Fall 2015 & TA, Introduction to Computer Science \\
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%% SERVICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cvsection}{Service}
+  & \textbf{Reviewing} \\*
+  2026 & Program Committee, OOPSLA \\*
+  2023 & Journal Reviewer, Communications of the ACM (CACM) \\*
+  2022 & Journal Reviewer, IEEE/ACM Transactions on Networking (ToN) \\
+  \gap
+  & \textbf{Session Previews} \\*
+  2023 & Co-Chair, POPL \\*
+  2023 & Session Chair for multiple sessions, POPL \\*
+  2023 & Preview Talk, \emph{Relational \& Automated Verification}, POPL \\
+  \gap
+  & \textbf{Departmental Service} \\*
+  2024 -- 2026 & Group Meeting Czar, UToPiA Group, The University of Texas at Austin \\*
+  2017 -- 2024 & Colloquium Czar, Cornell University \\*
+  2018 -- 2020 & PLDG Czar, Programming Languages Discussion Group, Cornell University \\
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%% OUTREACH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cvsection}{Outreach}
+  2018 -- 2022 & \textbf{4H Career Explorations Conference} \\*
+  & Workshop Designer \& Leader, \emph{Networking and Security} \\
+  \gap
+  2017 -- 2019 & \textbf{Expand Your Horizons Conference} \\*
+  & Workshop Leader, \emph{Googling With Paper Airplanes} \\
+  \gap
+  2015 & \textbf{Originate, Inc} \\*
+  & Counselor, \emph{Approachable Web Design} \\
+  \gap
+  2014 & \textbf{Tab for a Cause} \\*
+  & Software Engineering Intern, \emph{Website \& Browser Extension Front-End} \\
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%% TALKS & POSTERS %%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cvsection}{Talks \& Posters}
+  % Format: date & title, kind, venue.
+  % PRONTO entries are DARPA site visits at Stanford.
+  Nov 2026 & \textit{Design, Synthesis, and Repair of Verified AI Guardrails}, Symposium Talk, LDOS \& InfraAI Symposium \\[0.3em]
+  Jun 2026 & \textit{MatchBox: A Semantic Foundation for Data Plane Portability}, Conference Talk, PLDI \\[0.3em]
+  Jun 2026 & \textit{Towards Trustworthy Learning-Driven Systems}, Invited Talk, LDOS Summer School, UW--Madison \\[0.3em]
+  Jun 2026 & \textit{MatchBox: A Semantic Foundation for Data Plane Portability}, Seminar Talk, MadPL, UW--Madison \\[0.3em]
+  Nov 2025 & \textit{Performance Contracts}, Poster, LDOS Symposium, UT Austin \\[0.3em]
+  Oct 2025 & \textit{When P4 Isn't Enough: Specifying the Control Interface}, Recorded Talk, P4 Workshop \\[0.3em]
+  Aug 2025 & \textit{Relational Verification of Configurable Programs: A Lens-based Approach}, Seminar Talk, Upstate PL \\[0.3em]
+  Nov 2024 & \textit{Verified Configuration of Programmable Networks}, Dissertation Defense (B-Exam), Cornell \\[0.3em]
+  Oct 2024 & \textit{Computing Precise Control Interface Specifications}, Conference Talk, OOPSLA \\[0.3em]
+  Sep 2024 & \textit{Epistemic Semantics in Guarded String Models}, Guest Lecture, Linguistics Semantics Seminar, Cornell \\[0.3em]
+  Oct 2023 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Seminar Talk, EPFL \\[0.3em]
+  Jun 2023 & \textit{Responsible AI}, Guest Lecture, Hult International Business School \\[0.3em]
+  May 2023 & \textit{Computing Precise Control Interface Specifications}, Poster, DARPA PRONTO \\[0.3em]
+  May 2023 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Poster, DARPA PRONTO \\[0.3em]
+  Jan 2023 & \textit{Relational \& Automated Verification}, Session Preview Talk, POPL \\[0.3em]
+  Oct 2022 & \textit{Program Synthesis using Conflict-Driven Learning}, Seminar Talk, PLDG, Cornell \\[0.3em]
+  May 2022 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Project Talk, DARPA PRONTO \\[0.3em]
+  May 2022 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Tech Talk, Intel \\[0.3em]
+  Mar 2022 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Tech Talk, Intel \\[0.3em]
+  Jul 2021 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Invited Talk, CAV P4 Workshop \\[0.3em]
+  May 2021 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Invited Talk, Simons Institute \\[0.3em]
+  Apr 2021 & \textit{Avenir: Managing Data Plane Diversity with Control Plane Synthesis}, Conference Talk, NSDI \\[0.3em]
+  Feb 2021 & \textit{Epistemic Semantics in Guarded String Models}, Conference Talk, SCiL \\[0.3em]
+  Dec 2020 & Thesis Proposal (A-Exam), Cornell \\[0.3em]
+  Sep 2020 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Seminar Talk, Yale University \\[0.3em]
+  Apr 2020 & \textit{Managing Data Plane Diversity with Control Plane Synthesis}, Invited Talk, P4 Expert Roundtable \\[0.3em]
+  Oct 2019 & \textit{SafeP4}, Guest Lecture, Network Programming, Cornell \\[0.3em]
+  Jul 2019 & \textit{Type-Safe Data Plane Programming with SafeP4}, Poster, ECOOP \\[0.3em]
+  Apr 2019 & \textit{Guarded Impredicative Polymorphism}, Seminar Talk, PLDG, Cornell \\[0.3em]
+  Mar 2019 & \textit{Decidability of KAT}, Guest Lecture, Introduction to Kleene Algebra, Cornell \\[0.3em]
+  Mar 2019 & \textit{Definitional Interpreters}, Seminar Talk, Great Works Seminar, Cornell \\[0.3em]
+  Feb 2019 & \textit{Responsibilities for Correctness}, Guest Lecture, FWS: Ethics, Cornell \\[0.3em]
+  Mar 2018 & \textit{Functional Pearl: Every Bit Counts}, Seminar Talk, PLDG, Cornell \\[0.3em]
+  May 2017 & \textit{Temporal NetKAT}, Seminar Talk, PLDG, Cornell \\[0.3em]
+  Apr 2017 & \textit{(In)finiteness and Linear Temporal Logic}, Thesis Talk, Pomona College \\[0.3em]
+\end{cvsection}
+
 \end{document}
-
-
