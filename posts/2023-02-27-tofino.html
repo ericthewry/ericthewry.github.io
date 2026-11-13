@@ -134,7 +134,21 @@ asserting Intel’s deep committment to open source P4:</p>
         <script>
             (function () {
                 var offset = 14;
+                // Size each popup like a 3x5 index card standing upright:
+                // keep the text area fixed and solve for width = 3/5 height.
+                function shape(popup) {
+                    if (popup.dataset.shaped) return;
+                    var w = 240;
+                    for (var k = 0; k < 4; k++) {
+                        popup.style.width = w + "px";
+                        w = Math.round(Math.sqrt(0.6 * popup.offsetWidth * popup.offsetHeight));
+                    }
+                    // ...then widen (25% twice) so lines aren't so cramped.
+                    popup.style.width = Math.round(1.25 * 1.25 * w) + "px";
+                    popup.dataset.shaped = "1";
+                }
                 function place(popup, x, y) {
+                    shape(popup);
                     var w = popup.offsetWidth, h = popup.offsetHeight;
                     var left = x + offset, top = y + offset;
                     if (left + w > window.innerWidth - 8) left = Math.max(8, x - offset - w);
@@ -146,14 +160,21 @@ asserting Intel’s deep committment to open source P4:</p>
                 for (var i = 0; i < cells.length; i++) {
                     (function (cell) {
                         var popup = cell.querySelector(".pub-popup");
-                        if (!popup) return;
-                        cell.addEventListener("mousemove", function (e) {
+                        var link = cell.querySelector(".pub-title a");
+                        if (!popup || !link) return;
+                        function show() { popup.classList.add("open"); }
+                        function hide() { popup.classList.remove("open"); }
+                        link.addEventListener("mouseenter", show);
+                        link.addEventListener("mouseleave", hide);
+                        link.addEventListener("mousemove", function (e) {
                             place(popup, e.clientX, e.clientY);
                         });
-                        cell.addEventListener("focusin", function (e) {
-                            var r = e.target.getBoundingClientRect();
+                        link.addEventListener("focus", function () {
+                            show();
+                            var r = link.getBoundingClientRect();
                             place(popup, r.left, r.bottom);
                         });
+                        link.addEventListener("blur", hide);
                     })(cells[i]);
                 }
             })();
