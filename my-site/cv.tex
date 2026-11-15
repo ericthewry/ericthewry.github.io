@@ -29,6 +29,11 @@
 
 % Equal-contribution marker
 \newcommand{\eqcontrib}{\textsuperscript{*}}
+% Author list followed by an "equal contribution" note that hangs below
+% the author line, flush with the right margin, taking no vertical space
+\newcommand{\authorseq}[1]{%
+  \authors{#1}\hfill
+  \makebox[0pt][r]{\raisebox{-0.95\baselineskip}[0pt][0pt]{\scriptsize\spaceskip=\fontdimen2\font\color{black!55}\textsuperscript{*}Equal contribution}}}
 
 % Every section is a two-column table: dates/venues on the left,
 % content on the right. Section headings sit flush at the margin.
@@ -89,11 +94,11 @@
 \begin{cvsection}{Education}
   Dec 2024 & \textbf{Cornell University}, \textit{Ithaca, NY} \\*
   & Ph.D. in Programming Languages, advised by Nate Foster \\*
-  & Thesis Topic: Verified Configuration of Programmable Networks \\
+  & Dissertation: \textbf{Verified Configuration of Programmable Networks} \\
   \gap
   May 2017 & \textbf{Pomona College}, \textit{Claremont, CA} \\*
-  & B.A.s in Computer Science \& Mathematics \\*
-  & Thesis: (In)finiteness and Linear Temporal Logic \\
+  & B.A. in Computer Science and Mathematics (double major) \\*
+  & Thesis: \textbf{(In)finiteness and Linear Temporal Logic}, advised by Michael Greenberg \\
 \end{cvsection}
 
 %%%%%%%%%%%%%%%%% AWARDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,7 +106,7 @@
 \begin{cvsection}{Awards \& Honors}
   2026 & \textbf{Distinguished Paper Award}, PLDI, \textit{MatchBox} \\
   2022 & \textbf{Distinguished Paper Award}, PLDI, \textit{Kleene Algebra Modulo Theories} \\
-  2019 & \textbf{NSF Graduate Research Fellowship} \\
+  2019 & \textbf{Graduate Research Fellowship}, NSF, \textit{Fellowship term 2019--2022} \\
   2018 & \textbf{Teaching Excellence Award}, Cornell CS, \textit{OOP and Data Structures}, nominated by David Gries \\
 \end{cvsection}
 
@@ -131,7 +136,7 @@
   \gap
 
   ECOOP '19 & \pubtitle{How to Avoid Making a Billion-Dollar Mistake: Type-Safe Data Plane Programming with SafeP4} \\*
-  & \authors{Matthias~Eichholz\eqcontrib, \me\eqcontrib, Nate~Foster, Guido~Salvaneschi, and Mira~Mezini} \\
+  & \authorseq{Matthias~Eichholz\eqcontrib, \me\eqcontrib, Nate~Foster, Guido~Salvaneschi, and Mira~Mezini} \\
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{cvsection}
@@ -183,6 +188,7 @@
 %%%%%%%%%%%%%%%%% TEACHING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{cvsection}{Teaching}
+  \noalign{\vspace{-1.1em}}
   & \textbf{Computer Science Department, The University of Texas at Austin} \\*
   Fall 2026 & Designer \& Instructor, PL Foundations for Systems Researchers, \textit{Informal research seminar} \\
   \gap
@@ -204,6 +210,7 @@
 %%%%%%%%%%%%%%%%% SERVICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{cvsection}{Service}
+  \noalign{\vspace{-1.1em}}
   & \textbf{Reviewing} \\*
   2026 & Program Committee, OOPSLA \\*
   2023 & Journal Reviewer, Communications of the ACM (CACM) \\*
@@ -223,17 +230,18 @@
 %%%%%%%%%%%%%%%%% OUTREACH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{cvsection}{Outreach}
-  2018 -- 2022 & \textbf{4H Career Explorations Conference} \\*
-  & Workshop Designer \& Leader, \emph{Networking and Security} \\
+  \noalign{\vspace{-1.1em}}
+  & \textbf{4H Career Explorations Conference} \\*
+  2018 -- 2022 & Workshop Designer \& Leader, \emph{Networking and Security} \\
   \gap
-  2017 -- 2019 & \textbf{Expand Your Horizons Conference} \\*
-  & Workshop Leader, \emph{Googling With Paper Airplanes} \\
+  & \textbf{Expand Your Horizons Conference} \\*
+  2017 -- 2019 & Workshop Leader, \emph{Googling With Paper Airplanes} \\
   \gap
-  2015 & \textbf{Originate, Inc} \\*
-  & Counselor, \emph{Approachable Web Design} \\
+  & \textbf{Originate, Inc} \\*
+  2015 & Counselor, \emph{Approachable Web Design} \\
   \gap
-  2014 & \textbf{Tab for a Cause} \\*
-  & Software Engineering Intern, \emph{Website \& Browser Extension Front-End} \\
+  & \textbf{Tab for a Cause} \\*
+  2014 & Software Engineering Intern, \emph{Website \& Browser Extension Front-End} \\
 \end{cvsection}
 
 %%%%%%%%%%%%%%%%% TALKS & POSTERS %%%%%%%%%%%%%%%%%%%%%%
